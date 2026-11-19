@@ -124,6 +124,51 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .have-toggle[aria-pressed="true"] .sw::after{transform:translateX(20px)}
 .ing.qtyi{font-weight:400}
 .shoplist .item .q{font-weight:700; color:var(--accent)}
+.empty.howto{text-align:left}
+.empty.howto ol{margin:8px 0; padding-left:20px; display:flex; flex-direction:column; gap:4px}
+.empty.howto small{color:var(--muted)}
+#maps-near{width:100%; justify-content:center}
+.btn.off{opacity:.5; pointer-events:auto}
+.confetti{position:fixed; inset:0; pointer-events:none; z-index:60}
+.chip[aria-pressed="true"]{animation:pop .25s ease}
+@keyframes pop{0%{transform:scale(1)} 50%{transform:scale(1.12)} 100%{transform:scale(1)}}
+@media (prefers-reduced-motion: reduce){ .chip[aria-pressed="true"]{animation:none} }
+.dato{margin-top:12px; padding:12px 14px; border-radius:12px; background:var(--warn-bg); border-left:4px solid var(--orange)}
+.dato p{margin:4px 0 0}
+.vote-btn.on{background:var(--ok-bg); border-color:var(--accent)}
+.votebar{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:14px 16px; box-shadow:0 2px 10px rgba(0,0,0,.05); display:flex; flex-direction:column; gap:10px}
+.votebar[hidden]{display:none}
+.votebar .vhead{display:flex; align-items:baseline; justify-content:space-between; gap:8px}
+.votebar .vt{margin:0; font-weight:800; font-size:1rem}
+.votebar .vsub{margin:2px 0 0; color:var(--muted); font-size:.85rem}
+.votebar .vclear{border:0; background:none; color:var(--muted); font:inherit; font-size:.85rem; text-decoration:underline; cursor:pointer; padding:4px}
+.votebar ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.votebar li{display:flex; align-items:center; gap:10px; padding:7px 0; border-top:1px solid var(--line); font-weight:600}
+.votebar li:first-child{border-top:0}
+.votebar li .vn{flex:none; width:24px; height:24px; border-radius:50%; background:var(--ok-bg); color:var(--accent); font-size:.8rem; font-weight:800; display:grid; place-items:center}
+.votebar li .vname{flex:1; min-width:0}
+.votebar li button{border:0; background:transparent; color:var(--muted); cursor:pointer; font-size:.8rem; width:28px; height:28px; border-radius:50%}
+.votebar .vsend{display:flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#fff; border-radius:12px; padding:11px; font-weight:800; text-decoration:none}
+.votebar .vsend.off{opacity:.45; pointer-events:auto}
+.kind-seg{display:grid; grid-template-columns:repeat(3,1fr); gap:6px; background:var(--chip); border-radius:14px; padding:4px}
+.kind-seg button{font:inherit; font-weight:700; font-size:.92rem; border:0; background:transparent; color:var(--muted); border-radius:10px; padding:9px 4px; cursor:pointer; min-height:42px}
+.kind-seg button[aria-pressed="true"]{background:var(--surface); color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.note.alc{background:var(--danger-bg); color:var(--danger); border-radius:10px; padding:8px 12px; margin-top:10px}
+.lists-bar{display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none}
+.lists-bar::-webkit-scrollbar{display:none}
+.lists-bar button{flex:none; font:inherit; font-size:.9rem; font-weight:600; border:1px solid var(--line); background:var(--chip); color:var(--ink); border-radius:999px; padding:7px 14px; cursor:pointer; min-height:38px}
+.lists-bar button[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)}
+.lists-bar button.new{background:transparent; border-style:dashed; color:var(--accent)}
+.lists-bar .cnt{opacity:.8; font-weight:500}
+.list-tools{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
+.list-tools input{font:inherit; font-size:1rem; flex:1 1 180px; min-width:0; border:1px solid var(--line); border-radius:10px; padding:8px 12px; background:var(--bg); color:var(--ink); min-height:42px}
+.list-tools .btn{min-height:38px; padding:6px 12px; font-size:.88rem}
+.shoplist .ed{font:inherit; font-size:1rem; width:38px; height:38px; border:0; border-radius:8px; background:transparent; cursor:pointer}
+.shoplist .item .nt{display:block; color:var(--muted); font-style:italic; font-size:.8rem}
+.shoplist li.editing{flex-wrap:wrap; padding:10px}
+.shoplist .editbox{display:flex; flex-direction:column; gap:6px; width:100%}
+.shoplist .editbox input{font:inherit; font-size:1rem; border:1px solid var(--line); border-radius:10px; padding:8px 12px; background:var(--bg); color:var(--ink); min-height:42px}
+.shoplist .editbox .row{display:flex; gap:8px}
 .badge{display:inline-grid; place-items:center; min-width:22px; height:22px; padding:0 6px; border-radius:999px; background:var(--orange); color:#fff; font-size:.78rem; font-weight:700}
 .badge[hidden]{display:none}
 #shop-toggle[aria-expanded="true"]{background:var(--orange-bg); border-color:var(--orange); color:var(--ink)}
@@ -287,6 +332,8 @@ header.top h1{font-size:1.7rem; margin:0}
   </div>
 
   <div id="list-area">
+    <div class="kind-seg" id="kind-seg" role="group" aria-label="Qué buscás"></div>
+    <div class="votebar" id="votebar" hidden></div>
     <button type="button" class="fsum" id="filters-sum"></button>
     <section class="results" id="results" aria-live="polite"></section>
   </div>
@@ -315,6 +362,8 @@ header.top h1{font-size:1.7rem; margin:0}
         <button class="btn" type="button" id="shop-add-toggle" aria-expanded="false" aria-controls="shop-add-form">＋ Agregar</button>
       </div>
     </div>
+    <div class="lists-bar" id="lists-bar"></div>
+    <div class="list-tools" id="list-tools"></div>
     <form class="search-row" id="shop-add-form" hidden>
       <label for="shop-add-input" class="sr-only">Producto para agregar</label>
       <input type="text" id="shop-add-input" placeholder="Ej: pan, yerba, detergente" autocomplete="off" enterkeyhint="done">
@@ -325,15 +374,16 @@ header.top h1{font-size:1.7rem; margin:0}
     <div class="actions" id="shop-actions">
       <button class="btn ghost" type="button" id="shop-have">✓ Pasar lo comprado a "Lo que tengo"</button>
       <a class="btn ghost" id="shop-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp ↗</a>
+      <button class="btn ghost" type="button" id="shop-copy">📋 Copiar lista</button>
     </div>
-    <p class="note">Tocá un producto para tacharlo cuando lo compres.</p>
+    <p class="note">Tocá un producto para tacharlo cuando lo compres. Con ✏️ cambiás la cantidad o agregás una nota.</p>
   </section>
   </div>
 
   <div class="tab" id="tab-afuera" hidden>
   <div class="view" id="view-afuera">
     <section class="panel" aria-labelledby="t-afuera">
-      <h2 id="t-afuera">¿Qué tenés ganas de comer?</h2>
+      <h2 id="t-afuera">🍽️ ¿Qué tenés ganas de comer afuera?</h2>
       <div class="chips" id="food-seg" role="group" aria-label="Tipo de comida"></div>
       <div class="field">
         <label for="food-input" class="note">O escribí lo que quieras</label>
@@ -344,6 +394,7 @@ header.top h1{font-size:1.7rem; margin:0}
         <input type="text" id="city-input" placeholder="Ej: Villa Carlos Paz, Córdoba" autocomplete="off">
       </div>
       <a class="btn big off" id="maps-go" href="#" target="_blank" rel="noopener">Ver lugares en Google Maps ↗</a>
+      <a class="btn ghost off" id="maps-near" href="#" target="_blank" rel="noopener">📍 Buscar cerca de donde estoy ↗</a>
       <p class="note" id="maps-note">Elegí una comida y tu ciudad.</p>
     </section>
   </div>
@@ -408,9 +459,10 @@ header.top h1{font-size:1.7rem; margin:0}
 
 <script>
 (function(){
-  var PAISES = {US:'🇺🇸 Estados Unidos', AR:'🇦🇷 Argentina', ES:'🇪🇸 España', IT:'🇮🇹 Italia', DE:'🇩🇪 Alemania', IL:'🇮🇱 Israel', OT:'🌍 Medio Oriente', AS:'🌏 Asia', MX:'🇲🇽 México'};
+  var PAISES = {FR:'🇫🇷 Francia', US:'🇺🇸 Estados Unidos', AR:'🇦🇷 Argentina', ES:'🇪🇸 España', IT:'🇮🇹 Italia', DE:'🇩🇪 Alemania', IL:'🇮🇱 Israel', OT:'🌍 Medio Oriente', AS:'🌏 Asia', MX:'🇲🇽 México'};
 
   var CATS = [
+    {name:'Bebidas', ico:'🍹', items:['fernet','gaseosa cola','gaseosa lima-limón','soda','agua tónica','jugo de naranja','ron','vodka','gin','tequila','cachaça','vermut','aperol','gancia','espumante','campari','yerba','licor de naranja']},
     {name:'Verduras', ico:'🥬', items:['acelga','ajo','ají','alcaucil','apio','arvejas','batata','berenjena','berro','brócoli','calabaza','cebolla','cebolla de verdeo','cebolla morada','chauchas','champiñones','choclo','coliflor','espárragos','espinaca','habas','hinojo','hongos','kale','lechuga','mandioca','morrón','nabo','papa','pepino','puerro','rabanito','radicheta','remolacha','repollo','repollo colorado','rúcula','tomate','tomate cherry','zanahoria','zapallito','zapallo','zucchini','achicoria','brotes de soja','endibia','escarola','gírgolas','hongos de pino','lechuga mantecosa','lechuga morada','morrón amarillo','morrón verde','papines','portobellos','repollitos de Bruselas','tomate perita','zapallo anco','zapallo cabutia','echalote','apio nabo','acelga baby','espinaca baby']},
     {name:'Frutas', ico:'🍎', items:['ananá','arándanos','banana','cereza','ciruela','coco','damasco','durazno','frutilla','higo','kiwi','lima','limón','mandarina','mango','manzana','maracuyá','melón','membrillo','naranja','palta','pera','pomelo','sandía','uva','ciruelas','frambuesas','granada','kaki','manzana verde','moras','níspero','papaya','pelón','quinoto','pomelo rosado','pera williams','uva pasa']},
     {name:'Carnes rojas', ico:'🥩', items:['asado','bife','bola de lomo','carne','carne picada','chivito','colita de cuadril','cordero','cuadril','entraña','falda','lomo','matambre','milanesas','nalga','osobuco','paleta','peceto','roast beef','vacío','aguja','bife de chorizo','carne para guiso','cuadrada','garrón','hamburguesas','marucha','ojo de bife','tapa de asado','tapa de nalga','tortuguita','costillar','carne picada especial']},
@@ -420,8 +472,8 @@ header.top h1{font-size:1.7rem; margin:0}
     {name:'Fiambres y embutidos', ico:'🥓', items:['chorizo','jamón','jamón crudo','longaniza','morcilla','mortadela','panceta','salame','salchichas','butifarra','chorizo colorado','leberwurst','lomito ahumado','paleta cocida','pastrón','queso de cerdo','salamín','salchicha parrillera','sopressata','jamón cocido']},
     {name:'Achuras', ico:'🫀', items:['chinchulines','hígado','lengua','mollejas','mondongo','riñones','corazón','corazones de pollo','hígado de pollo','rabo','sesos','tripa gorda']},
     {name:'Legumbres', ico:'🫘', items:['arvejas secas','garbanzos','lentejas','lentejas rojas','porotos','porotos colorados','porotos negros','soja','garbanzos en lata','habas secas','lentejones','lentejas en lata','porotos alubia','porotos en lata','porotos pallares','arvejas partidas']},
-    {name:'Lácteos y huevos', ico:'🧀', items:['crema','dulce de leche','huevo','leche','leche condensada','manteca','mozzarella','parmesano','provoleta','queso','queso azul','queso crema','queso cremoso','queso de máquina','queso rallado','ricota','yogur','huevos de codorniz','leche descremada','leche en polvo','mascarpone','queso brie','queso de cabra','queso dambo','queso feta','queso fontina','queso fresco','queso gruyere','queso port salut','queso sardo','queso tybo','reggianito','yogur griego','crema chantilly','leche de almendras','leche de coco']},
-    {name:'Almacén', ico:'🥫', items:['aceitunas','almendras','arroz','arroz integral','avena','azúcar','azúcar impalpable','cacao','caldo','chocolate','chucrut','cuscús','durazno en almíbar','esencia de vainilla','fideos','galletitas','gelatina','harina','harina integral','harina leudante','ketchup','levadura','maicena','maíz pisado','maní','masa filo','mayonesa','mermelada','miel','nueces','pan','pan de hamburguesa','pan lactal','pan rallado','pasas de uva','placas de lasaña','polenta','polvo de hornear','puré de tomate','quinoa','salsa de soja','salsa de tomate','semillas de girasol','sésamo','tapa de tarta','tapas de empanadas','tomate en lata','tostadas','alcaparras','arroz basmati','arroz para risotto','arroz yamaní','avellanas','azúcar mascabo','bicarbonato','castañas de cajú','champiñones en lata','chips de chocolate','choclo en lata','arvejas en lata','ciruelas pasas','coco rallado','copos de maíz','dulce de batata','dulce de membrillo','fideos de arroz','fideos integrales','granola','grisines','harina de garbanzo','harina de maíz','masa de hojaldre','mijo','ñoquis','orejones','palmitos','pan árabe','pan francés','pan integral','pepinillos','pistachos','polvo para flan','prepizzas','ravioles','rebozador','salsa barbacoa','salsa golf','semillas de chía','semillas de lino','semillas de zapallo','sorrentinos','tomates secos','tortillas de trigo','trigo burgol','edulcorante','fécula de mandioca','tapas de pascualina']},
+    {name:'Lácteos y huevos', ico:'🧀', items:['helado','queso cheddar','crema','dulce de leche','huevo','leche','leche condensada','manteca','mozzarella','parmesano','provoleta','queso','queso azul','queso crema','queso cremoso','queso de máquina','queso rallado','ricota','yogur','huevos de codorniz','leche descremada','leche en polvo','mascarpone','queso brie','queso de cabra','queso dambo','queso feta','queso fontina','queso fresco','queso gruyere','queso port salut','queso sardo','queso tybo','reggianito','yogur griego','crema chantilly','leche de almendras','leche de coco']},
+    {name:'Almacén', ico:'🥫', items:['merenguitos','frutas abrillantadas','whisky','masa madre','nachos','tortillas de maíz','pan de pancho','aceitunas','almendras','arroz','arroz integral','avena','azúcar','azúcar impalpable','cacao','caldo','chocolate','chucrut','cuscús','durazno en almíbar','esencia de vainilla','fideos','galletitas','gelatina','harina','harina integral','harina leudante','ketchup','levadura','maicena','maíz pisado','maní','masa filo','mayonesa','mermelada','miel','nueces','pan','pan de hamburguesa','pan lactal','pan rallado','pasas de uva','placas de lasaña','polenta','polvo de hornear','puré de tomate','quinoa','salsa de soja','salsa de tomate','semillas de girasol','sésamo','tapa de tarta','tapas de empanadas','tomate en lata','tostadas','alcaparras','arroz basmati','arroz para risotto','arroz yamaní','avellanas','azúcar mascabo','bicarbonato','castañas de cajú','champiñones en lata','chips de chocolate','choclo en lata','arvejas en lata','ciruelas pasas','coco rallado','copos de maíz','dulce de batata','dulce de membrillo','fideos de arroz','fideos integrales','granola','grisines','harina de garbanzo','harina de maíz','masa de hojaldre','mijo','ñoquis','orejones','palmitos','pan árabe','pan francés','pan integral','pepinillos','pistachos','polvo para flan','prepizzas','ravioles','rebozador','salsa barbacoa','salsa golf','semillas de chía','semillas de lino','semillas de zapallo','sorrentinos','tomates secos','tortillas de trigo','trigo burgol','edulcorante','fécula de mandioca','tapas de pascualina']},
     {name:'Aromáticas', ico:'🌿', items:['albahaca','ciboulette','cilantro','eneldo','estragón','jengibre','laurel','menta','orégano','perejil','romero','salvia','tomillo','ajedrea','albahaca morada','cedrón','mejorana','peperina','poleo','hierbabuena']},
     {name:'Condimentos', ico:'🧂', items:['aceite de oliva','aceto balsámico','ají molido','ajo en polvo','alcaravea','azafrán','canela','chimichurri','clavo de olor','comino','cúrcuma','curry','mostaza','nuez moscada','pimentón','provenzal','salsa picante','vinagre','vinagre de manzana','vino','aceite de girasol','aceite de sésamo','anís estrellado','cardamomo','cebolla en polvo','jengibre en polvo','mostaza en grano','pimentón ahumado','pimienta blanca','pimienta de cayena','pimienta negra','sal gruesa','sal marina','salsa inglesa','salsa teriyaki','vinagre de vino','vino blanco','vino tinto','condimento para pizza','condimento para arroz','hierbas provenzales']}
   ];
@@ -911,10 +963,277 @@ header.top h1{font-size:1.7rem; margin:0}
       s:['Cortá el queso y el dulce en porciones del mismo tamaño, de 1 cm de grosor.','Serví una feta de queso con una de dulce encima (o al lado). También se lo conoce como "queso y dulce": el postre de bodegón por excelencia.']},
     {n:'Pastelitos', t:50, v:1, d:1, p:['AR'], b:8, i:['masa de hojaldre','dulce de membrillo|dulce de batata','azúcar'],
       q:[[2,'u','masa de hojaldre (o tapas para pastelitos)','masas de hojaldre'],[400,'g','de dulce de membrillo o de batata'],[300,'g','de azúcar (almíbar)'],[150,'ml','de agua (almíbar)'],[500,'ml','de aceite o grasa para freír'],[null,'','Grana de colores (opcional)'],[null,'','Rinde unos 16 pastelitos']],
-      s:['Estirá la masa y cortá cuadrados de 8 cm (si usás tapas, ya vienen listas).','Poné un cubo de dulce en el centro de un cuadrado y tapá con otro, girado 45° (formando una estrella de 8 puntas). Pegá con agua apretando el centro.','Freílos en aceite o grasa caliente pero no humeante, de a pocos, bañándolos con el aceite para que se abran las hojas. Escurrilos.','Almíbar: herví el azúcar con el agua 5 minutos.','Pasá los pastelitos por el almíbar tibio y, si querés, espolvoreá con grana. Son los del 25 de Mayo y el 9 de Julio.']}
+      s:['Estirá la masa y cortá cuadrados de 8 cm (si usás tapas, ya vienen listas).','Poné un cubo de dulce en el centro de un cuadrado y tapá con otro, girado 45° (formando una estrella de 8 puntas). Pegá con agua apretando el centro.','Freílos en aceite o grasa caliente pero no humeante, de a pocos, bañándolos con el aceite para que se abran las hojas. Escurrilos.','Almíbar: herví el azúcar con el agua 5 minutos.','Pasá los pastelitos por el almíbar tibio y, si querés, espolvoreá con grana. Son los del 25 de Mayo y el 9 de Julio.']},
+    /* Italia */
+    {n:'Risotto a la milanesa (con azafrán)', t:40, v:1, p:['IT'], b:4, i:['arroz','cebolla','manteca','queso rallado','azafrán'],
+      q:[[320,'g','de arroz carnaroli o arborio'],[1,'u','cebolla chica','cebollas chicas'],[1200,'ml','de caldo de carne o verduras caliente'],[120,'ml','de vino blanco seco'],[60,'g','de manteca fría'],[60,'g','de parmesano rallado'],[null,'','1 sobre de azafrán (o unas hebras) y sal']],
+      s:['Disolvé el azafrán en un cucharón de caldo caliente y reservalo.','En una olla con la mitad de la manteca, rehogá la cebolla muy picada a fuego bajo 5 minutos, sin que tome color.','Sumá el arroz y tostalo 2 minutos revolviendo. Echá el vino y dejá evaporar.','Agregá el caldo de a un cucharón, revolviendo y esperando que se absorba antes de sumar más.','A los 12 minutos sumá el caldo con azafrán. Seguí 5 o 6 minutos más, hasta que esté al dente y cremoso ("all\'onda", que se mueva como una ola).','Fuera del fuego, mantecá con el resto de la manteca fría y el queso, revolviendo enérgicamente. Tapá 2 minutos y serví. Es el acompañamiento clásico del ossobuco.']},
+    {n:'Ossobuco a la milanesa', t:150, v:0, p:['IT','AR'], b:4, i:['osobuco','cebolla','zanahoria','apio','tomate|salsa de tomate'],
+      q:[[4,'u','rodaja gruesa de osobuco (4 cm)','rodajas gruesas de osobuco (4 cm)'],[1,'u','cebolla','cebollas'],[1,'u','zanahoria','zanahorias'],[1,'u','rama de apio','ramas de apio'],[200,'ml','de vino blanco'],[200,'g','de tomate triturado'],[500,'ml','de caldo'],[40,'g','de manteca'],[3,'u','cucharada de harina','cucharadas de harina'],[null,'','Gremolata: ralladura de 1 limón, 1 diente de ajo y perejil picados'],[null,'','Sal, pimienta y laurel']],
+      s:['Hacé unos cortes en la membrana del borde de cada rodaja (así no se curvan). Salpimentalas y pasalas por harina.','Doralas en una cazuela con la manteca y un chorrito de aceite, 4 minutos por lado. Retiralas.','Rehogá la cebolla, la zanahoria y el apio picados chiquitos 10 minutos.','Sumá el vino y raspá el fondo. Agregá el tomate, el laurel y el caldo, y volvé a poner la carne.','Cociná tapado a fuego muy bajo 2 horas, dándola vuelta una vez, hasta que la carne se separe sola del hueso. Si se seca, agregá caldo.','Antes de servir espolvoreá la gremolata. Acompañalo con risotto a la milanesa o puré. El tuétano del hueso es un manjar: se come con cucharita.']},
+    {n:'Saltimbocca a la romana', t:25, v:0, p:['IT'], b:4, i:['bife','jamón crudo','salvia','manteca'],
+      q:[[8,'u','escalope fino de ternera o peceto','escalopes finos de ternera o peceto'],[8,'u','feta de jamón crudo','fetas de jamón crudo'],[8,'u','hoja de salvia fresca','hojas de salvia fresca'],[40,'g','de manteca'],[100,'ml','de vino blanco seco'],[null,'','Harina, sal (poca) y pimienta']],
+      s:['Aplaná los escalopes entre dos papeles film hasta que queden bien finos.','Poné sobre cada uno una feta de jamón crudo y una hoja de salvia, y sujetalas con un palillo.','Pasalos apenas por harina solo del lado de la carne y salpimentá con poca sal (el jamón ya es salado).','Doralos en una sartén con la mitad de la manteca, primero del lado del jamón 1 minuto y después del otro 2 minutos. Retiralos.','Echá el vino a la sartén, raspá el fondo y sumá el resto de la manteca hasta formar una salsita. Bañá los saltimbocca y serví enseguida (su nombre significa "salta a la boca").']},
+    {n:'Pasta alla Norma', t:45, v:1, p:['IT'], b:4, i:['fideos','berenjena','tomate|salsa de tomate','ajo','albahaca','queso rallado'],
+      q:[[400,'g','de fideos cortos (rigatoni o penne) o spaghetti'],[2,'u','berenjena','berenjenas'],[600,'g','de tomate triturado o pelado'],[2,'u','diente de ajo','dientes de ajo'],[80,'g','de ricota salada o queso duro rallado'],[null,'','Albahaca fresca, aceite de oliva, sal y ají molido']],
+      s:['Cortá las berenjenas en cubos, salalas y dejalas 30 minutos en un colador. Secalas bien.','Freílas en aceite de oliva bien caliente hasta que estén doradas (o hornealas a 220 °C con aceite 25 minutos). Escurrilas en papel.','En una sartén con aceite dorá el ajo, sumá el tomate, sal y un poco de ají, y cociná 15 minutos. Agregá albahaca.','Herví la pasta al dente y mezclala con la salsa y la mitad de las berenjenas.','Serví con el resto de las berenjenas arriba, queso rallado y hojas de albahaca. Es el plato típico de Catania, en Sicilia.']},
+    {n:'Spaghetti all\'amatriciana', t:35, v:0, p:['IT'], b:4, i:['fideos','panceta','tomate|salsa de tomate','queso rallado'],
+      q:[[400,'g','de spaghetti o bucatini'],[150,'g','de guanciale o panceta en un trozo'],[400,'g','de tomates pelados o triturados'],[60,'g','de pecorino o queso duro rallado'],[50,'ml','de vino blanco (opcional)'],[null,'','Ají molido, sal y pimienta']],
+      s:['Cortá la panceta en tiras gruesas y dorala en una sartén sin aceite a fuego medio hasta que esté crocante y suelte la grasa.','Sumá el vino y dejá evaporar. Agregá el tomate y el ají, y cociná 12 minutos a fuego medio.','Herví la pasta 1 minuto menos de lo que indica el paquete.','Pasala a la sartén con la salsa y un chorrito del agua de cocción, y salteá 1 minuto.','Fuera del fuego sumá el queso, mezclá y serví con más queso y pimienta. La receta tradicional no lleva cebolla ni ajo.']},
+    {n:'Cacio e pepe', t:20, v:1, p:['IT'], b:4, i:['fideos','queso rallado'],
+      q:[[400,'g','de spaghetti o tonnarelli'],[150,'g','de pecorino romano (o mezcla con parmesano) rallado muy fino'],[2,'u','cucharadita de pimienta negra recién molida','cucharaditas de pimienta negra recién molida'],[null,'','Sal gruesa para el agua (poca)']],
+      s:['Herví la pasta en poca agua con poca sal (así el agua queda con más almidón).','Mientras tanto, tostá la pimienta en una sartén grande 1 minuto y sumá un cucharón del agua de cocción.','En un bol, mezclá el queso con un poco de agua de cocción tibia (no hirviendo) hasta formar una crema espesa sin grumos.','Pasá la pasta al dente a la sartén con la pimienta, apagá el fuego y esperá 30 segundos.','Sumá la crema de queso y revolvé enérgicamente, agregando agua de cocción de a poco hasta que quede cremosa y brillante. Serví enseguida.']},
+    {n:'Pasta al pesto', t:25, v:1, p:['IT'], b:4, i:['fideos','albahaca','ajo','queso rallado'],
+      q:[[400,'g','de fideos (trofie, linguine o spaghetti)'],[2,'u','planta de albahaca fresca (unos 60 g de hojas)','plantas de albahaca fresca'],[1,'u','diente de ajo','dientes de ajo'],[40,'g','de piñones o nueces'],[60,'g','de parmesano rallado'],[100,'ml','de aceite de oliva extra virgen'],[null,'','Sal gruesa'],[null,'','Opcional: 1 papa y un puñado de chauchas, como en Génova']],
+      s:['Lavá y secá muy bien las hojas de albahaca.','Procesá (o pisá en mortero) el ajo con la sal y los piñones o nueces.','Sumá la albahaca y procesá con pulsos cortos, agregando el aceite en hilo. No lo proceses de más, que se oscurece.','Agregá el queso y mezclá con cuchara.','Herví la pasta (con la papa en cubitos y las chauchas si las usás). Mezclala fuera del fuego con el pesto y un poco de agua de cocción. El pesto no se cocina.']},
+    {n:'Spaghetti aglio, olio e peperoncino', t:15, v:1, p:['IT'], b:4, i:['fideos','ajo','aceite de oliva','ají molido'],
+      q:[[400,'g','de spaghetti'],[4,'u','diente de ajo','dientes de ajo'],[80,'ml','de aceite de oliva'],[1,'u','cucharadita de ají molido o 1 ají picante fresco','cucharaditas de ají molido'],[null,'','Perejil picado y sal']],
+      s:['Herví los spaghetti en abundante agua con sal.','Mientras tanto, calentá el aceite a fuego bajo con el ajo en láminas finas y el ají, hasta que el ajo esté apenas dorado (si se quema, amarga).','Pasá la pasta al dente a la sartén con un cucharón del agua de cocción.','Salteá 1 minuto a fuego fuerte, moviendo la sartén, hasta que el aceite y el agua formen una salsita.','Serví con perejil. Es la pasta de "heladera vacía" de los italianos: lista en 15 minutos.']},
+    {n:'Pasta e fagioli', t:50, v:1, p:['IT'], b:4, i:['fideos','porotos','tomate|salsa de tomate','cebolla','zanahoria','apio'],
+      q:[[200,'g','de fideos cortos (dedalitos o tubetti)'],[500,'g','de porotos cocidos (borlotti o blancos)'],[200,'g','de tomate triturado'],[1,'u','cebolla','cebollas'],[1,'u','zanahoria','zanahorias'],[1,'u','rama de apio','ramas de apio'],[1500,'ml','de caldo'],[null,'','Ajo, romero, laurel, aceite de oliva, sal y queso rallado'],[null,'','Opcional: 80 g de panceta']],
+      s:['Rehogá en aceite de oliva la cebolla, la zanahoria y el apio muy picados (y la panceta) 10 minutos.','Sumá el ajo, el romero, el tomate y los porotos, y cociná 5 minutos.','Pisá un tercio de los porotos con un tenedor, así la sopa espesa.','Agregá el caldo caliente y el laurel, y cociná 15 minutos.','Sumá los fideos y cociná hasta que estén al dente. Tiene que quedar espesa. Serví con un hilo de aceite y queso.']},
+    {n:'Berenjenas a la parmesana', t:90, v:1, p:['IT','AR'], b:6, i:['berenjena','salsa de tomate','mozzarella','parmesano'],
+      q:[[3,'u','berenjena grande','berenjenas grandes'],[700,'g','de salsa de tomate'],[350,'g','de mozzarella'],[100,'g','de parmesano rallado'],[null,'','Albahaca, harina, aceite, ajo, sal y pimienta']],
+      s:['Cortá las berenjenas a lo largo en láminas de 1 cm, salalas y dejalas 30 minutos. Secalas.','Pasalas apenas por harina y freílas en aceite hasta que estén doradas, o hornealas con aceite a 220 °C 15 minutos por lado.','Prepará la salsa de tomate con ajo y albahaca, 15 minutos.','En una fuente armá capas: salsa, berenjenas, mozzarella, parmesano y albahaca. Repetí 3 o 4 veces y terminá con salsa y parmesano.','Horneá a 200 °C unos 30 minutos, hasta que burbujee y esté dorada.','Dejala reposar 15 minutos antes de cortar. Es todavía más rica al día siguiente.']},
+    {n:'Focaccia', t:180, tt:'3 h (con el levado)', v:1, p:['IT','AR'], b:8, i:['harina','levadura','aceite de oliva','romero'],
+      q:[[500,'g','de harina 0000 (o mitad 000)'],[400,'ml','de agua tibia'],[7,'g','de levadura seca (o 20 g fresca)'],[10,'g','de sal'],[80,'ml','de aceite de oliva'],[null,'','Romero fresco, sal gruesa y, si querés, tomates cherry o aceitunas']],
+      s:['Mezclá la harina, el agua con la levadura disuelta y 2 cucharadas de aceite. Sumá la sal. Queda una masa muy húmeda: no agregues más harina.','Tapala y dejala 30 minutos. Hacé 4 pliegues (estirá un lado y doblalo hacia el centro, girando el bol). Repetí los pliegues 2 veces más cada 30 minutos.','Pasala a una placa bien aceitada y dejala levar 1 hora, hasta que se infle.','Aceitá tus dedos y hundilos en la masa hasta el fondo, formando los pocitos típicos.','Rociá con aceite, sal gruesa y romero (y los tomates o aceitunas).','Horneá a 220 °C unos 25 minutos, hasta que esté dorada. Dejala enfriar sobre una rejilla.']},
+    {n:'Calzone', t:120, tt:'2 h (con el levado)', v:0, p:['IT','AR'], b:4, i:['harina','levadura','jamón','mozzarella','ricota','salsa de tomate'],
+      q:[[500,'g','de harina 0000'],[300,'ml','de agua tibia'],[10,'g','de levadura fresca'],[10,'g','de sal'],[200,'g','de jamón cocido'],[300,'g','de mozzarella'],[250,'g','de ricota'],[200,'g','de salsa de tomate'],[null,'','Orégano, aceite de oliva y pimienta']],
+      s:['Prepará la masa: harina, agua con levadura, sal y un chorrito de aceite. Amasá 10 minutos y dejala levar 1 hora.','Mezclá la ricota con el jamón picado, la mozzarella en cubos, orégano y pimienta.','Dividí la masa en 4 bollos y estiralos en círculos de 25 cm.','Untá la mitad de cada círculo con un poco de salsa, poné el relleno y doblá como una empanada gigante. Cerrá el borde con repulgue o apretando con un tenedor.','Pintá con aceite, hacé un cortecito arriba para que salga el vapor y horneá a 230 °C unos 18 a 20 minutos. Serví con salsa de tomate caliente.']},
+    {n:'Ñoquis a la sorrentina', t:40, v:1, p:['IT'], b:4, i:['ñoquis','salsa de tomate','mozzarella','albahaca'],
+      q:[[1000,'g','de ñoquis de papa (caseros o comprados)'],[500,'g','de salsa de tomate'],[250,'g','de mozzarella'],[40,'g','de parmesano rallado'],[null,'','Ajo, albahaca fresca, aceite de oliva y sal']],
+      s:['Prepará una salsa de tomate con ajo y aceite de oliva, cocinada 15 minutos, y sumale albahaca.','Herví los ñoquis en abundante agua con sal y sacalos apenas suben.','Mezclalos con la salsa y pasalos a una fuente o cazuelitas individuales.','Cubrí con la mozzarella en cubos y el parmesano.','Gratiná a horno fuerte (230 °C) 8 a 10 minutos, hasta que el queso se derrita y forme hilos. Terminá con albahaca.']},
+    {n:'Tiramisú', t:260, tt:'30 min (+ 4 h de heladera)', v:1, d:1, p:['IT'], b:8, i:['huevo','azúcar','mascarpone','galletitas'],
+      q:[[4,'u','huevo muy fresco','huevos muy frescos'],[100,'g','de azúcar'],[500,'g','de mascarpone (o queso crema)'],[300,'g','de vainillas (bizcochos de soletilla)'],[300,'ml','de café fuerte frío'],[null,'','Cacao amargo para espolvorear'],[null,'','Opcional: 2 cucharadas de licor (marsala, amaretto o coñac) en el café']],
+      s:['Separá las yemas de las claras. Batí las yemas con el azúcar hasta que estén blancas y espumosas.','Sumá el mascarpone y batí hasta que quede una crema lisa.','Batí las claras a punto nieve e incorporalas a la crema con movimientos envolventes.','Mojá las vainillas de a una en el café, rápido para que no se desarmen, y armá una capa en una fuente.','Cubrí con la mitad de la crema, armá otra capa de vainillas y terminá con crema.','Llevá a la heladera al menos 4 horas (mejor toda la noche) y espolvoreá con cacao al servir. Como lleva huevo crudo, usá huevos muy frescos.']},
+    {n:'Panna cotta', t:300, tt:'20 min (+ 4 h de heladera)', v:0, d:1, p:['IT'], b:6, i:['crema','azúcar','gelatina','leche'],
+      q:[[500,'ml','de crema de leche'],[100,'ml','de leche'],[80,'g','de azúcar'],[8,'g','de gelatina sin sabor (1 sobre)'],[null,'','Esencia de vainilla'],[null,'','Para servir: salsa de frutos rojos, dulce de leche o caramelo']],
+      s:['Hidratá la gelatina en 4 cucharadas de agua fría durante 5 minutos.','Calentá la crema con la leche, el azúcar y la vainilla hasta que esté a punto de hervir (no la dejes hervir).','Fuera del fuego, sumá la gelatina y revolvé hasta que se disuelva por completo.','Repartí en moldecitos o vasitos y dejá enfriar.','Llevá a la heladera al menos 4 horas, hasta que esté firme.','Desmoldala pasando un cuchillo por el borde (o servila en el vaso) y cubrí con la salsa que más te guste.']},
+    /* México */
+    {n:'Tacos de carne', t:45, v:0, p:['MX','AR'], b:4, i:['tortillas de trigo|tortillas de maíz','carne','cebolla','cilantro','lima|limón'],
+      q:[[12,'u','tortilla chica de maíz o trigo','tortillas chicas de maíz o trigo'],[600,'g','de carne (vacío, entraña o bife de chorizo)'],[1,'u','cebolla (o media cebolla morada)','cebollas'],[1,'u','atado de cilantro (o perejil)','atados de cilantro (o perejil)'],[2,'u','lima o limón','limas o limones'],[null,'','Comino, pimentón, ajo en polvo, orégano, sal y pimienta'],[null,'','Para servir: guacamole, pico de gallo y salsa picante']],
+      s:['Condimentá la carne con comino, pimentón, ajo, orégano, sal, pimienta y el jugo de una lima. Dejala 20 minutos.','Cocinala entera en una plancha o parrilla muy caliente, 4 o 5 minutos por lado, para que quede jugosa. Dejala reposar 5 minutos.','Cortala en tiritas o cubitos chicos.','Calentá las tortillas en una sartén seca 30 segundos por lado, y mantenelas tapadas con un repasador.','Picá bien fino la cebolla y el cilantro.','Armá cada taco con carne, cebolla, cilantro y unas gotas de lima. Sumá guacamole, pico de gallo o salsa a gusto.']},
+    {n:'Fajitas de pollo', t:40, v:0, p:['MX','AR'], b:4, i:['tortillas de trigo','pollo','morrón','cebolla'],
+      q:[[8,'u','tortilla de trigo','tortillas de trigo'],[700,'g','de pechuga de pollo'],[1,'u','morrón rojo','morrones rojos'],[1,'u','morrón verde','morrones verdes'],[1,'u','morrón amarillo (opcional)','morrones amarillos (opcional)'],[2,'u','cebolla','cebollas'],[1,'u','lima o limón','limas o limones'],[null,'','Comino, pimentón ahumado, ajo, orégano, ají molido, sal y aceite'],[null,'','Para servir: guacamole, crema agria y queso rallado']],
+      s:['Cortá el pollo en tiras y condimentalo con el jugo de lima, las especias, ajo, sal y aceite. Dejalo 20 minutos.','Cortá los morrones y la cebolla en tiras finas.','En una sartén o plancha muy caliente, dorá el pollo a fuego fuerte 6 o 7 minutos. Retiralo.','En la misma sartén salteá los morrones y la cebolla 5 minutos: tienen que quedar tiernos pero crocantes.','Volvé a poner el pollo y mezclá 1 minuto.','Calentá las tortillas y servilas aparte para que cada uno arme la suya con pollo, verduras y los acompañamientos.']},
+    {n:'Quesadillas', t:20, v:1, p:['MX','AR'], b:4, i:['tortillas de trigo','queso'],
+      q:[[8,'u','tortilla de trigo','tortillas de trigo'],[300,'g','de queso que se derrita (mozzarella, cheddar o tybo)'],[null,'','Opcional: pollo desmenuzado, jamón, choclo, morrón o hongos'],[null,'','Para servir: guacamole o salsa']],
+      s:['Calentá una sartén grande sin aceite (o con unas gotas) a fuego medio.','Poné una tortilla, cubrí la mitad con queso rallado y lo que quieras sumar.','Doblala al medio y apretala con una espátula.','Cociná 2 minutos de cada lado, hasta que la tortilla esté dorada y el queso derretido.','Cortala en triángulos y serví enseguida con guacamole o salsa.']},
+    {n:'Burritos', t:45, v:0, p:['MX','US','AR'], b:4, i:['tortillas de trigo','carne picada','arroz','porotos negros|porotos','queso'],
+      q:[[4,'u','tortilla de trigo grande','tortillas de trigo grandes'],[400,'g','de carne picada (o pollo desmenuzado)'],[150,'g','de arroz'],[300,'g','de porotos negros cocidos'],[150,'g','de queso cheddar o mozzarella rallado'],[1,'u','cebolla','cebollas'],[1,'u','tomate','tomates'],[null,'','Comino, pimentón, ají molido, ajo, sal y aceite'],[null,'','Opcional: palta, lechuga, crema agria y salsa picante']],
+      s:['Cociná el arroz y reservalo (si querés, con un poco de jugo de lima y cilantro).','Rehogá la cebolla picada, sumá la carne y dorala. Condimentá con comino, pimentón, ají, ajo y sal.','Agregá los porotos y el tomate picado, y cociná 5 minutos, pisando algunos porotos.','Calentá las tortillas para que estén flexibles.','En el centro de cada tortilla poné arroz, carne con porotos y queso (y lo que quieras sumar).','Doblá los costados hacia adentro y enrollá bien apretado. Si querés, doralos en una sartén con la unión para abajo, así se sellan.']},
+    {n:'Nachos con cheddar y guacamole', t:25, v:1, p:['MX','US','AR'], b:4, i:['nachos','queso cheddar','palta'],
+      q:[[300,'g','de nachos (totopos de maíz)'],[250,'g','de queso cheddar'],[150,'ml','de leche (para la salsa)'],[2,'u','palta madura','paltas maduras'],[1,'u','tomate','tomates'],[0.5,'u','cebolla morada','cebollas moradas'],[1,'u','lima o limón','limas o limones'],[null,'','Cilantro, sal y ají picante o jalapeños'],[null,'','Opcional: carne picada condimentada o porotos']],
+      s:['Guacamole: pisá la palta con el jugo de lima y sal, y sumá tomate, cebolla y cilantro picados.','Salsa de cheddar: calentá la leche a fuego bajo y sumá el queso rallado de a poco, revolviendo hasta que quede una salsa lisa.','Distribuí los nachos en una fuente.','Bañalos con la salsa de cheddar caliente (y la carne o porotos si los usás).','Terminá con el guacamole, ají picante y cilantro, y serví enseguida antes de que se ablanden.']},
+    {n:'Guacamole', t:10, v:1, p:['MX','AR'], b:4, i:['palta','tomate','cebolla morada|cebolla','lima|limón'],
+      q:[[3,'u','palta madura','paltas maduras'],[1,'u','tomate','tomates'],[0.5,'u','cebolla morada','cebollas moradas'],[1,'u','lima o limón','limas o limones'],[null,'','Cilantro picado, sal y ají picante a gusto']],
+      s:['Cortá las paltas, sacales el carozo y pisá la pulpa con un tenedor, dejando algunos trocitos.','Sumá enseguida el jugo de lima y la sal, así no se oscurece.','Agregá el tomate sin semillas, la cebolla y el cilantro bien picados, y el ají.','Probá y ajustá. Si no lo servís enseguida, dejá el carozo adentro y tapalo con film tocando la superficie.']},
+    {n:'Chili con carne', t:75, v:0, p:['MX','US','AR'], b:6, i:['carne picada','porotos colorados|porotos','tomate|salsa de tomate','cebolla','morrón'],
+      q:[[700,'g','de carne picada'],[500,'g','de porotos colorados cocidos'],[600,'g','de tomate triturado'],[2,'u','cebolla','cebollas'],[1,'u','morrón rojo','morrones rojos'],[3,'u','diente de ajo','dientes de ajo'],[300,'ml','de caldo'],[null,'','2 cucharaditas de comino, 1 de pimentón ahumado, ají molido o chile en polvo, orégano y sal'],[null,'','Para servir: arroz, nachos, queso cheddar y crema']],
+      s:['Rehogá la cebolla, el morrón y el ajo picados en aceite 8 minutos.','Sumá la carne y dorala a fuego fuerte, desgranándola.','Agregá las especias y revolvé 1 minuto para que suelten aroma.','Sumá el tomate y el caldo, y cociná tapado a fuego bajo 30 minutos.','Agregá los porotos y cociná 15 minutos más, hasta que espese.','Servilo con arroz o nachos, queso rallado y una cucharada de crema.']},
+    {n:'Enchiladas de pollo', t:60, v:0, p:['MX','AR'], b:4, i:['tortillas de trigo|tortillas de maíz','pollo','salsa de tomate','queso','cebolla'],
+      q:[[8,'u','tortilla de maíz o trigo','tortillas de maíz o trigo'],[600,'g','de pollo cocido y desmenuzado'],[500,'g','de salsa de tomate'],[200,'g','de queso rallado (mozzarella o cheddar)'],[1,'u','cebolla','cebollas'],[150,'ml','de crema'],[null,'','Comino, ají molido o chile, ajo, cilantro y sal']],
+      s:['Condimentá la salsa de tomate con comino, ají, ajo y sal, y cocinala 10 minutos.','Rehogá la cebolla picada y mezclala con el pollo y un poco de salsa.','Pasá cada tortilla por la salsa caliente, rellenala con pollo y enrollala.','Acomodalas en una fuente, una al lado de la otra, con la unión para abajo.','Cubrí con el resto de la salsa, la crema y el queso.','Horneá a 200 °C 20 minutos, hasta que el queso se dore. Terminá con cilantro.']},
+    /* Estados Unidos */
+    {n:'Costillitas de cerdo a la barbacoa (ribs)', t:200, tt:'3 h 20 min', v:0, p:['US','AR'], b:4, i:['costillas de cerdo','salsa barbacoa'],
+      q:[[2000,'g','de costillitas o pechito de cerdo'],[300,'ml','de salsa barbacoa'],[null,'','Rub: 2 cucharadas de azúcar mascabo, 1 de pimentón ahumado, 1 de sal, ajo y cebolla en polvo, comino y pimienta'],[null,'','Para servir: coleslaw, papas fritas o choclo']],
+      s:['Sacale a las costillas la membrana blanca de la parte del hueso (levantala con un cuchillo y tirá con un papel).','Mezclá los ingredientes del rub y frotalo bien por toda la carne. Si podés, dejalas así 2 horas en la heladera.','Envolvelas en papel aluminio, bien cerradas, y horneá a 150 °C unas 2 horas y media, hasta que la carne esté muy tierna.','Abrí el papel, pintalas con salsa barbacoa y subí el horno a 220 °C (o pasalas a la parrilla).','Cociná 15 a 20 minutos, pintando con salsa cada 5 minutos, hasta que se caramelicen.','Dejalas reposar 5 minutos, cortalas entre hueso y hueso y serví con más salsa.']},
+    {n:'Pulled pork (cerdo desmechado)', t:300, tt:'5 h', v:0, p:['US','AR'], b:8, i:['bondiola','salsa barbacoa','cebolla','pan'],
+      q:[[1500,'g','de bondiola de cerdo'],[300,'ml','de salsa barbacoa'],[1,'u','cebolla','cebollas'],[200,'ml','de caldo o cerveza'],[8,'u','pan de hamburguesa','panes de hamburguesa'],[null,'','Rub: azúcar mascabo, pimentón ahumado, sal, ajo en polvo, comino y pimienta'],[null,'','Para servir: coleslaw y pepinillos']],
+      s:['Frotá la bondiola con el rub y, si podés, dejala toda la noche en la heladera.','Poné la cebolla en aros en una olla o fuente con tapa, la bondiola encima y el caldo o la cerveza.','Cociná tapado en el horno a 150 °C unas 4 horas y media, dándola vuelta una vez, hasta que se desarme con un tenedor.','Desmechala con dos tenedores y mezclala con la salsa barbacoa y un poco del líquido de cocción.','Armá sándwiches en pan de hamburguesa con la carne y coleslaw arriba.']},
+    {n:'Pollo frito estilo americano', t:270, tt:'45 min (+ 4 h de marinado)', v:0, p:['US','AR'], b:4, i:['pollo','harina','leche','limón'],
+      q:[[1500,'g','de presas de pollo (muslos, patas y alitas)'],[500,'ml','de leche (para marinar)'],[1,'u','limón (jugo, para marinar)','limones (jugo, para marinar)'],[250,'g','de harina 0000 (para rebozar, queda la mitad)'],[50,'g','de maicena'],[1000,'ml','de aceite para freír'],[null,'','Pimentón, ajo y cebolla en polvo, orégano, pimienta, sal y ají picante']],
+      s:['Mezclá la leche con el jugo de limón y sal (es un "buttermilk" casero). Dejá el pollo ahí al menos 4 horas en la heladera.','Mezclá la harina, la maicena y todas las especias.','Escurrí cada presa y pasala por la harina, apretando. Para que quede bien crocante, mojala otra vez en la leche y pasala de nuevo por la harina.','Calentá el aceite a 170 °C en una olla honda.','Freí las presas de a pocas, 12 a 15 minutos, dándolas vuelta, hasta que estén bien doradas y el jugo salga transparente.','Escurrilas sobre una rejilla y servilas con papas fritas o coleslaw.']},
+    {n:'Alitas de pollo a la barbacoa', t:60, v:0, p:['US','AR'], b:4, i:['alitas de pollo','salsa barbacoa'],
+      q:[[1200,'g','de alitas de pollo'],[200,'ml','de salsa barbacoa (o salsa picante con manteca, estilo Buffalo)'],[1,'u','cucharada de polvo de hornear','cucharadas de polvo de hornear'],[null,'','Sal, pimienta, ajo en polvo y pimentón'],[null,'','Para servir: bastones de apio y zanahoria con salsa de queso azul']],
+      s:['Cortá las alitas en sus articulaciones y descartá la puntita.','Secalas muy bien con papel y mezclalas con el polvo de hornear, sal y especias (el truco para que la piel quede crocante en el horno).','Acomodalas sobre una rejilla en una placa y horneá a 220 °C unos 40 a 45 minutos, dándolas vuelta a la mitad.','En un bol grande, mezclalas en caliente con la salsa barbacoa.','Servilas enseguida con bastones de verdura y una salsa para mojar.']},
+    {n:'Mac and cheese', t:40, v:1, p:['US','AR'], b:4, i:['fideos','queso cheddar','leche','manteca','harina'],
+      q:[[400,'g','de fideos coditos'],[250,'g','de queso cheddar rallado'],[600,'ml','de leche'],[40,'g','de manteca'],[40,'g','de harina'],[50,'g','de queso rallado o pan rallado para gratinar (opcional)'],[null,'','Sal, pimienta, nuez moscada y una cucharadita de mostaza']],
+      s:['Herví los coditos 2 minutos menos de lo que indica el paquete y escurrilos.','Derretí la manteca, sumá la harina y cociná 1 minuto. Agregá la leche caliente de a poco, batiendo, hasta que espese.','Fuera del fuego sumá el cheddar, la mostaza, sal, pimienta y nuez moscada, y revolvé hasta que se derrita.','Mezclá la salsa con los fideos.','Comelo así de cremoso, o pasalo a una fuente, cubrí con queso o pan rallado y gratiná 15 minutos a 200 °C.']},
+    {n:'Panchos (hot dogs)', t:15, v:0, p:['US','AR'], b:4, i:['salchichas','pan de pancho|pan'],
+      q:[[8,'u','salchicha','salchichas'],[8,'u','pan de pancho','panes de pancho'],[null,'','Mostaza, ketchup, mayonesa y salsa golf'],[null,'','Opcional: papas pai, cebolla crispy, queso cheddar, salsa criolla o chucrut']],
+      s:['Calentá las salchichas en agua caliente sin que hierva fuerte (así no se parten), 5 minutos. También podés dorarlas en la plancha.','Calentá los panes unos minutos en el horno o al vapor.','Poné cada salchicha en un pan.','Sumá los aderezos y los toppings que quieras. El clásico argentino: mostaza y papas pai.']},
+    {n:'Pancakes', t:30, v:1, d:1, p:['US','AR'], b:4, i:['harina','huevo','leche','azúcar'],
+      q:[[250,'g','de harina 0000'],[2,'u','huevo','huevos'],[300,'ml','de leche'],[2,'u','cucharada de azúcar','cucharadas de azúcar'],[2,'u','cucharadita de polvo de hornear','cucharaditas de polvo de hornear'],[40,'g','de manteca derretida'],[null,'','Una pizca de sal y esencia de vainilla'],[null,'','Para servir: miel, dulce de leche, frutas o manteca']],
+      s:['Mezclá en un bol la harina, el azúcar, el polvo de hornear y la sal.','En otro bol batí los huevos con la leche, la manteca derretida y la vainilla.','Uní las dos mezclas sin batir de más: está bien que queden algunos grumitos (así salen esponjosos).','Calentá una sartén antiadherente a fuego medio-bajo apenas enmantecada y poné un cucharón de mezcla.','Cuando aparezcan burbujitas en la superficie (unos 2 minutos), dalos vuelta y cociná 1 minuto más.','Servilos apilados con miel, dulce de leche o frutas.']},
+    {n:'Brownies', t:45, v:1, d:1, p:['US','AR'], b:12, i:['chocolate','manteca','azúcar','huevo','harina'],
+      q:[[200,'g','de chocolate semiamargo'],[150,'g','de manteca'],[250,'g','de azúcar'],[3,'u','huevo','huevos'],[100,'g','de harina 0000'],[30,'g','de cacao amargo'],[100,'g','de nueces picadas (opcional)'],[null,'','Una pizca de sal y esencia de vainilla']],
+      s:['Prendé el horno a 180 °C y forrá un molde de 20 × 20 cm con papel manteca.','Derretí el chocolate con la manteca a baño María o en el microondas de a 30 segundos.','Sumá el azúcar y mezclá. Agregá los huevos de a uno y la vainilla.','Incorporá la harina, el cacao y la sal tamizados, sin batir de más. Sumá las nueces.','Volcá en el molde y horneá 22 a 25 minutos: al pinchar con un palito tiene que salir con migas húmedas, no seco.','Dejalo enfriar por completo antes de cortar en cuadrados.']},
+    {n:'Cheesecake', t:540, tt:'1 h 30 min (+ 6 h de heladera)', v:1, d:1, p:['US','AR'], b:10, i:['queso crema','galletitas','manteca','azúcar','huevo','crema'],
+      q:[[200,'g','de galletitas dulces (tipo Maná o vainillas)'],[80,'g','de manteca derretida'],[600,'g','de queso crema'],[150,'g','de azúcar'],[3,'u','huevo','huevos'],[200,'ml','de crema de leche'],[1,'u','limón (ralladura)','limones (ralladura)'],[null,'','Esencia de vainilla'],[null,'','Cobertura: mermelada o salsa de frutos rojos']],
+      s:['Base: procesá las galletitas, mezclalas con la manteca derretida y apretalas en el fondo de un molde desmontable de 22 cm. Llevá 15 minutos a la heladera.','Relleno: batí el queso crema con el azúcar hasta que esté liso. Sumá los huevos de a uno, la crema, la ralladura y la vainilla, sin batir de más.','Volcá sobre la base y horneá a 160 °C unos 50 a 60 minutos: el centro tiene que quedar apenas tembloroso.','Apagá el horno y dejalo adentro con la puerta entreabierta 1 hora (así no se agrieta).','Llevalo a la heladera al menos 6 horas.','Desmoldalo y cubrilo con la salsa de frutos rojos antes de servir.']},
+    {n:'Cookies con chips de chocolate', t:40, v:1, d:1, p:['US','AR'], b:12, i:['harina','manteca','azúcar','huevo','chips de chocolate'],
+      q:[[250,'g','de harina 0000'],[125,'g','de manteca blanda'],[100,'g','de azúcar mascabo'],[80,'g','de azúcar común'],[1,'u','huevo','huevos'],[150,'g','de chips o trozos de chocolate'],[1,'u','cucharadita de bicarbonato','cucharaditas de bicarbonato'],[null,'','Una pizca de sal y esencia de vainilla'],[null,'','Rinde unas 24 cookies']],
+      s:['Batí la manteca con los dos azúcares hasta que esté cremosa. Sumá el huevo y la vainilla.','Agregá la harina, el bicarbonato y la sal, y mezclá apenas.','Sumá los chips de chocolate.','Formá bolitas del tamaño de una nuez y acomodalas en una placa con papel, bien separadas (se expanden).','Horneá a 180 °C 10 a 12 minutos: tienen que estar doradas en los bordes y blandas en el centro (se endurecen al enfriar).','Dejalas 5 minutos en la placa antes de pasarlas a una rejilla.']},
+    /* Masa madre */
+    {n:'Masa madre casera (cómo hacerla)', nonut:1, t:10080, tt:'7 a 10 días (5 min por día)', v:1, p:['AR','IT'], b:1, i:['harina','harina integral'],
+      q:[[350,'g','de harina integral o de centeno (en total, a lo largo de la semana)'],[700,'g','de harina 000 o 0000 para alimentarla'],[1000,'ml','de agua sin cloro (filtrada, o dejada reposar 12 horas)'],[null,'','Un frasco de vidrio de 1 litro con tapa apoyada (no hermética) y una banda elástica para marcar el nivel']],
+      s:['Día 1: mezclá en el frasco 50 g de harina integral con 50 g de agua tibia hasta formar una pasta. Tapá apoyando la tapa, sin cerrarla, y dejalo a temperatura ambiente (ideal 24 a 26 °C).','Día 2: puede que todavía no pase nada. Sumá 50 g de harina integral y 50 g de agua, mezclá bien y marcá el nivel con la banda elástica.','Días 3 y 4: descartá la mitad, sumá 50 g de harina (mitad integral, mitad blanca) y 50 g de agua, una vez por día. Es normal que aparezcan burbujas, olor fuerte y que después parezca "morir": es parte del proceso.','Del día 5 en adelante: alimentala una o dos veces por día. Descartá todo menos 50 g y sumá 50 g de harina y 50 g de agua.','Está lista cuando, a las 4 a 8 horas de alimentarla, duplica su volumen de forma pareja, tiene burbujas por todos lados y huele ácido agradable, como yogur. Suele pasar entre el día 7 y el 10.','Prueba final: una cucharadita en un vaso de agua tiene que flotar cuando está en su punto máximo.','Para mantenerla: guardala en la heladera y alimentala una vez por semana. El día antes de usarla, sacala y dale 1 o 2 alimentaciones para que se active. Con el "descarte" podés hacer grisines, panqueques o pizzas.']},
+    {n:'Pan de masa madre', pop:1, t:1500, tt:'24 h (con fermentación lenta)', v:1, p:['AR','IT'], b:8, i:['masa madre','harina'],
+      q:[[100,'g','de masa madre activa (en su punto máximo)'],[450,'g','de harina 000'],[50,'g','de harina integral'],[350,'ml','de agua tibia'],[10,'g','de sal'],[null,'','Harina de arroz o sémola para espolvorear'],[null,'','Una olla de hierro o una olla con tapa que pueda ir al horno, y un bol con un repasador (o una canasta de fermentación)']],
+      s:['Autólisis: mezclá las harinas con 320 ml del agua hasta que no quede harina seca. Tapá y dejá reposar 1 hora.','Sumá la masa madre y apretala con los dedos hasta integrarla. Después agregá la sal con el resto del agua y volvé a integrar.','Pliegues: durante las 2 primeras horas, cada 30 minutos, estirá un lado de la masa hacia arriba y doblalo sobre sí misma, girando el bol hasta hacerlo 4 veces. Son 4 rondas.','Fermentación en bloque: dejá la masa tapada hasta que crezca un 50 %, se vea inflada y con burbujas en los bordes. Con 24 °C tarda unas 4 a 6 horas en total, contando los pliegues.','Volcala en la mesada, formá un bollo redondo tensando la superficie, dejala 20 minutos y dale la forma final. Ponela con la costura para arriba en un bol con un repasador bien enharinado con harina de arroz.','Tapala y llevala a la heladera entre 12 y 16 horas (esto le da sabor y facilita el corte).','Precalentá el horno al máximo (250 °C) con la olla tapada adentro durante 45 minutos.','Volcá el pan sobre un papel, hacele un corte de 1 cm de profundidad con una hoja de afeitar o un cuchillo muy filoso y ponelo en la olla caliente.','Horneá tapado 20 minutos. Destapá, bajá a 230 °C y seguí 20 a 25 minutos hasta que esté bien dorado y suene hueco al golpearlo abajo.','Dejalo enfriar al menos 1 hora en una rejilla antes de cortarlo: adentro se sigue cocinando.']},
+    {n:'Pizza de masa madre', t:1560, tt:'26 h (con maduración en heladera)', v:1, p:['IT','AR'], b:4, i:['masa madre','harina','salsa de tomate','queso'],
+      q:[[100,'g','de masa madre activa'],[500,'g','de harina 0000 (o mitad 000)'],[320,'ml','de agua'],[10,'g','de sal'],[15,'ml','de aceite de oliva'],[400,'g','de salsa de tomate'],[400,'g','de mozzarella'],[null,'','Orégano, aceitunas, ajo y aceite de oliva'],[null,'','Rinde 2 pizzas grandes o 4 individuales']],
+      s:['Mezclá la harina con 300 ml de agua y la masa madre. Dejá reposar 30 minutos.','Sumá la sal con el resto del agua y el aceite, y amasá 5 minutos o hacé 3 rondas de pliegues cada 30 minutos.','Dejala fermentar tapada 3 a 4 horas a temperatura ambiente, hasta que crezca un 50 %.','Dividila en 2 o 4 bollos, ponelos en un recipiente aceitado y tapado, y llevalos a la heladera de 24 a 48 horas: cuanto más tiempo, más sabor y más liviana.','Sacalos 2 horas antes de usarlos para que se templen y se relajen.','Estirá cada bollo con las manos (sin palo, así no sacás el aire), poné salsa y llevá al horno a la máxima temperatura, idealmente sobre una piedra o placa precalentada, 6 a 8 minutos.','Sumá la mozzarella y horneá 4 a 5 minutos más. Terminá con orégano y aceite de oliva.']},
+    {n:'Pan de hamburguesa de masa madre', t:720, tt:'12 h (la mayoría es espera)', v:1, p:['US','AR'], b:8, i:['masa madre','harina','leche','huevo','manteca'],
+      q:[[100,'g','de masa madre activa'],[500,'g','de harina 0000'],[200,'ml','de leche tibia'],[1,'u','huevo (y 1 más para pintar)','huevos (y 1 más para pintar)'],[40,'g','de manteca blanda'],[30,'g','de azúcar o miel'],[9,'g','de sal'],[null,'','Semillas de sésamo para decorar'],[null,'','Rinde 8 panes de hamburguesa (o 10 de pancho)']],
+      s:['Mezclá la harina, la leche, el huevo, el azúcar y la masa madre. Amasá 5 minutos.','Sumá la sal y la manteca blanda de a poco, y amasá 10 minutos más hasta que la masa esté lisa, suave y elástica.','Dejala tapada a temperatura ambiente 5 a 6 horas, hasta que casi duplique.','Dividila en 8 bollos de unos 110 g, bolealos bien tensos y acomodalos en una placa con papel, separados.','Aplastalos un poco con la palma, tapalos y dejalos levar 3 a 4 horas, hasta que se vean bien inflados. (Para panes de pancho, dales forma alargada.)','Pintalos con huevo batido, espolvoreá sésamo y horneá a 190 °C unos 16 a 18 minutos, hasta que estén dorados.','Dejalos enfriar tapados con un repasador, así quedan bien tiernos. Se pueden freezar.']},
+    {n:'Pan de molde de masa madre', t:720, tt:'12 h (la mayoría es espera)', v:1, p:['AR'], b:10, i:['masa madre','harina','leche','manteca'],
+      q:[[100,'g','de masa madre activa'],[500,'g','de harina 000'],[300,'ml','de leche tibia (o mitad agua)'],[30,'g','de manteca blanda'],[20,'g','de miel o azúcar'],[9,'g','de sal'],[null,'','Un molde de budín de 25 a 30 cm']],
+      s:['Mezclá la harina, la leche, la miel y la masa madre. Dejá reposar 30 minutos.','Sumá la sal y la manteca, y amasá 10 minutos hasta lograr una masa lisa y elástica.','Dejala tapada 4 a 5 horas, hasta que crezca bastante.','Estirala en un rectángulo del largo del molde, enrollala bien apretada y ponela en el molde enmantecado, con la unión para abajo.','Tapala y dejala levar 3 a 4 horas, hasta que asome 1 o 2 cm por arriba del borde.','Horneá a 190 °C unos 35 a 40 minutos. Si se dora muy rápido, tapalo con papel aluminio.','Desmoldalo enseguida y dejalo enfriar por completo antes de cortarlo. Ideal para tostadas y sándwiches.']},
+    {n:'Focaccia de masa madre', t:1440, tt:'24 h (con maduración en heladera)', v:1, p:['IT','AR'], b:8, i:['masa madre','harina','aceite de oliva','romero'],
+      q:[[100,'g','de masa madre activa'],[500,'g','de harina 0000 (o mitad 000)'],[400,'ml','de agua'],[10,'g','de sal'],[60,'ml','de aceite de oliva'],[null,'','Romero fresco, sal gruesa y, si querés, tomates cherry, aceitunas o cebolla']],
+      s:['Mezclá la harina, 380 ml de agua y la masa madre. Dejá reposar 30 minutos.','Sumá la sal con el resto del agua y apretá con los dedos hasta integrar. La masa es muy húmeda: no agregues harina.','Hacé 4 rondas de pliegues cada 30 minutos, con las manos mojadas.','Pasala a una placa de 30 × 40 cm bien aceitada, tapala y llevala a la heladera toda la noche (12 a 18 horas).','Al otro día dejala a temperatura ambiente 2 a 3 horas, hasta que se vea inflada y ocupe toda la placa.','Rociá con aceite, hundí los dedos hasta el fondo para hacer los pocitos y sumá romero, sal gruesa y lo que quieras.','Horneá a 230 °C unos 25 minutos, hasta que esté dorada. Dejala enfriar sobre una rejilla.']},
+    {n:'Grisines con descarte de masa madre', t:60, v:1, p:['IT','AR'], b:6, i:['masa madre','harina'],
+      q:[[150,'g','de descarte de masa madre (puede estar de la heladera)'],[200,'g','de harina 0000'],[60,'ml','de aceite de oliva'],[50,'ml','de agua (aprox.)'],[5,'g','de sal'],[null,'','Semillas de sésamo, lino o chía, orégano o queso rallado'],[null,'','Rinde unos 30 grisines']],
+      s:['Mezclá el descarte con la harina, el aceite y la sal, y sumá agua de a poco hasta lograr una masa firme y lisa.','Dejala descansar tapada 30 minutos.','Estirala de 5 mm de espesor y cortá tiras de 1 cm (o hacé rollitos finos con las manos).','Pasalas por semillas o queso rallado y acomodalas en una placa con papel.','Horneá a 180 °C unos 20 a 25 minutos, hasta que estén doradas y crocantes. Una forma rica de aprovechar el descarte en vez de tirarlo.']},
+    /* Más postres */
+    {n:'Lemon pie', t:90, v:1, d:1, pop:1, p:['AR','US'], b:8, i:['limón','harina','manteca','azúcar','huevo','maicena'],
+      q:[[200,'g','de harina 0000 (masa)'],[100,'g','de manteca fría (masa)'],[50,'g','de azúcar (masa)'],[1,'u','yema (masa)','yemas (masa)'],[4,'u','limón (jugo y ralladura)','limones (jugo y ralladura)'],[3,'u','yema (crema)','yemas (crema)'],[200,'g','de azúcar (crema)'],[40,'g','de maicena'],[300,'ml','de agua'],[30,'g','de manteca (crema)'],[3,'u','clara (merengue)','claras (merengue)'],[150,'g','de azúcar (merengue)']],
+      s:['Masa: arená la harina con la manteca fría y el azúcar, sumá la yema y un chorrito de agua fría, y uní sin amasar. Dejala 30 minutos en la heladera.','Estirala, forrá una tartera de 24 cm, pinchala y horneala a 180 °C unos 20 minutos, con porotos secos encima los primeros 10 (cocción "a ciegas").','Crema: en una olla mezclá el azúcar, la maicena, el agua, el jugo y la ralladura de limón. Cociná revolviendo hasta que hierva y espese.','Fuera del fuego sumá las yemas batidas y la manteca, y volvé al fuego 1 minuto revolviendo. Volcala sobre la masa cocida.','Merengue: batí las claras a punto nieve y sumá el azúcar de a poco hasta que quede firme y brillante.','Cubrí la crema con el merengue haciendo picos y gratiná a horno fuerte 5 minutos (o con soplete). Enfriala 2 horas antes de cortar.']},
+    {n:'Torta de chocolate húmeda', t:70, v:1, d:1, p:['AR'], b:10, i:['harina','cacao','azúcar','huevo','leche','aceite de girasol|manteca'],
+      q:[[250,'g','de harina leudante'],[60,'g','de cacao amargo'],[250,'g','de azúcar'],[3,'u','huevo','huevos'],[250,'ml','de leche'],[150,'ml','de aceite de girasol'],[150,'ml','de café caliente o agua caliente'],[null,'','Esencia de vainilla y una pizca de sal'],[null,'','Cobertura: 200 g de chocolate y 200 ml de crema (ganache), o dulce de leche']],
+      s:['Prendé el horno a 180 °C y enmantecá y enharina un molde de 24 cm.','Mezclá los secos: harina, cacao, azúcar y sal.','En otro bol batí los huevos con la leche, el aceite y la vainilla. Uní con los secos.','Sumá el café caliente y mezclá: queda una masa bastante líquida, es normal (por eso queda húmeda).','Horneá 40 a 45 minutos, hasta que al pinchar salga apenas húmedo.','Para la ganache, calentá la crema y volcala sobre el chocolate picado; mezclá hasta que brille. Cubrí la torta fría.']},
+    {n:'Tarta de manzana', t:80, v:1, d:1, p:['AR','US'], b:8, i:['manzana','harina','manteca','azúcar','huevo'],
+      q:[[250,'g','de harina 0000 (masa)'],[125,'g','de manteca fría (masa)'],[80,'g','de azúcar (masa)'],[1,'u','huevo (masa)','huevos (masa)'],[5,'u','manzana verde o roja','manzanas verdes o rojas'],[60,'g','de azúcar (relleno)'],[1,'u','cucharadita de canela','cucharaditas de canela'],[30,'g','de manteca (relleno)'],[1,'u','limón (jugo)','limones (jugo)'],[null,'','Mermelada de damasco para abrillantar (opcional)']],
+      s:['Masa: arená la harina con la manteca fría y el azúcar, sumá el huevo y uní. Dejala 30 minutos en la heladera.','Estirala y forrá una tartera de 24 cm.','Pelá las manzanas, cortalas en gajos finos y mezclalas con jugo de limón, azúcar y canela.','Acomodalas en forma de abanico sobre la masa y repartí trocitos de manteca.','Horneá a 180 °C unos 40 a 45 minutos, hasta que la masa esté dorada y las manzanas tiernas.','Si querés, pintala en caliente con mermelada de damasco tibia para que brille.']},
+    {n:'Budín de limón', t:65, v:1, d:1, p:['AR'], b:10, i:['harina','azúcar','huevo','manteca','limón'],
+      q:[[250,'g','de harina leudante'],[200,'g','de azúcar'],[3,'u','huevo','huevos'],[150,'g','de manteca blanda (o 150 ml de aceite)'],[100,'ml','de leche o yogur'],[2,'u','limón (ralladura y jugo)','limones (ralladura y jugo)'],[null,'','Glasé: 150 g de azúcar impalpable con jugo de limón']],
+      s:['Prendé el horno a 180 °C y enmantecá y enharina un molde de budín.','Batí la manteca con el azúcar y la ralladura hasta que quede cremosa. Sumá los huevos de a uno.','Agregá la harina alternando con la leche y el jugo de un limón, mezclando suave.','Volcá en el molde y horneá 45 a 50 minutos, hasta que al pinchar salga seco.','Mezclá el azúcar impalpable con jugo de limón hasta lograr un glasé espeso y cubrí el budín frío.']},
+    {n:'Budín marmolado', t:65, v:1, d:1, p:['AR'], b:10, i:['harina','azúcar','huevo','manteca','cacao'],
+      q:[[250,'g','de harina leudante'],[200,'g','de azúcar'],[3,'u','huevo','huevos'],[150,'g','de manteca blanda'],[150,'ml','de leche'],[30,'g','de cacao amargo'],[null,'','Esencia de vainilla']],
+      s:['Batí la manteca con el azúcar hasta que esté cremosa. Sumá los huevos de a uno y la vainilla.','Agregá la harina alternando con 120 ml de leche.','Separá un tercio de la mezcla y sumale el cacao disuelto en el resto de la leche.','En un molde de budín enmantecado, poné cucharadas alternadas de las dos masas, y pasá un cuchillo en zigzag para marmolar.','Horneá a 180 °C unos 45 a 50 minutos, hasta que al pinchar salga seco.']},
+    {n:'Mousse de chocolate', t:260, tt:'20 min (+ 4 h de heladera)', v:1, d:1, p:['AR','FR'], b:6, i:['chocolate','crema','huevo','azúcar'],
+      q:[[200,'g','de chocolate semiamargo'],[300,'ml','de crema de leche bien fría'],[3,'u','huevo muy fresco','huevos muy frescos'],[40,'g','de azúcar'],[30,'g','de manteca']],
+      s:['Derretí el chocolate con la manteca a baño María y dejalo entibiar.','Sumá las yemas de a una, mezclando.','Batí la crema a medio punto (que forme picos blandos).','Batí las claras a punto nieve con el azúcar.','Incorporá la crema al chocolate con movimientos envolventes, y después las claras, de a poco y sin batir, para no bajar el aire.','Repartí en vasitos y dejala en la heladera al menos 4 horas. Como lleva huevo crudo, usá huevos muy frescos.']},
+    {n:'Churros con dulce de leche', t:50, v:1, d:1, pop:1, p:['AR','ES'], b:6, i:['harina','azúcar','dulce de leche'],
+      q:[[250,'g','de harina 0000'],[250,'ml','de agua'],[30,'g','de manteca'],[1,'u','pizca de sal','pizcas de sal'],[300,'g','de dulce de leche repostero'],[1000,'ml','de aceite para freír'],[null,'','Azúcar para pasar'],[null,'','Una manga con pico de estrella grande (churrera)']],
+      s:['Herví el agua con la manteca y la sal. Sumá la harina de golpe y revolvé con cuchara de madera hasta formar una masa que se despegue de la olla. Dejala entibiar.','Poné la masa en la manga con pico de estrella (y el dulce de leche en otra manga con pico liso).','Calentá el aceite a 180 °C y apretá la manga sobre el aceite, cortando tiras de 12 cm con una tijera.','Freílos dándolos vuelta hasta que estén bien dorados, unos 3 minutos. Escurrilos.','Pasalos por azúcar y rellenalos con dulce de leche haciendo un agujerito en una punta, o mojalos en el dulce. Ideales con chocolate caliente en invierno.']},
+    {n:'Medialunas de manteca', t:300, tt:'5 h (con frío y levado)', v:1, d:1, p:['AR'], b:12, i:['harina','manteca','leche','huevo','azúcar','levadura'],
+      q:[[500,'g','de harina 0000'],[200,'ml','de leche tibia'],[1,'u','huevo','huevos'],[80,'g','de azúcar'],[25,'g','de levadura fresca'],[8,'g','de sal'],[200,'g','de manteca fría (para el hojaldrado)'],[null,'','Ralladura de limón y esencia de vainilla'],[null,'','Almíbar: 100 g de azúcar y 100 ml de agua'],[null,'','Rinde unas 24 medialunas']],
+      s:['Mezclá la harina, el azúcar, la sal, la ralladura, el huevo y la levadura disuelta en la leche. Amasá 10 minutos hasta lograr una masa lisa. Envolvela y llevala 1 hora a la heladera.','Aplastá la manteca fría entre dos papeles hasta formar un cuadrado de 1 cm.','Estirá la masa en un rectángulo, poné la manteca en el centro y cerrá como un sobre.','Estirá en un rectángulo largo y doblá en 3 (como una carta). Envolvé y heladera 30 minutos. Repetí este "pliegue" 2 veces más.','Estirá la masa de 4 mm, cortá triángulos largos y enrollalos desde la base, curvando las puntas.','Dejalas levar en una placa 1 a 2 horas, hasta que dupliquen. Pintalas con huevo.','Horneá a 200 °C unos 15 minutos. Apenas salen, pintalas con almíbar (azúcar y agua hervidos 3 minutos).']},
+    {n:'Bolas de fraile', t:180, tt:'3 h (con el levado)', v:1, d:1, p:['AR'], b:10, i:['harina','levadura','leche','huevo','azúcar','dulce de leche'],
+      q:[[500,'g','de harina 0000'],[250,'ml','de leche tibia'],[2,'u','huevo','huevos'],[60,'g','de azúcar'],[25,'g','de levadura fresca'],[60,'g','de manteca blanda'],[8,'g','de sal'],[400,'g','de dulce de leche o crema pastelera'],[1000,'ml','de aceite para freír'],[null,'','Azúcar para pasar']],
+      s:['Disolvé la levadura en la leche tibia con una cucharada de azúcar.','Mezclá la harina con el resto del azúcar, la sal, los huevos y la levadura. Amasá y sumá la manteca. Amasá 10 minutos hasta que esté lisa y elástica.','Dejala levar tapada 1 hora, hasta que duplique.','Estirala de 1,5 cm y cortá círculos de 7 cm. Ponelos en una placa enharinada y dejalos levar 45 minutos más.','Freílos en aceite a 170 °C (no muy caliente, así se cocinan por dentro), 2 minutos por lado. Escurrilos.','Pasalos por azúcar, hacé un corte al costado y rellenalos con dulce de leche o crema pastelera.']},
+    {n:'Sambayón', t:20, v:1, d:1, p:['AR','IT'], b:4, i:['huevo','azúcar','vino'],
+      q:[[6,'u','yema','yemas'],[90,'g','de azúcar'],[90,'ml','de vino oporto, marsala o vino blanco dulce'],[null,'','Opcional: canela o ralladura de naranja']],
+      s:['Poné en un bol resistente al calor las yemas con el azúcar y batí hasta que blanqueen.','Sumá el vino y llevá el bol a baño María, con el agua apenas hirviendo (que el bol no toque el agua).','Batí sin parar con batidor de mano o eléctrico unos 8 a 10 minutos, hasta que la crema esté espumosa, tibia, haya triplicado su volumen y forme un hilo espeso al levantar el batidor.','Servilo enseguida tibio en copas, o frío sobre frutas o helado. Es el "zabaione" italiano que en Argentina se hizo gusto de heladería.']},
+    {n:'Mazamorra', t:1500, tt:'2 h (+ remojo de la noche anterior)', v:1, d:1, p:['AR'], b:6, i:['maíz pisado','leche','azúcar'],
+      q:[[300,'g','de maíz blanco pisado (para mazamorra)'],[2000,'ml','de agua'],[1000,'ml','de leche'],[150,'g','de azúcar'],[null,'','Esencia de vainilla o una rama de canela'],[null,'','Opcional: miel o dulce de leche para servir']],
+      s:['Dejá el maíz en remojo en abundante agua toda la noche.','Escurrilo, ponelo en una olla con 2 litros de agua fresca y cocinalo a fuego bajo 1 hora y media, hasta que esté tierno. Agregá agua caliente si se seca.','Sumá la leche, el azúcar y la vainilla o canela, y cociná 20 a 30 minutos más, revolviendo, hasta que espese un poco.','Servila tibia o fría. Es un postre criollo muy antiguo, típico de las fechas patrias.']},
+    {n:'Don Pedro', t:5, v:1, d:1, p:['AR'], b:2, i:['helado','nueces','whisky'],
+      q:[[4,'u','bocha de helado de crema americana','bochas de helado de crema americana'],[60,'ml','de whisky'],[40,'g','de nueces picadas'],[null,'','Opcional: dulce de leche o salsa de chocolate']],
+      s:['Poné 2 bochas de helado en cada copa.','Volcá encima el whisky.','Espolvoreá con nueces picadas. Es el postre de bodegón y parrilla por excelencia. (Lleva alcohol: no es para chicos.)']},
+    {n:'Tarta de frutillas', t:180, tt:'1 h (+ 2 h de heladera)', v:1, d:1, p:['AR'], b:8, i:['frutilla','harina','manteca','azúcar','huevo','leche'],
+      q:[[200,'g','de harina 0000 (masa)'],[100,'g','de manteca fría (masa)'],[60,'g','de azúcar (masa)'],[1,'u','huevo (masa)','huevos (masa)'],[500,'ml','de leche (crema pastelera)'],[3,'u','yema (crema pastelera)','yemas (crema pastelera)'],[100,'g','de azúcar (crema pastelera)'],[40,'g','de maicena'],[500,'g','de frutillas'],[null,'','Esencia de vainilla y gelatina de frutilla o mermelada para abrillantar']],
+      s:['Masa: arená la harina con la manteca y el azúcar, sumá el huevo y uní. Heladera 30 minutos.','Forrá una tartera, pinchala y horneala a 180 °C unos 20 minutos, hasta que esté dorada. Dejala enfriar.','Crema pastelera: calentá la leche con la vainilla. Batí las yemas con el azúcar y la maicena, sumá la leche caliente y volvé al fuego revolviendo hasta que espese. Tapala con film y enfriala.','Rellená la masa con la crema.','Cubrí con las frutillas lavadas, secas y cortadas al medio.','Abrillantá con gelatina a punto de cuajar o mermelada tibia, y llevala 2 horas a la heladera.']},
+    {n:'Torta Balcarce', t:240, tt:'1 h 30 min (+ 2 h de heladera)', v:1, d:1, p:['AR'], b:12, i:['huevo','azúcar','harina','dulce de leche','crema','coco rallado'],
+      q:[[6,'u','huevo (bizcochuelo)','huevos (bizcochuelo)'],[180,'g','de azúcar (bizcochuelo)'],[180,'g','de harina leudante'],[500,'g','de dulce de leche repostero'],[500,'ml','de crema de leche'],[50,'g','de azúcar (crema)'],[100,'g','de merenguitos secos'],[80,'g','de nueces o castañas de cajú picadas'],[100,'g','de coco rallado'],[null,'','Almíbar para humedecer: 100 g de azúcar, 150 ml de agua y un chorrito de oporto (opcional)']],
+      s:['Prepará un bizcochuelo de 26 cm con los huevos, el azúcar y la harina (ver receta de bizcochuelo). Dejalo enfriar y cortalo en 3 discos.','Batí la crema con el azúcar a punto chantilly.','Humedecé el primer disco con almíbar y cubrilo con dulce de leche, chantilly, merenguitos partidos y nueces.','Repetí con el segundo disco y tapá con el tercero, también humedecido.','Cubrí toda la torta con chantilly y espolvoreá con coco rallado tostado en los costados y arriba.','Llevala 2 horas a la heladera. Es la torta de cumpleaños argentina por excelencia, nacida en la ciudad de Balcarce.']},
+    {n:'Helado casero de dulce de leche', t:375, tt:'15 min (+ 6 h de freezer)', v:1, d:1, p:['AR'], b:8, i:['crema','dulce de leche','leche condensada|leche'],
+      q:[[500,'ml','de crema de leche bien fría'],[400,'g','de dulce de leche'],[200,'ml','de leche condensada (o 100 ml de leche)'],[null,'','Opcional: trocitos de chocolate o nueces']],
+      s:['Batí la crema fría a medio punto, que forme picos blandos.','Mezclá el dulce de leche con la leche condensada hasta que quede liso.','Uní las dos preparaciones con movimientos envolventes (y sumá el chocolate o las nueces).','Volcá en un recipiente con tapa y llevá al freezer al menos 6 horas.','Sacalo 5 minutos antes de servir. No necesita máquina de helados y queda cremoso.']},
+    /* Tortas */
+    {n:'Torta de zanahoria (carrot cake)', t:90, v:1, d:1, p:['US','AR'], b:12, i:['zanahoria','harina','azúcar','huevo','queso crema','nueces'],
+      q:[[300,'g','de zanahoria rallada fina'],[250,'g','de harina leudante'],[200,'g','de azúcar mascabo o común'],[3,'u','huevo','huevos'],[180,'ml','de aceite de girasol'],[80,'g','de nueces picadas'],[2,'u','cucharadita de canela','cucharaditas de canela'],[300,'g','de queso crema (frosting)'],[80,'g','de manteca blanda (frosting)'],[150,'g','de azúcar impalpable (frosting)'],[null,'','Nuez moscada, jengibre en polvo y una pizca de sal']],
+      s:['Batí los huevos con el azúcar y el aceite hasta integrar.','Sumá la harina con las especias y la sal, y después la zanahoria y las nueces.','Volcá en un molde de 24 cm enmantecado y horneá a 180 °C unos 45 a 50 minutos, hasta que al pinchar salga seco.','Frosting: batí la manteca con el azúcar impalpable y sumá el queso crema frío, sin batir de más.','Cubrí la torta fría con el frosting y decorá con nueces.']},
+    {n:'Selva negra', t:240, tt:'1 h 30 min (+ 2 h de heladera)', v:1, d:1, p:['DE','AR'], b:12, i:['huevo','azúcar','harina','cacao','crema','cereza','chocolate'],
+      q:[[6,'u','huevo','huevos'],[180,'g','de azúcar'],[140,'g','de harina leudante'],[40,'g','de cacao amargo'],[600,'ml','de crema de leche'],[60,'g','de azúcar (crema)'],[400,'g','de cerezas en almíbar (o frescas descarozadas)'],[100,'g','de chocolate para rallar'],[null,'','Almíbar de las cerezas (con un chorrito de kirsch, opcional)']],
+      s:['Bizcochuelo de chocolate: batí los huevos con el azúcar 10 minutos hasta que tripliquen. Incorporá la harina y el cacao tamizados con movimientos envolventes.','Horneá en un molde de 24 cm a 180 °C unos 30 a 35 minutos. Enfrialo y cortalo en 3 discos.','Batí la crema con el azúcar a punto chantilly.','Humedecé cada disco con el almíbar de las cerezas, cubrí con chantilly y cerezas, y repetí.','Cubrí toda la torta con chantilly, decorá con cerezas y chocolate rallado.','Llevala 2 horas a la heladera antes de servir. Es una torta de origen alemán, de la región de la Selva Negra.']},
+    {n:'Torta de naranja', t:70, v:1, d:1, p:['AR'], b:10, i:['naranja','harina','azúcar','huevo'],
+      q:[[2,'u','naranja (ralladura y 200 ml de jugo)','naranjas (ralladura y 200 ml de jugo)'],[250,'g','de harina leudante'],[200,'g','de azúcar'],[3,'u','huevo','huevos'],[150,'ml','de aceite de girasol'],[null,'','Almíbar: 100 ml de jugo de naranja y 80 g de azúcar'],[null,'','Opcional: glasé de azúcar impalpable con jugo de naranja']],
+      s:['Batí los huevos con el azúcar y la ralladura hasta que estén espumosos.','Sumá el aceite y el jugo, y después la harina tamizada.','Horneá en un molde de 24 cm enmantecado a 180 °C unos 40 minutos.','Herví el jugo con el azúcar 3 minutos para el almíbar.','Pinchá la torta caliente con un palito y bañala con el almíbar, así queda bien húmeda. Si querés, cubrila con glasé al enfriarse.']},
+    {n:'Pionono de dulce de leche', t:40, v:1, d:1, p:['AR'], b:8, i:['huevo','azúcar','harina','dulce de leche'],
+      q:[[4,'u','huevo','huevos'],[80,'g','de azúcar'],[60,'g','de harina 0000'],[1,'u','cucharada de miel','cucharadas de miel'],[400,'g','de dulce de leche repostero'],[null,'','Azúcar impalpable o coco rallado para decorar'],[null,'','Versión salada: rellenalo con jamón, queso, lechuga, tomate y mayonesa']],
+      s:['Prendé el horno a 200 °C y forrá una placa de 30 × 40 cm con papel manteca enmantecado.','Batí los huevos con el azúcar y la miel a punto letra, unos 10 minutos.','Incorporá la harina tamizada con movimientos envolventes.','Extendé la mezcla en la placa y horneá 7 a 8 minutos, hasta que esté apenas dorado (si se pasa, se quiebra).','Volcalo sobre un repasador húmedo espolvoreado con azúcar, sacá el papel y enrollalo en caliente con el repasador. Dejalo enfriar así.','Desenrollalo, untá con dulce de leche y volvé a enrollar. Espolvoreá con azúcar impalpable.']},
+    {n:'Torta galesa', t:150, v:1, d:1, p:['AR'], b:16, i:['harina','manteca','azúcar','huevo','pasas de uva','nueces'],
+      q:[[500,'g','de harina leudante'],[250,'g','de manteca blanda'],[250,'g','de azúcar mascabo'],[4,'u','huevo','huevos'],[250,'ml','de leche'],[150,'g','de pasas de uva'],[150,'g','de nueces picadas'],[100,'g','de frutas abrillantadas'],[100,'g','de almendras (opcional)'],[3,'u','cucharada de miel o melaza','cucharadas de miel o melaza'],[null,'','1 cucharadita de canela, ralladura de naranja y un chorrito de coñac o ron']],
+      s:['Remojá las pasas en el coñac o en agua tibia 30 minutos.','Batí la manteca con el azúcar hasta que esté cremosa. Sumá los huevos de a uno y la miel.','Agregá la harina con la canela, alternando con la leche.','Sumá las frutas secas, las pasas escurridas y las abrillantadas, previamente pasadas por harina (así no se van al fondo).','Volcá en un molde de 26 cm forrado con papel y horneá a 160 °C durante 1 hora y media, hasta que al pinchar salga seco.','Dejala enfriar envuelta en papel film: mejora con los días. Es la torta de los colonos galeses de Chubut, que se servía en el té galés.']},
+    {n:'Chajá', t:180, tt:'1 h (+ 2 h de heladera)', v:1, d:1, p:['AR'], b:10, i:['crema','merenguitos','durazno en almíbar','dulce de leche'],
+      q:[[1,'u','bizcochuelo de 24 cm (ver receta de bizcochuelo)','bizcochuelos de 24 cm'],[500,'ml','de crema de leche'],[60,'g','de azúcar'],[1,'u','lata de duraznos en almíbar','latas de duraznos en almíbar'],[150,'g','de merenguitos secos'],[300,'g','de dulce de leche (opcional)']],
+      s:['Cortá el bizcochuelo en 2 o 3 discos y humedecelos con el almíbar de los duraznos.','Batí la crema con el azúcar a punto chantilly.','Armá la torta en capas: bizcochuelo, chantilly (y dulce de leche si querés), duraznos en cubitos y merenguitos partidos.','Cubrí toda la torta con chantilly.','Rompé merenguitos con las manos y cubrí toda la superficie y los costados. Llevala 2 horas a la heladera. Es un postre de origen uruguayo, muy querido en el Río de la Plata.']},
+    /* Tartas dulces */
+    {n:'Tarta de coco y dulce de leche', t:70, v:1, d:1, pop:1, p:['AR'], b:10, i:['harina','manteca','azúcar','huevo','dulce de leche','coco rallado'],
+      q:[[250,'g','de harina leudante (masa)'],[125,'g','de manteca (masa)'],[100,'g','de azúcar (masa)'],[1,'u','huevo (masa)','huevos (masa)'],[400,'g','de dulce de leche repostero'],[200,'g','de coco rallado'],[150,'g','de azúcar (cubierta)'],[2,'u','huevo (cubierta)','huevos (cubierta)']],
+      s:['Masa: batí la manteca con el azúcar, sumá el huevo y la harina, y uní sin amasar. Heladera 20 minutos.','Forrá una tartera de 26 cm con la masa y pinchala.','Cubrí la masa con una capa generosa de dulce de leche.','Mezclá el coco con el azúcar y los huevos hasta formar una pasta, y repartila sobre el dulce de leche.','Horneá a 180 °C unos 35 a 40 minutos, hasta que el coco esté dorado. Dejala enfriar antes de cortar: es la clásica de panadería argentina.']},
+    {n:'Tarta de peras', t:80, v:1, d:1, p:['FR','AR'], b:8, i:['pera','harina','manteca','azúcar','huevo','almendras'],
+      q:[[250,'g','de harina 0000 (masa)'],[125,'g','de manteca fría (masa)'],[80,'g','de azúcar (masa)'],[1,'u','huevo (masa)','huevos (masa)'],[4,'u','pera madura','peras maduras'],[100,'g','de almendras molidas'],[100,'g','de manteca blanda (crema)'],[100,'g','de azúcar (crema)'],[2,'u','huevo (crema)','huevos (crema)']],
+      s:['Masa: arená la harina con la manteca fría y el azúcar, sumá el huevo y uní. Heladera 30 minutos y forrá una tartera de 24 cm.','Crema de almendras (frangipane): batí la manteca con el azúcar, sumá los huevos y las almendras molidas.','Extendé la crema sobre la masa.','Pelá las peras, cortalas al medio, sacales el centro y filetealas a lo ancho sin separar las láminas. Acomodalas sobre la crema en forma de flor.','Horneá a 180 °C unos 40 minutos, hasta que la crema esté dorada e inflada. Es una tarta clásica francesa.']},
+    {n:'Tarta de chocolate', t:240, tt:'1 h (+ 3 h de heladera)', v:1, d:1, p:['AR','FR'], b:10, i:['chocolate','crema','galletitas','manteca'],
+      q:[[250,'g','de galletitas de chocolate'],[100,'g','de manteca derretida'],[300,'g','de chocolate semiamargo'],[300,'ml','de crema de leche'],[30,'g','de manteca (relleno)'],[null,'','Opcional: dulce de leche en la base, frutillas o cacao para decorar']],
+      s:['Procesá las galletitas, mezclalas con la manteca derretida y apretalas en el fondo y los bordes de una tartera desmontable de 24 cm. Heladera 20 minutos.','Si querés, untá la base con una capa de dulce de leche.','Calentá la crema hasta que esté por hervir y volcala sobre el chocolate picado. Esperá 1 minuto y mezclá hasta que esté liso y brillante. Sumá la manteca.','Volcá la ganache sobre la base.','Llevala a la heladera al menos 3 horas, hasta que esté firme. Decorá con cacao o frutillas. No lleva horno en el relleno.']},
+    /* Tartas saladas */
+    {n:'Tarta de verdura', t:60, v:1, p:['AR'], b:6, i:['tapa de tarta|tapas de pascualina','acelga|espinaca','cebolla','huevo','queso'],
+      q:[[2,'u','tapa de tarta','tapas de tarta'],[2,'u','atado de acelga o espinaca','atados de acelga o espinaca'],[1,'u','cebolla','cebollas'],[3,'u','huevo','huevos'],[150,'g','de queso cremoso'],[60,'g','de queso rallado'],[200,'ml','de salsa blanca (opcional)'],[null,'','Sal, pimienta y nuez moscada']],
+      s:['Cociná la acelga sin agua 5 minutos, escurrila, exprimila muy bien y picala.','Rehogá la cebolla picada y sumá la verdura. Dejá enfriar.','Mezclá con los huevos, el queso rallado (y la salsa blanca) y condimentá.','Forrá una tartera con una tapa, volcá el relleno, repartí el queso cremoso en cubos y tapá con la otra masa.','Cerrá con repulgue, pinchá y horneá a 180 °C unos 40 minutos.']},
+    {n:'Tarta de puerros', t:60, v:1, p:['AR','FR'], b:6, i:['tapa de tarta','puerro','huevo','crema','queso'],
+      q:[[1,'u','tapa de tarta','tapas de tarta'],[4,'u','puerro','puerros'],[30,'g','de manteca'],[3,'u','huevo','huevos'],[200,'ml','de crema de leche'],[150,'g','de queso cremoso o gruyere'],[50,'g','de queso rallado'],[null,'','Sal, pimienta y nuez moscada']],
+      s:['Lavá muy bien los puerros (entre las capas suele haber tierra) y cortalos en rodajas finas, la parte blanca y verde clara.','Rehogalos en la manteca a fuego bajo 15 minutos, hasta que estén muy tiernos. Dejalos enfriar.','Batí los huevos con la crema, el queso rallado, sal, pimienta y nuez moscada, y sumá los puerros.','Forrá la tartera con la masa, volcá el relleno y repartí el queso en cubos.','Horneá a 180 °C unos 35 minutos, hasta que el relleno esté firme y dorado.']},
+    {n:'Quiche de cebolla y queso', t:70, v:1, p:['FR','AR'], b:6, i:['tapa de tarta','cebolla','huevo','crema','queso'],
+      q:[[1,'u','tapa de tarta (o masa casera)','tapas de tarta'],[4,'u','cebolla','cebollas'],[30,'g','de manteca'],[3,'u','huevo','huevos'],[250,'ml','de crema de leche'],[150,'g','de queso gruyere, tybo o cremoso'],[100,'g','de panceta (opcional, como la quiche Lorraine)'],[null,'','Sal, pimienta, tomillo y nuez moscada']],
+      s:['Cortá las cebollas en pluma y cocinalas en la manteca a fuego bajo 25 minutos, hasta que estén doradas y dulces. (Si usás panceta, dorala aparte.)','Forrá la tartera con la masa, pinchala y precocinala a 180 °C 10 minutos.','Batí los huevos con la crema, sal, pimienta, tomillo y nuez moscada.','Repartí la cebolla (y la panceta) y el queso rallado sobre la masa, y volcá la mezcla de huevos.','Horneá a 180 °C unos 30 a 35 minutos, hasta que esté firme y dorada. Se come tibia o fría.']},
+    {n:'Tarta de brócoli y queso', t:55, v:1, p:['AR'], b:6, i:['tapa de tarta','brócoli','huevo','queso','cebolla'],
+      q:[[1,'u','tapa de tarta','tapas de tarta'],[500,'g','de brócoli'],[1,'u','cebolla','cebollas'],[3,'u','huevo','huevos'],[150,'ml','de leche o crema'],[150,'g','de queso cremoso'],[50,'g','de queso rallado'],[null,'','Ajo, sal, pimienta y nuez moscada']],
+      s:['Herví el brócoli en ramitos 4 minutos, escurrilo y picalo grueso.','Rehogá la cebolla y el ajo picados, y sumá el brócoli.','Batí los huevos con la leche, el queso rallado y los condimentos, y mezclá con el brócoli.','Forrá la tartera, volcá el relleno y repartí el queso en cubos.','Horneá a 180 °C unos 35 minutos, hasta que esté firme.']},
+    {n:'Tarta caprese', t:45, v:1, p:['AR','IT'], b:6, i:['tapa de tarta','tomate','mozzarella','albahaca','huevo'],
+      q:[[1,'u','tapa de tarta','tapas de tarta'],[4,'u','tomate perita','tomates perita'],[300,'g','de mozzarella'],[2,'u','huevo','huevos'],[100,'ml','de crema o leche'],[null,'','Albahaca fresca, orégano, sal, pimienta y aceite de oliva']],
+      s:['Cortá los tomates en rodajas, salalos y dejalos escurrir 15 minutos sobre papel.','Forrá la tartera con la masa y pinchala.','Batí los huevos con la crema, sal y pimienta, y volcá sobre la masa.','Acomodá alternando rodajas de tomate, mozzarella y hojas de albahaca.','Rociá con aceite de oliva y orégano, y horneá a 180 °C unos 30 minutos. Terminá con albahaca fresca.']},
+    /* Tragos y bebidas */
+    {n:'Fernet con coca', drink:1, alc:1, pop:2, t:3, v:1, p:['AR'], b:1, i:['fernet','gaseosa cola'],
+      q:[[70,'ml','de fernet'],[230,'ml','de gaseosa cola bien fría'],[null,'','Mucho hielo']],
+      s:['Llená un vaso alto (o la clásica botella cortada) con mucho hielo.','Serví el fernet: la proporción más común es 30 % fernet y 70 % cola.','Agregá la cola de a poco, inclinando el vaso, para que no se forme tanta espuma.','Si querés, revolvé suave una sola vez. Es el trago nacional cordobés.']},
+    {n:'Gancia con limón', drink:1, alc:1, t:3, v:1, p:['AR'], b:1, i:['gancia','gaseosa lima-limón|soda','limón'],
+      q:[[80,'ml','de Gancia (aperitivo americano)'],[150,'ml','de gaseosa lima-limón o soda'],[0.5,'u','limón','limones'],[null,'','Hielo']],
+      s:['Poné hielo en un vaso.','Sumá el Gancia y el jugo de medio limón.','Completá con la gaseosa o la soda y decorá con una rodaja de limón.','Versión "batido": licuá el Gancia con jugo de limón, azúcar y hielo hasta que quede espumoso.']},
+    {n:'Vermut con soda', drink:1, alc:1, t:3, v:1, p:['AR','IT','ES'], b:1, i:['vermut','soda'],
+      q:[[90,'ml','de vermut rojo'],[90,'ml','de soda'],[null,'','Hielo, una rodaja de naranja y aceitunas o una cáscara de limón']],
+      s:['Poné hielo en un vaso bajo.','Serví el vermut y completá con soda.','Decorá con una rodaja de naranja o una cáscara de limón.','Acompañalo con aceitunas, maní o papas fritas: es "la hora del vermut", tradición porteña de la tarde.']},
+    {n:'Gin tonic', drink:1, alc:1, t:3, v:1, p:['AR','ES'], b:1, i:['gin','agua tónica','limón|lima'],
+      q:[[60,'ml','de gin'],[200,'ml','de agua tónica bien fría'],[null,'','Mucho hielo y una rodaja de limón, lima o pepino'],[null,'','Opcional: enebro, pimienta en grano o romero']],
+      s:['Llená una copa grande con hielo y revolvé para enfriarla; descartá el agua que se forme.','Serví el gin.','Sumá la tónica despacio, deslizándola por una cuchara para que no pierda burbujas.','Decorá con la rodaja de cítrico (o pepino) y los botánicos que quieras.']},
+    {n:'Aperol spritz', drink:1, alc:1, t:3, v:1, p:['IT','AR'], b:1, i:['aperol','espumante','soda'],
+      q:[[60,'ml','de Aperol'],[90,'ml','de espumante (prosecco o extra brut)'],[30,'ml','de soda'],[null,'','Hielo y una rodaja de naranja']],
+      s:['Llená una copa de vino grande con hielo.','Serví primero el espumante, después el Aperol y por último un chorrito de soda (la proporción clásica es 3-2-1).','Revolvé apenas y decorá con una rodaja de naranja. Es el aperitivo típico del norte de Italia.']},
+    {n:'Mojito', drink:1, alc:1, t:5, v:1, p:['AR'], b:1, i:['ron','menta','lima|limón','azúcar','soda'],
+      q:[[50,'ml','de ron blanco'],[10,'u','hoja de menta o hierbabuena','hojas de menta o hierbabuena'],[0.5,'u','lima o limón (en gajos)','limas o limones'],[2,'u','cucharadita de azúcar','cucharaditas de azúcar'],[60,'ml','de soda'],[null,'','Hielo picado']],
+      s:['En un vaso alto, poné la menta, los gajos de lima y el azúcar.','Machacá suave con un mortero o cuchara, solo para que la menta suelte el aroma (si la rompés mucho, amarga).','Llená de hielo picado y sumá el ron.','Completá con soda, revolvé de abajo hacia arriba y decorá con una ramita de menta. Es un trago de origen cubano.']},
+    {n:'Daiquiri de frutilla', drink:1, alc:1, t:5, v:1, p:['AR'], b:2, i:['ron','frutilla','limón|lima','azúcar'],
+      q:[[100,'ml','de ron blanco'],[250,'g','de frutillas'],[1,'u','limón o lima (jugo)','limones o limas (jugo)'],[3,'u','cucharada de azúcar','cucharadas de azúcar'],[null,'','Mucho hielo']],
+      s:['Lavá las frutillas y sacales el cabito.','Licuá las frutillas con el ron, el jugo de limón, el azúcar y bastante hielo hasta que quede frapé.','Probá y ajustá el dulzor.','Serví en copas y decorá con una frutilla en el borde. Para la versión sin alcohol, reemplazá el ron por agua o jugo.']},
+    {n:'Caipirinha', drink:1, alc:1, t:5, v:1, p:['AR'], b:1, i:['cachaça|vodka','lima|limón','azúcar'],
+      q:[[60,'ml','de cachaça (o vodka para caipiroska)'],[1,'u','lima (o limón sin semillas)','limas'],[2,'u','cucharadita de azúcar','cucharaditas de azúcar'],[null,'','Hielo picado']],
+      s:['Cortá la lima en 8 gajos y sacale la parte blanca del centro (amarga).','Ponela en un vaso bajo con el azúcar y machacá para sacar el jugo.','Llená de hielo picado y sumá la cachaça.','Revolvé bien. Es el trago nacional de Brasil; con vodka se llama caipiroska, muy pedida en Argentina.']},
+    {n:'Destornillador', drink:1, alc:1, t:2, v:1, p:['AR','US'], b:1, i:['vodka','jugo de naranja|naranja'],
+      q:[[50,'ml','de vodka'],[150,'ml','de jugo de naranja (mejor exprimido)'],[null,'','Hielo y una rodaja de naranja']],
+      s:['Poné hielo en un vaso alto.','Sumá el vodka y completá con el jugo de naranja.','Revolvé y decorá con una rodaja de naranja.']},
+    {n:'Margarita', drink:1, alc:1, t:5, v:1, p:['MX','AR'], b:1, i:['tequila','lima|limón'],
+      q:[[50,'ml','de tequila'],[25,'ml','de licor de naranja (triple sec o Cointreau)'],[25,'ml','de jugo de lima o limón'],[null,'','Sal para el borde y hielo']],
+      s:['Pasá una rodaja de lima por el borde de la copa y apoyala sobre un plato con sal.','En una coctelera (o un frasco con tapa) poné el tequila, el licor, el jugo y hielo.','Agitá fuerte 10 segundos.','Colá en la copa con sal. Para versión frozen, licuá todo con hielo.']},
+    {n:'Piña colada', drink:1, alc:1, t:5, v:1, p:['AR'], b:2, i:['ron','ananá','leche de coco'],
+      q:[[100,'ml','de ron blanco'],[200,'ml','de jugo de ananá (o 200 g de ananá)'],[100,'ml','de crema o leche de coco'],[null,'','Hielo y azúcar a gusto']],
+      s:['Licuá el ron, el ananá, la crema de coco y bastante hielo hasta que quede cremoso.','Probá y endulzá si hace falta.','Serví en vasos altos con un triángulo de ananá en el borde. Sin el ron, es un rico batido para chicos.']},
+    {n:'Clericó', drink:1, alc:1, t:130, tt:'10 min (+ 2 h de heladera)', v:1, p:['AR'], b:6, i:['vino blanco','frutilla','durazno|manzana','naranja'],
+      q:[[750,'ml','de vino blanco (una botella)'],[1,'u','durazno','duraznos'],[1,'u','manzana','manzanas'],[1,'u','naranja','naranjas'],[200,'g','de frutillas'],[1,'u','banana (opcional)','bananas (opcional)'],[50,'g','de azúcar'],[250,'ml','de soda o gaseosa lima-limón']],
+      s:['Cortá toda la fruta en cubitos chicos.','Ponela en una jarra con el azúcar y el jugo de la naranja, y mezclá.','Sumá el vino blanco y llevá a la heladera al menos 2 horas, así la fruta toma el vino.','Al servir, agregá hielo y la soda. Se sirve con una cuchara para comer la fruta: el trago de verano y de las fiestas.']},
+    {n:'Sangría', drink:1, alc:1, t:130, tt:'10 min (+ 2 h de heladera)', v:1, p:['ES','AR'], b:6, i:['vino tinto','naranja','limón','manzana'],
+      q:[[750,'ml','de vino tinto'],[1,'u','naranja','naranjas'],[1,'u','limón','limones'],[1,'u','manzana','manzanas'],[60,'g','de azúcar'],[1,'u','rama de canela','ramas de canela'],[250,'ml','de soda o gaseosa lima-limón'],[50,'ml','de brandy o coñac (opcional)']],
+      s:['Cortá la naranja y el limón en rodajas finas y la manzana en cubitos.','En una jarra mezclá la fruta con el azúcar, la canela (y el brandy).','Sumá el vino tinto, revolvé y llevá a la heladera 2 horas.','Al servir, agregá hielo y la soda. Es la bebida española de los veranos.']},
+    {n:'Submarino', drink:1, t:5, v:1, p:['AR'], b:1, i:['leche','chocolate'],
+      q:[[250,'ml','de leche'],[1,'u','barrita de chocolate para taza (unos 25 g)','barritas de chocolate para taza'],[null,'','Azúcar a gusto']],
+      s:['Calentá la leche hasta que esté bien caliente, sin que hierva.','Servila en un vaso alto y "sumergí" la barrita de chocolate (de ahí el nombre).','Revolvé hasta que se derrita y endulzá a gusto. El clásico de las confiterías argentinas para el invierno.']},
+    {n:'Licuado de banana', drink:1, t:5, v:1, p:['AR'], b:2, i:['banana','leche'],
+      q:[[2,'u','banana madura','bananas maduras'],[400,'ml','de leche fría'],[1,'u','cucharada de azúcar o miel (opcional)','cucharadas de azúcar o miel'],[null,'','Opcional: un puñado de avena, cacao o una bocha de helado']],
+      s:['Pelá las bananas y cortalas en trozos.','Licuá con la leche fría y el azúcar hasta que quede espumoso.','Servilo enseguida (la banana se oscurece con el tiempo). Con frutillas o durazno también queda riquísimo.']},
+    {n:'Limonada con menta y jengibre', drink:1, t:10, v:1, p:['AR'], b:4, i:['limón','menta','jengibre','azúcar'],
+      q:[[4,'u','limón','limones'],[1,'u','puñado de menta','puñados de menta'],[1,'u','trozo de jengibre de 2 cm','trozos de jengibre de 2 cm'],[80,'g','de azúcar o miel (o edulcorante)'],[1000,'ml','de agua fría'],[null,'','Hielo']],
+      s:['Exprimí los limones y pelá el jengibre.','Licuá el jugo con la menta, el jengibre, el azúcar y la mitad del agua.','Colá y sumá el resto del agua.','Serví en una jarra con hielo, rodajas de limón y hojas de menta. Ideal para el calor, sin alcohol.']},
+    {n:'Tereré', drink:1, nonut:1, t:5, v:1, p:['AR'], b:1, i:['yerba','limón|naranja|menta'],
+      q:[[1,'u','mate y bombilla','mates y bombillas'],[null,'','Yerba mate (3/4 del mate)'],[1000,'ml','de agua bien fría o jugo de pomelo, limón o naranja'],[null,'','Yuyos frescos: menta, cedrón o burrito, y hielo']],
+      s:['Llená 3/4 del mate con yerba, como para un mate común.','Prepará una jarra con agua bien fría, hielo y los yuyos machacados (o jugo de cítricos).','Cebá con el agua fría igual que el mate caliente, sin mover la bombilla.','Es la forma de tomar mate en verano en el Litoral, Paraguay y el norte argentino.']}
   ];
 
-  var selected = new Set(['huevo','papa','cebolla','jamón','queso']);
+  var selected = new Set();
   var custom = [];
   var home = 'AR';
   var serv = 4;
@@ -991,18 +1310,29 @@ header.top h1{font-size:1.7rem; margin:0}
   };
   var DIET_KEYS = Object.keys(DIETS);
   function dietOk(r){ return DIETS[diet].ok(r) && occOk(r); }
+  /* Comidas, postres o tragos */
+  var kind = 'comidas';
+  try { var k0 = localStorage.getItem('que-comemos-tipo'); if (['comidas','postres','tragos'].indexOf(k0) !== -1) kind = k0; } catch (e) {}
+  function kindOk(r){ return kind === 'tragos' ? !!r.drink : kind === 'postres' ? (!!r.d && !r.drink) : (!r.d && !r.drink); }
+  function renderKind(){
+    var el = document.getElementById('kind-seg');
+    if (!el) return;
+    el.innerHTML = [['comidas','🍽️ Comidas'],['postres','🍰 Postres'],['tragos','🍹 Tragos']].map(function(k){
+      return '<button type="button" data-kind="' + k[0] + '" aria-pressed="' + (kind === k[0]) + '">' + k[1] + '</button>';
+    }).join('');
+  }
   /* Ocasiones: cada una agrupa recetas por nombre */
   var OCCASIONS = [
     ['todas','🍽️ Todas', null],
-    ['romantica','❤️ Cena romántica', /risotto|salmón|langostinos|carbonara|sorrentinos|ravioles|pollo al champiñón|caprese|bruschetta|ñoquis de ricota|flan|panqueques con dulce|paella|rogel/i],
-    ['vianda','💼 Vianda o almuerzo laboral', /tarta|milanesa|ensalada (?!de frutas)|tortilla|empanadas|wok|arroz con pollo|salpicón|hamburguesas de lentejas|pollo grillado|frittata|tabule|fideos con atún|zapallitos rellenos|morrones rellenos|albóndigas|canelones|lasaña|pastel de papa|guiso de garbanzos|curry/i],
-    ['cumple','🎂 Cumpleaños o para muchos', /empanadas|pizza|fugazzeta|sándwich|choripán|chocotorta|alfajores|bizcochuelo|tarta|pastafrola|matambre|hamburguesas caseras|tortas fritas|chipá|pastelitos|lasaña|paella|asado criollo|rogel/i],
-    ['amigos','🍻 Con amigos', /asado criollo|choripán|provoleta|fugazzeta|pizza|empanadas|hamburguesas caseras|matambre a la pizza|rabas|lomito|paella|chimichurri|salsa criolla|berenjenas en escabeche|sándwich de milanesa/i],
+    ['romantica','❤️ Cena romántica', /mousse|sambayón|don pedro|risotto|salmón|langostinos|carbonara|sorrentinos|ravioles|pollo al champiñón|caprese|bruschetta|ñoquis de ricota|flan|panqueques con dulce|paella|rogel|tiramisú|panna cotta|saltimbocca|ossobuco|pesto|cacio e pepe/i],
+    ['vianda','💼 Vianda o almuerzo laboral', /quiche|tarta|milanesa|ensalada (?!de frutas)|tortilla|empanadas|wok|arroz con pollo|salpicón|hamburguesas de lentejas|pollo grillado|frittata|tabule|fideos con atún|zapallitos rellenos|morrones rellenos|albóndigas|canelones|lasaña|pastel de papa|guiso de garbanzos|curry/i],
+    ['cumple','🎂 Cumpleaños o para muchos', /selva negra|chajá|pionono|carrot|torta de naranja|tarta de coco|torta balcarce|torta de chocolate|lemon pie|budín|medialunas|bolas de fraile|panchos|nachos|brownies|cookies|cheesecake|alitas|empanadas|pizza|fugazzeta|sándwich|choripán|chocotorta|alfajores|bizcochuelo|tarta|pastafrola|matambre|hamburguesas caseras|tortas fritas|chipá|pastelitos|lasaña|paella|asado criollo|rogel/i],
+    ['amigos','🍻 Con amigos', /fernet|gin tonic|vermut|mojito|caipirinha|aperol|nachos|tacos|fajitas|quesadillas|burritos|alitas|costillitas|pulled pork|panchos|asado criollo|choripán|provoleta|fugazzeta|pizza|empanadas|hamburguesas caseras|matambre a la pizza|rabas|lomito|paella|chimichurri|salsa criolla|berenjenas en escabeche|sándwich de milanesa/i],
     ['domingo','👨‍👩‍👧 Domingo en familia', /ravioles|sorrentinos|ñoquis|fideos caseros|tallarines con tuco|puchero|pollo al horno|carne al horno|canelones|lasaña|asado criollo|bondiola|cerdo a la riojana|matambre|guiso|vacío|cazuela/i],
-    ['fiestas','🎄 Fiestas', /vitel toné|matambre arrollado|salpicón|ensaladilla rusa|ensalada rusa|tomates rellenos|pollo en escabeche|lechón|carne al horno|pastafrola|rogel|budín|torta de ricota|alfajores|flan|ensalada de frutas/i],
-    ['chicos','🧒 Para chicos', /milanesa|hamburguesa|panqueques|pizza|fideos con salsa|puré|tortilla de papa|omelette|empanadas de jamón|tostado|albóndigas|ñoquis|arroz con pollo|pollo al horno|chocotorta|alfajores|bizcochuelo|ensalada de frutas|tostadas francesas|budín/i],
-    ['patrias','🇦🇷 Fechas patrias', /locro|empanadas|pastelitos|carbonada|humita|tamales|asado criollo|choripán|tortas fritas|pastafrola/i],
-    ['lluvia','🌧️ Día de lluvia', /tortas fritas|guiso|locro|sopa|puchero|carbonada|buseca|minestrone|guiso de lentejas|lentejas a la|polenta|cazuela|chipá|budín|panqueques|pastelitos|niños envueltos/i]
+    ['fiestas','🎄 Fiestas', /torta galesa|pionono|selva negra|torta balcarce|lemon pie|sambayón|helado casero|vitel toné|matambre arrollado|salpicón|ensaladilla rusa|ensalada rusa|tomates rellenos|pollo en escabeche|lechón|carne al horno|pastafrola|rogel|budín|torta de ricota|alfajores|flan|ensalada de frutas/i],
+    ['chicos','🧒 Para chicos', /panchos|pancakes|mac and cheese|quesadillas|cookies|brownies|milanesa|hamburguesa|panqueques|pizza|fideos con salsa|puré|tortilla de papa|omelette|empanadas de jamón|tostado|albóndigas|ñoquis|arroz con pollo|pollo al horno|chocotorta|alfajores|bizcochuelo|ensalada de frutas|tostadas francesas|budín/i],
+    ['patrias','🇦🇷 Fechas patrias', /mazamorra|locro|empanadas|pastelitos|carbonada|humita|tamales|asado criollo|choripán|tortas fritas|pastafrola/i],
+    ['lluvia','🌧️ Día de lluvia', /churros|bolas de fraile|tortas fritas|guiso|locro|sopa|puchero|carbonada|buseca|minestrone|guiso de lentejas|lentejas a la|polenta|cazuela|chipá|budín|panqueques|pastelitos|niños envueltos/i]
   ];
   var occasion = 'todas';
   try { var oc0 = localStorage.getItem('que-comemos-ocasion'); if (oc0 && OCCASIONS.some(function(o){ return o[0] === oc0; })) occasion = oc0; } catch (e) {}
@@ -1015,6 +1345,13 @@ header.top h1{font-size:1.7rem; margin:0}
       return '<button type="button" class="chip" data-occ="' + o[0] + '" aria-pressed="' + (occasion === o[0]) + '">' + o[1] + '</button>';
     }).join('');
   }
+  document.getElementById('kind-seg').addEventListener('click', function(e){
+    var b = e.target.closest('button[data-kind]');
+    if (!b) return;
+    kind = b.getAttribute('data-kind');
+    try { localStorage.setItem('que-comemos-tipo', kind); } catch (er) {}
+    renderKind(); renderResults();
+  });
   document.getElementById('occ-seg').addEventListener('click', function(e){
     var b = e.target.closest('button[data-occ]');
     if (!b) return;
@@ -1111,9 +1448,9 @@ header.top h1{font-size:1.7rem; margin:0}
   /* Ingredientes secundarios: si faltan, la receta se puede hacer igual (salvo que den nombre al plato) */
   var SECONDARY = {'cebolla':1,'ajo':1,'morrón':1,'zanahoria':1,'cebolla de verdeo':1,'perejil':1,'apio':1,'aceitunas':1,'albahaca':1,'limón':1,'queso rallado':1,'panceta':1,'chorizo colorado':1,'tomate|salsa de tomate':1,'arvejas':1,'leche':1,'manteca':1};
   /* Recetas donde un ingrediente "secundario" es en realidad indispensable */
-  var MAIN_OVERRIDE = {'Puré de papa':['leche'], 'Tortas fritas':['manteca'], 'Morrones asados en conserva':['ajo'], 'Papas a la provenzal':['ajo','perejil'], 'Chimichurri casero':['perejil','ajo'], 'Pasta al pomodoro':['tomate|salsa de tomate'], 'Shakshuka':['tomate|salsa de tomate'], 'Pollo a la cacciatora':['tomate|salsa de tomate'], 'Langostinos al ajillo':['ajo'], 'Flan casero':['leche'], 'Panqueques':['leche'], 'Tostadas francesas':['leche'], 'Budín de pan':['leche'], 'Croquetas de jamón':['leche','manteca'], 'Pisto manchego':['morrón','cebolla'], 'Spaghetti a la carbonara':['panceta','queso rallado'], 'Gazpacho':['morrón']};
+  var MAIN_OVERRIDE = {'Puré de papa':['leche'], 'Pasta al pesto':['albahaca'], 'Cacio e pepe':['queso rallado'], "Spaghetti all'amatriciana":['panceta','tomate|salsa de tomate'], 'Pasta alla Norma':['tomate|salsa de tomate'], 'Ossobuco a la milanesa':['tomate|salsa de tomate'], 'Tortas fritas':['manteca'], 'Morrones asados en conserva':['ajo'], 'Papas a la provenzal':['ajo','perejil'], 'Chimichurri casero':['perejil','ajo'], 'Pasta al pomodoro':['tomate|salsa de tomate'], 'Shakshuka':['tomate|salsa de tomate'], 'Pollo a la cacciatora':['tomate|salsa de tomate'], 'Langostinos al ajillo':['ajo'], 'Flan casero':['leche'], 'Panqueques':['leche'], 'Tostadas francesas':['leche'], 'Budín de pan':['leche'], 'Croquetas de jamón':['leche','manteca'], 'Pisto manchego':['morrón','cebolla'], 'Spaghetti a la carbonara':['panceta','queso rallado'], 'Gazpacho':['morrón']};
   /* Recetas donde la guarnición se puede cambiar o dejar de lado */
-  var EXTRA_SECONDARY = {'Tamales':['morrón'], 'Humitas en chala':['zapallo','cebolla'], 'Chipá':['leche'], 'Torta de ricota':['limón'], 'Ensalada de frutas':['manzana'], 'Morrones rellenos':['arroz','queso'], 'Tomates rellenos':['arroz','huevo','mayonesa'], 'Berenjenas rellenas':['queso'], 'Vitel toné':['crema'], 'Cazuela de pollo':['zapallo','choclo','papa'], 'Cerdo a la riojana':['arvejas'], 'Pejerrey al horno':['papa','limón'], 'Dorado a la parrilla':['limón'], 'Lomito completo':['jamón','queso','lechuga','tomate','huevo'], 'Sándwich de milanesa':['lechuga','tomate'], 'Hamburguesas caseras':['cebolla','queso','lechuga','tomate'], 'Sorrentinos de jamón y queso':['ricota'], 'Canelones de carne':['leche','cebolla'], 'Asado criollo':['vacío','chorizo','morcilla'], 'Puchero':['batata','choclo','repollo','zapallo','zanahoria'], 'Matambre arrollado':['zanahoria','morrón'], 'Buseca':['zanahoria'], 'Tarta de atún':['morrón'], 'Salpicón de pollo':['zanahoria','mayonesa','morrón','cebolla'], 'Sopa de pollo con fideos':['apio','zanahoria'], 'Empanadas cordobesas':['papa'], 'Pollo grillado con ensalada':['lechuga','tomate'], 'Bife a la plancha con ensalada mixta':['lechuga','tomate','cebolla'], 'Hamburguesas al plato con ensalada':['lechuga','tomate'], 'Brochettes de pollo y verduras':['zucchini|zapallito'], 'Salmón con brócoli':['brócoli']};
+  var EXTRA_SECONDARY = {'Torta de zanahoria (carrot cake)':['nueces','queso crema'], 'Selva negra':['chocolate'], 'Torta galesa':['nueces','pasas de uva'], 'Chajá':['dulce de leche'], 'Tarta de peras':['almendras'], 'Tarta de verdura':['queso','cebolla'], 'Tarta de brócoli y queso':['cebolla'], 'Tarta caprese':['albahaca','huevo'], 'Don Pedro':['nueces'], 'Lemon pie':['maicena'], 'Tarta de manzana':['huevo'], 'Tarta de frutillas':['leche'], 'Focaccia de masa madre':['romero'], 'Pan de hamburguesa de masa madre':['leche','huevo','manteca'], 'Pan de molde de masa madre':['leche','manteca'], 'Masa madre casera (cómo hacerla)':['harina'], 'Tacos de carne':['cilantro','lima|limón','cebolla'], 'Fajitas de pollo':['morrón'], 'Burritos':['arroz','porotos negros|porotos','queso'], 'Guacamole':['tomate','cebolla morada|cebolla'], 'Enchiladas de pollo':['cebolla'], 'Pulled pork (cerdo desmechado)':['pan','cebolla'], 'Pollo frito estilo americano':['limón','leche'], 'Nachos con cheddar y guacamole':['palta'], 'Risotto a la milanesa (con azafrán)':['azafrán'], 'Ossobuco a la milanesa':['apio','zanahoria'], 'Saltimbocca a la romana':['salvia','manteca'], 'Pasta alla Norma':['queso rallado'], 'Pasta e fagioli':['apio'], 'Calzone':['ricota','salsa de tomate'], 'Ñoquis a la sorrentina':['albahaca'], 'Spaghetti aglio, olio e peperoncino':['ají molido','aceite de oliva'], 'Focaccia':['romero'], 'Tamales':['morrón'], 'Humitas en chala':['zapallo','cebolla'], 'Chipá':['leche'], 'Torta de ricota':['limón'], 'Ensalada de frutas':['manzana'], 'Morrones rellenos':['arroz','queso'], 'Tomates rellenos':['arroz','huevo','mayonesa'], 'Berenjenas rellenas':['queso'], 'Vitel toné':['crema'], 'Cazuela de pollo':['zapallo','choclo','papa'], 'Cerdo a la riojana':['arvejas'], 'Pejerrey al horno':['papa','limón'], 'Dorado a la parrilla':['limón'], 'Lomito completo':['jamón','queso','lechuga','tomate','huevo'], 'Sándwich de milanesa':['lechuga','tomate'], 'Hamburguesas caseras':['cebolla','queso','lechuga','tomate'], 'Sorrentinos de jamón y queso':['ricota'], 'Canelones de carne':['leche','cebolla'], 'Asado criollo':['vacío','chorizo','morcilla'], 'Puchero':['batata','choclo','repollo','zapallo','zanahoria'], 'Matambre arrollado':['zanahoria','morrón'], 'Buseca':['zanahoria'], 'Tarta de atún':['morrón'], 'Salpicón de pollo':['zanahoria','mayonesa','morrón','cebolla'], 'Sopa de pollo con fideos':['apio','zanahoria'], 'Empanadas cordobesas':['papa'], 'Pollo grillado con ensalada':['lechuga','tomate'], 'Bife a la plancha con ensalada mixta':['lechuga','tomate','cebolla'], 'Hamburguesas al plato con ensalada':['lechuga','tomate'], 'Brochettes de pollo y verduras':['zucchini|zapallito'], 'Salmón con brócoli':['brócoli']};
   function isSecondary(r, ing){
     if (EXTRA_SECONDARY[r.n] && EXTRA_SECONDARY[r.n].indexOf(ing) !== -1) return true;
     if (!SECONDARY[ing]) return false;
@@ -1179,10 +1516,48 @@ header.top h1{font-size:1.7rem; margin:0}
 
   /* Datos nutricionales aproximados: se calculan con las cantidades de cada receta (valores cada 100 g: kcal, proteínas, carbohidratos, grasas, fibra; w = peso de 1 unidad en g) */
   var NUT = [
+    [/hojas? de menta|puñados? de menta/, 44,3,8,.7,7, 1],
+    [/cucharaditas? de azúcar/, 387,0,100,0,0, 5],
+    [/cucharadas? de azúcar|cucharadas? de miel/, 387,0,100,0,0, 12],
+    [/^(lima|limón|limones|limas)( |$)|lima o limón|limón o lima|limones o limas/, 29,1,9,.3,3, 60],
     [/^de agua|^de sal$|sal gruesa|levadura/, 0,0,0,0,0],
     [/dulce de leche/, 315,7,55,7,0],
     [/dulce de membrillo|dulce de batata/, 270,0,68,0,1],
     [/queso crema/, 250,6,4,24,0],
+    [/fernet/, 290,0,25,0,0],
+    [/vodka|gin|ron blanco|tequila|cachaça|brandy/, 230,0,0,0,0],
+    [/gaseosa|agua tónica/, 40,0,10,0,0],
+    [/^de soda/, 0,0,0,0,0],
+    [/vermut|gancia/, 150,0,15,0,0],
+    [/aperol|licor de naranja/, 200,0,30,0,0],
+    [/espumante/, 80,0,1.5,0,0],
+    [/jugo de naranja|jugo de ananá/, 45,.7,10,.2,.2],
+    [/barrita de chocolate/, 540,6,58,31,7, 25],
+    [/bizcochuelo de/, 300,7,55,5,1, 600],
+    [/frutas abrillantadas|cerezas/, 300,0,75,0,2],
+    [/almendras/, 600,21,20,50,12],
+    [/puerro/, 61,1.5,14,.3,1.8, 150],
+    [/helado/, 210,4,25,11,0, 70],
+    [/whisky/, 250,0,0,0,0],
+    [/merenguitos/, 390,5,92,0,0],
+    [/leche condensada/, 320,8,54,8,0],
+    [/coco rallado/, 660,7,24,64,16],
+    [/nueces|castañas/, 650,15,14,65,7],
+    [/masa madre/, 180,5,38,.6,1.5],
+    [/nachos|totopos/, 500,7,63,25,5],
+    [/tortilla de trigo|tortillas de trigo|tortilla chica|tortilla de maíz/, 300,8,50,7,3, 40],
+    [/palta/, 160,2,9,15,7, 180],
+    [/salsa barbacoa/, 170,1,40,1,1],
+    [/chips de chocolate|chocolate/, 520,6,58,30,7],
+    [/cacao/, 230,20,58,14,33],
+    [/costillitas|pechito/, 170,11,0,14,0],
+    [/alitas/, 220,18,0,16,0],
+    [/pan de pancho|pan de hamburguesa|pan de lomito/, 270,9,50,4,2, 60],
+    [/mascarpone/, 430,5,4,44,0],
+    [/gelatina/, 335,85,0,0,0],
+    [/vainillas/, 400,8,80,4,1],
+    [/osobuco/, 150,20,0,7,0, 350],
+    [/escalope/, 150,22,0,6,0, 80],
     [/galletitas/, 470,6,70,18,3],
     [/maicena|fécula/, 380,0,91,0,1],
     [/masa de hojaldre/, 420,6,40,26,1, 400],
@@ -1200,7 +1575,7 @@ header.top h1{font-size:1.7rem; margin:0}
     [/leche/, 61,3.2,4.8,3.3,0, 15],
     [/yema/, 322,16,3.6,27,0, 17],
     [/huevo/, 143,12.6,.7,9.5,0, 55],
-    [/jamón crudo/, 250,26,0,16,0],
+    [/jamón crudo/, 250,26,0,16,0, 15],
     [/jamón/, 145,18,1.5,7,0, 20],
     [/panceta|guanciale/, 460,14,0,45,0],
     [/chorizo colorado/, 450,24,2,38,0],
@@ -1294,7 +1669,8 @@ header.top h1{font-size:1.7rem; margin:0}
     var t = [0,0,0,0,0], hasOil = false, deep = false;
     r.q.forEach(function(it){
       var name = String(it[2]).toLowerCase();
-      if (/opcional/.test(name)) return;
+      if (/opcional|para marinar/.test(name)) return;
+      if (/queda la mitad/.test(name)) it = [it[0] / 2, it[1], it[2], it[3]];
       if (/para freír|para confitar/.test(name)){ deep = true; return; }
       if (it[0] == null){
         NUT_EXTRA.some(function(e){
@@ -1315,7 +1691,7 @@ header.top h1{font-size:1.7rem; margin:0}
       }
     });
     var steps = r.s.join(' ').toLowerCase();
-    if (!hasOil && /aceite|sofre|salte|dor/.test(steps)) for (var j = 0; j < 5; j++) t[j] += [884,0,0,100,0][j] * 13 * Math.max(1, r.b / 2) / 100;
+    if (!r.drink && !hasOil && /aceite|sofre|salte|dor/.test(steps)) for (var j = 0; j < 5; j++) t[j] += [884,0,0,100,0][j] * 13 * Math.max(1, r.b / 2) / 100;
     if (deep || /(^|[^a-z])fre[ií]/.test(steps)) t[0] += 90 * r.b, t[3] += 10 * r.b;
     return t.map(function(x){ return x / r.b; });
   }
@@ -1329,9 +1705,65 @@ header.top h1{font-size:1.7rem; margin:0}
       '</table><p class="note">Valores aproximados, calculados con las cantidades de la receta. No reemplazan el consejo de un profesional de la salud.</p></div>';
   }
 
+  var DATOS = {"Ñoquis de papa": "En Argentina y Uruguay se comen ñoquis el 29 de cada mes, con un billete debajo del plato para atraer la plata. Una de las explicaciones es que a fin de mes, antes de cobrar, la papa y la harina eran lo más barato.", "Ñoquis de ricota": "La costumbre de los ñoquis del 29 vale también para los de ricota: lo importante es el billete debajo del plato.", "Milanesa a la napolitana": "No viene de Nápoles: según la historia más difundida, nació en Buenos Aires, en un restaurante llamado Nápoli, cuando le agregaron jamón, queso y salsa a una milanesa.", "Milanesas fritas": "La milanesa llegó con los inmigrantes italianos y viene de la \"cotoletta alla milanese\". En Argentina se volvió tan nuestra que tiene día propio: el 3 de mayo.", "Fugazzeta": "\"Fugazza\" viene de \"fugassa\", como le dicen en Génova a la focaccia. La fugazzeta rellena con queso es un invento de las pizzerías porteñas.", "Pizza casera": "La pizza \"de molde\", alta y con mucho queso, es un estilo argentino: la trajeron los inmigrantes italianos pero acá se transformó.", "Locro": "El locro tiene origen en los pueblos andinos, antes de la llegada de los españoles. Hoy es el plato patrio por excelencia del 25 de Mayo y del 9 de Julio.", "Pastelitos": "Los pastelitos de membrillo o batata son el dulce tradicional de las fechas patrias. Se dice que se vendían en las calles de Buenos Aires en mayo de 1810.", "Empanadas tucumanas": "En Famaillá, Tucumán, se hace todos los años la Fiesta Nacional de la Empanada, donde compiten las mejores empanaderas.", "Empanadas salteñas": "Las salteñas se comen inclinadas porque son muy jugosas. En Salta dicen que una buena empanada te tiene que chorrear el jugo hasta el codo.", "Chimichurri casero": "Nadie sabe bien de dónde viene su nombre. Hay varias leyendas, como la de un inglés llamado \"Jimmy\" que preparaba una salsa parecida, pero ninguna está probada.", "Provoleta": "La provoleta a la parrilla es un invento argentino: un queso tipo provolone pensado para que no se derrita del todo sobre las brasas.", "Matambre arrollado": "El nombre \"matambre\" vendría de \"mata hambre\": era un corte que se comía rápido para aguantar hasta el asado.", "Matambre a la pizza": "El matambre a la pizza es una creación argentina que mezcla dos pasiones nacionales: la parrilla y la pizza.", "Humita en olla": "\"Humita\" viene del quechua \"humint’a\". Es una comida de los pueblos andinos que se sigue preparando igual hace siglos.", "Humitas en chala": "Las humitas se envuelven en la chala, la hoja que cubre el choclo: así no se desperdicia nada de la planta.", "Chipá": "El chipá es de origen guaraní y se come mucho en el Litoral, Paraguay y el sur de Brasil. Se hace con almidón de mandioca, por eso es naturalmente sin trigo.", "Tortas fritas": "En Argentina y Uruguay hay una tradición: cuando llueve, se hacen tortas fritas para acompañar el mate.", "Chocotorta": "La chocotorta nació en 1982 en una agencia de publicidad: la creó una publicista para promocionar unas galletitas de chocolate y un queso crema.", "Alfajores de maicena": "El alfajor llegó con los españoles, que lo habían aprendido de los árabes. Argentina es hoy uno de los países que más alfajores consume en el mundo.", "Panqueques con dulce de leche": "Según una leyenda, el dulce de leche nació por accidente en 1829, cuando a una criada se le olvidó una olla de leche con azúcar en el fuego. Varios países se disputan su origen.", "Vitel toné": "Viene del \"vitello tonnato\" del Piamonte, en Italia. En Argentina se convirtió en un clásico infaltable de la mesa de Navidad.", "Puchero": "El puchero desciende del cocido y la olla podrida españoles. Su nombre viene de la olla de barro en la que se cocinaba.", "Paella valenciana": "\"Paella\" es en realidad el nombre de la sartén ancha y baja en la que se cocina, no de la comida.", "Tortilla de papa": "En España hay un debate eterno: tortilla con cebolla o sin cebolla. Hay fanáticos de los dos bandos.", "Gazpacho": "El gazpacho es de Andalucía, en el sur de España, donde hace mucho calor: por eso se toma bien frío.", "Spaghetti a la carbonara": "Su origen se discute, pero se popularizó en Roma a mediados del siglo XX. La receta original no lleva crema.", "Tiramisú": "\"Tiramisú\" significa \"levantame\" en italiano, por la energía que da el café. Nació en la región del Véneto.", "Pasta al pesto": "\"Pesto\" viene del italiano \"pestare\", que significa machacar: tradicionalmente se hace en un mortero de mármol en Génova.", "Cacio e pepe": "Es una receta de los pastores romanos: llevaban queso y pimienta porque no se echaban a perder durante sus largos viajes.", "Ossobuco a la milanesa": "\"Ossobuco\" significa \"hueso hueco\" en italiano: el hueso tiene tuétano adentro, que se come con cucharita.", "Ensalada caprese": "Tiene los colores de la bandera italiana: el rojo del tomate, el blanco de la mozzarella y el verde de la albahaca.", "Nachos con cheddar y guacamole": "Los nachos se inventaron en 1943 en México: un mozo llamado Ignacio \"Nacho\" Anaya improvisó un plato con lo que tenía, y le pusieron su nombre.", "Guacamole": "\"Guacamole\" viene del náhuatl, el idioma de los aztecas: \"ahuacatl\" (palta) y \"molli\" (salsa).", "Fajitas de pollo": "\"Fajita\" viene de \"faja\", el corte de carne que usaban los vaqueros mexicanos en Texas, parecido a nuestra entraña.", "Chili con carne": "El chili con carne es el plato oficial del estado de Texas, en Estados Unidos.", "Brownies": "Se dice que el brownie nació a fines del siglo XIX en un hotel de Chicago, como una torta fácil de llevar en una vianda.", "Cheesecake": "Ya en la antigua Grecia se preparaban tortas de queso, y según se cuenta se les daban a los atletas olímpicos.", "Mac and cheese": "Los fideos con queso se hicieron populares en Estados Unidos en el siglo XIX, y hoy son uno de los platos más comunes en las casas de ese país.", "Hummus": "\"Hummus\" significa \"garbanzo\" en árabe. Varios países de Medio Oriente se disputan quién lo inventó.", "Asado criollo": "El asado nació con los gauchos en las llanuras, que cocinaban la carne al fuego sobre estacas. Hoy es el ritual de los domingos en Argentina.", "Choripán": "El choripán es el clásico de la cancha y de las ferias. Se arma con chorizo a la parrilla y pan francés, y se acompaña con chimichurri o salsa criolla.", "Risotto a la milanesa (con azafrán)": "Según la leyenda, el risotto amarillo nació en 1574, cuando un pintor que usaba azafrán para colorear los vitrales de la catedral de Milán se lo agregó al arroz de una boda."};
+  /* Votación por WhatsApp (familia o amigos) */
+  var votes = [];
+  try { var v0 = JSON.parse(localStorage.getItem('que-comemos-votos') || '[]'); if (Array.isArray(v0)) votes = v0.slice(0, 4); } catch (e) {}
+  function saveVotes(){ try { localStorage.setItem('que-comemos-votos', JSON.stringify(votes)); } catch (e) {} }
+  var NUM = ['1️⃣','2️⃣','3️⃣','4️⃣'];
+  function renderVotes(){
+    var bar = document.getElementById('votebar');
+    if (!bar) return;
+    bar.hidden = !votes.length;
+    if (!votes.length){ bar.innerHTML = ''; return; }
+    var msg = '🍽️ ¿Qué comemos? ¡Voten!\n\n' + votes.map(function(n, i){ return NUM[i] + ' ' + n; }).join('\n') + '\n\nRespondé con el número 👇';
+    bar.innerHTML = '<div class="vhead"><div><p class="vt">🗳️ Votación</p><p class="vsub">Mandala al grupo y que elijan</p></div><button type="button" class="vclear" data-voteclear="1">Borrar</button></div>' +
+      '<ol>' + votes.map(function(n, i){ return '<li><span class="vn">' + (i + 1) + '</span><span class="vname">' + esc(n) + '</span><button type="button" data-unvote="' + esc(n) + '" aria-label="Quitar ' + esc(n) + '">✕</button></li>'; }).join('') + '</ol>' +
+      (votes.length < 2 ? '<p class="vsub">Sumá otra opción con el botón 🗳️ de cada receta (hasta 4).</p>' : '') +
+      '<a class="vsend' + (votes.length < 2 ? ' off' : '') + '" id="vote-send" target="_blank" rel="noopener" href="' + (votes.length < 2 ? '#' : 'https://wa.me/?text=' + encodeURIComponent(msg)) + '">Enviar por WhatsApp</a>';
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('[data-vote]');
+    if (b){
+      var n = b.getAttribute('data-vote'), i = votes.indexOf(n);
+      if (i !== -1) votes.splice(i, 1);
+      else { if (votes.length >= 4){ b.textContent = 'Máximo 4 opciones'; return; } votes.push(n); }
+      saveVotes(); renderVotes();
+      b.classList.toggle('on', votes.indexOf(n) !== -1);
+      b.textContent = votes.indexOf(n) !== -1 ? '✓ En la votación' : '🗳️ Sumar a la votación';
+      return;
+    }
+    var u = e.target.closest('[data-unvote]');
+    if (u){ var k = votes.indexOf(u.getAttribute('data-unvote')); if (k !== -1) votes.splice(k, 1); saveVotes(); renderVotes(); renderResults(true); return; }
+    if (e.target.closest('[data-voteclear]')){ votes = []; saveVotes(); renderVotes(); renderResults(true); return; }
+    var vs = e.target.closest('#vote-send');
+    if (vs && vs.classList.contains('off')) e.preventDefault();
+    else if (vs) celebrate();
+  });
+
+  /* Celebraciones: papelitos de colores */
+  function celebrate(){
+    try {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var c = document.createElement('canvas'), W = window.innerWidth, H = window.innerHeight;
+      c.width = W; c.height = H; c.className = 'confetti';
+      document.body.appendChild(c);
+      var ctx = c.getContext('2d'), cols = ['#D9771F','#1B6B4F','#F0A35E','#3E9C76','#FFD166','#E85D75'], P = [];
+      for (var i = 0; i < 120; i++) P.push({x: W / 2 + (Math.random() - .5) * 80, y: H * .35, vx: (Math.random() - .5) * 12, vy: -Math.random() * 12 - 4, s: 5 + Math.random() * 6, c: cols[i % cols.length], r: Math.random() * 6, vr: (Math.random() - .5) * .3});
+      var t0 = Date.now();
+      (function frame(){
+        var t = Date.now() - t0;
+        ctx.clearRect(0, 0, W, H);
+        P.forEach(function(p){ p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += p.vr; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.globalAlpha = Math.max(0, 1 - t / 2200); ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2); ctx.restore(); });
+        if (t < 2200) requestAnimationFrame(frame); else c.remove();
+      })();
+    } catch (e) {}
+  }
+  var lastReady = -1;
   /* Un dibujito para cada tipo de plato */
-  var ICONS = [[/rabas|calamar/i,'🦑'],[/relleno|rellena/i,'🫑'],[/tamal|humita/i,'🌽'],[/chipá/i,'🧀'],[/alfajor|pastafrola|pastelito|torta|rogel|bizcochuelo|chocotorta|vigilante|frutas/i,'🍰'],[/matambre|vitel|lomito|chorip|provoleta|asado|carne al horno|riojana/i,'🥩'],[/escabeche|conserva|chimichurri|salsa criolla/i,'🫙'],[/sorrentino|ravioles|ñoqui|fideos caseros|canelon/i,'🍝'],[/postre|flan|budín|arroz con leche|strudel|panqueque|tostadas francesas/i,'🍮'],[/pizza|fugazz/i,'🍕'],[/empanada/i,'🥟'],[/hamburguesa/i,'🍔'],[/sopa|minestrone|gazpacho|crema de/i,'🥣'],[/ensalad|caprese|tabule/i,'🥗'],[/fideo|spaghetti|tallarin|pasta|ñoqui|lasaña|canelon/i,'🍝'],[/paella|arroz|risotto|wok/i,'🍚'],[/guiso|locro|carbonada|lenteja|chili|curry|garbanzo|cacciatora|puchero|buseca|cazuela|niños envueltos/i,'🍲'],[/tarta|pastel|humita/i,'🥧'],[/tortilla|omelette|revuelto|huevo|frittata|shakshuka|tortita/i,'🍳'],[/pollo|brochette/i,'🍗'],[/merluza|salmón|langostino|atún/i,'🐟'],[/milanesa|bife|bondiola|albóndiga|asado/i,'🥩'],[/salchicha|chucrut/i,'🌭'],[/pan|tostado|bruschetta/i,'🥖'],[/papa|puré|batata/i,'🥔'],[/hummus|falafel/i,'🧆'],[/berenjena|zapallito|coliflor|pisto|verdura/i,'🥦']];
+  var ICONS = [[/masa madre casera/i,'🫙'],[/rabas|calamar/i,'🦑'],[/relleno|rellena/i,'🫑'],[/tamal|humita/i,'🌽'],[/chipá/i,'🧀'],[/alfajor|pastafrola|pastelito|torta|rogel|bizcochuelo|chocotorta|vigilante|frutas/i,'🍰'],[/matambre|vitel|lomito|chorip|provoleta|asado|carne al horno|riojana/i,'🥩'],[/escabeche|conserva|chimichurri|salsa criolla/i,'🫙'],[/sorrentino|ravioles|ñoqui|fideos caseros|canelon/i,'🍝'],[/postre|flan|budín|arroz con leche|strudel|panqueque|tostadas francesas/i,'🍮'],[/pizza|fugazz/i,'🍕'],[/empanada/i,'🥟'],[/hamburguesa/i,'🍔'],[/sopa|minestrone|gazpacho|crema de/i,'🥣'],[/ensalad|caprese|tabule/i,'🥗'],[/fideo|spaghetti|tallarin|pasta|ñoqui|lasaña|canelon/i,'🍝'],[/paella|arroz|risotto|wok/i,'🍚'],[/guiso|locro|carbonada|lenteja|chili|curry|garbanzo|cacciatora|puchero|buseca|cazuela|niños envueltos/i,'🍲'],[/tarta|pastel|humita/i,'🥧'],[/tortilla|omelette|revuelto|huevo|frittata|shakshuka|tortita/i,'🍳'],[/pollo|brochette/i,'🍗'],[/merluza|salmón|langostino|atún/i,'🐟'],[/milanesa|bife|bondiola|albóndiga|asado/i,'🥩'],[/salchicha|chucrut/i,'🌭'],[/pan|tostado|bruschetta/i,'🥖'],[/papa|puré|batata/i,'🥔'],[/hummus|falafel/i,'🧆'],[/berenjena|zapallito|coliflor|pisto|verdura/i,'🥦']];
   function dishIcon(r){
+    if (r.drink) return /fernet|coca/i.test(r.n) ? '🥃' : /submarino|tereré/i.test(r.n) ? '☕' : /licuado|limonada/i.test(r.n) ? '🥤' : /clericó|sangría|spritz|vermut/i.test(r.n) ? '🍷' : '🍹';
     for (var k = 0; k < ICONS.length; k++) if (ICONS[k][0].test(r.n)) return ICONS[k][1];
     return r.d ? '🍮' : '🍽️';
   }
@@ -1355,15 +1787,17 @@ header.top h1{font-size:1.7rem; margin:0}
       qty = '<p class="note" style="margin-top:10px">Estamos revisando las cantidades de esta receta.</p>';
     }
     return '<article class="card' + (best ? ' best' : '') + '">' + (best ? '<span class="best-tag">' + best + '</span>' : '') +
-      '<div class="title-row"><h3><span class="dish" aria-hidden="true">' + dishIcon(r) + '</span><span>' + esc(r.n) + '</span></h3><button type="button" class="nut-btn" aria-expanded="false">📊 Nutrición</button></div>' +
+      '<div class="title-row"><h3><span class="dish" aria-hidden="true">' + dishIcon(r) + '</span><span>' + esc(r.n) + '</span></h3>' + (r.nonut ? '' : '<button type="button" class="nut-btn" aria-expanded="false">📊 Nutrición</button>') + '</div>' +
       '<div class="meta">' + pill + '<span>⏱ ' + (r.tt || r.t + ' min') + '</span></div>' + nutBox(r) +
       '<details><summary>Ver receta</summary>' +
       '<p class="sub">Ingredientes</p><div class="ings">' + ings + '</div>' +
       (m.miss.length || (m.opt && m.opt.length) ? '<button type="button" class="buy-btn" data-r="' + R.indexOf(r) + '">🛒 ' + (useHave ? 'Agregar lo que falta a la lista de compras' : 'Agregar ingredientes a la lista de compras') + '</button>' : '') +
 
       '<div class="meta tags">' + paises + (r.d ? '<span>Postre</span>' : '') + (isVegan(r) ? '<span>Vegana</span>' : r.v ? '<span>Vegetariana</span>' : '') + (DIETS.tacc.ok(r) ? '<span>Sin TACC</span>' : '') + (DIETS.lact.ok(r) ? '<span>Sin lactosa</span>' : '') + '</div>' + qty +
-      '<p class="sub">Pasos</p><ol>' + r.s.map(function(s){ return '<li>' + esc(s) + '</li>'; }).join('') + '</ol></details>' +
-      '<div class="actions"><a class="btn ghost" href="' + yt('receta ' + r.n) + '" target="_blank" rel="noopener">Ver videos en YouTube ↗</a></div>' +
+      '<p class="sub">Pasos</p><ol>' + r.s.map(function(s){ return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>' +
+      (r.alc ? '<p class="note alc">🔞 Contiene alcohol. Solo para mayores de 18. Tomá con moderación y si vas a manejar, no tomes.</p>' : '') +
+      (DATOS[r.n] ? '<div class="dato"><b>💡 ¿Sabías que…?</b><p>' + esc(DATOS[r.n]) + '</p></div>' : '') + '</details>' +
+      '<div class="actions"><button type="button" class="btn ghost vote-btn' + (votes.indexOf(r.n) !== -1 ? ' on' : '') + '" data-vote="' + esc(r.n) + '">' + (votes.indexOf(r.n) !== -1 ? '✓ En la votación' : '🗳️ Sumar a la votación') + '</button><a class="btn ghost" href="' + yt('receta ' + r.n) + '" target="_blank" rel="noopener">Ver videos en YouTube ↗</a></div>' +
       '</article>';
   }
 
@@ -1462,27 +1896,27 @@ header.top h1{font-size:1.7rem; margin:0}
     var names = Array.from(selected);
     goLabel = '';
     if (!useHave){
-      var all = R.filter(function(r){ return (!maxTime || r.t <= maxTime) && dietOk(r); }).map(matches);
+      var all = R.filter(function(r){ return (!maxTime || r.t <= maxTime) && dietOk(r) && kindOk(r); }).map(matches);
       all.sort(function(a, b){
         var ha = a.r.p.indexOf(home) !== -1 ? 0 : 1, hb = b.r.p.indexOf(home) !== -1 ? 0 : 1;
         if (ha !== hb) return ha - hb;
         return dayRank(a.r) - dayRank(b.r);
       });
       var restA = all.length - shown;
-      elRes.innerHTML = '<div class="group-head"><p class="note">Hay <strong>' + all.length + '</strong> recetas. Estas son algunas ideas para hoy.</p></div>' +
-        (all.length ? '<div class="group">' + all.slice(0, shown).map(function(m, i){ return card(i === 0 ? Object.assign({best:'✨ Idea del día'}, m) : m, i); }).join('') +
+      elRes.innerHTML = '<div class="group-head"><p class="note">Hay <strong>' + all.length + '</strong> ' + (kind === 'tragos' ? 'tragos y bebidas' : kind === 'postres' ? 'postres' : 'recetas') + '. Estas son algunas ideas para hoy.</p></div>' +
+        (all.length ? '<div class="group">' + all.slice(0, shown).map(function(m, i){ return card(m, i); }).join('') +
           (restA > 0 ? '<button type="button" class="btn big more-btn">Ver ' + Math.min(3, restA) + ' recetas más <span>(quedan ' + restA + ')</span></button>' : '') + '</div>'
         : '<div class="empty">No encontramos recetas con esos filtros.</div>');
       resCount = all.length; checkRes();
       return;
     }
     if (!names.length){
-      elRes.innerHTML = '<div class="empty">Elegí al menos un ingrediente para ver recetas.</div>';
+      elRes.innerHTML = '<div class="empty howto"><b>¿Cómo funciona?</b><ol><li>Tocá una categoría, por ejemplo 🥬 Verduras o 🥩 Carnes rojas.</li><li>Marcá los ingredientes que tenés en casa.</li><li>Abajo aparecen las recetas que podés cocinar ya, y las que te quedan cerca.</li></ol><small>Contamos con que siempre tenés sal, aceite, agua y condimentos básicos.</small></div>';
       resCount = 0; checkRes();
       return;
     }
     var list = R.filter(function(r){
-      return (!maxTime || r.t <= maxTime) && dietOk(r) &&
+      return (!maxTime || r.t <= maxTime) && dietOk(r) && kindOk(r) &&
              (countryFilter === 'ALL' || r.p.indexOf(countryFilter) !== -1);
     }).map(matches).filter(function(m){ return m.have.length > 0; });
 
@@ -1496,6 +1930,8 @@ header.top h1{font-size:1.7rem; margin:0}
     });
 
     var ready = list.filter(function(m){ return m.miss.length === 0 && (m.opt.length <= 2 || m.have.length >= m.opt.length); });
+    if (keep !== true && lastReady === 0 && ready.length > 0) setTimeout(celebrate, 150);
+    lastReady = ready.length;
     var MINOR = /^(ajo|perejil|albahaca|laurel|limón|cebolla de verdeo)$/;
     var rscore = function(m){ return m.have.length * 2 - m.opt.filter(function(x){ return !MINOR.test(x); }).length + (m.r.pop || 0) * 2; };
     ready.sort(function(a, b){ return rscore(b) - rscore(a) || a.opt.length - b.opt.length; });
@@ -1608,7 +2044,7 @@ header.top h1{font-size:1.7rem; margin:0}
     p.hidden = false;
     var parts = picking.split('-'), title = DAYS[+parts[0]] + ' · ' + (parts[1] === 'a' ? 'Almuerzo' : 'Cena');
     var q = norm(pickQ);
-    var list = R.filter(function(r){ return dietOk(r) && (q ? norm(r.n).indexOf(q.replace(/(es|s)$/, '')) !== -1 : !r.d); });
+    var list = R.filter(function(r){ return dietOk(r) && (q ? norm(r.n).indexOf(q.replace(/(es|s)$/, '')) !== -1 : !r.d && !r.drink); });
     list.sort(function(a, b){ return (a.p.indexOf('AR') === -1) - (b.p.indexOf('AR') === -1) || a.n.localeCompare(b.n, 'es'); });
     var keepFocus = document.activeElement && document.activeElement.id === 'pick-q';
     p.innerHTML = '<p class="sub">Elegí el plato para ' + title + '</p>' +
@@ -1621,7 +2057,7 @@ header.top h1{font-size:1.7rem; margin:0}
   function autoMenu(){
     var used = {}, iconCount = {};
     Object.keys(menu.slots).forEach(function(k){ used[menu.slots[k]] = 1; var rr = recipeByName(menu.slots[k]); if (rr){ var ic0 = dishIcon(rr); iconCount[ic0] = (iconCount[ic0] || 0) + 1; } });
-    var pool = R.filter(function(r){ return dietOk(r) && !r.d && (!maxTime || r.t <= maxTime) && r.t < 600 && !/chimichurri|salsa criolla|conserva|escabeche|chucrut|pan casero|provoleta|tostadas francesas|panqueque|hummus|bruschetta|chipá|tortas fritas|puré|batatas al horno|papas a la provenzal|papas al horno|ensalada mixta|gazpacho|tostado/i.test(r.n); });
+    var pool = R.filter(function(r){ return dietOk(r) && !r.d && !r.drink && (!maxTime || r.t <= maxTime) && r.t < 600 && !/chimichurri|salsa criolla|conserva|escabeche|chucrut|pan casero|provoleta|tostadas francesas|panqueque|hummus|bruschetta|chipá|tortas fritas|puré|batatas al horno|papas a la provenzal|papas al horno|ensalada mixta|gazpacho|tostado/i.test(r.n); });
     pool.sort(function(a, b){ return Math.random() - .5; });
     pool.sort(function(a, b){ return (a.p.indexOf('AR') === -1) - (b.p.indexOf('AR') === -1); });
     var last = '';
@@ -1637,7 +2073,7 @@ header.top h1{font-size:1.7rem; margin:0}
       }
     }); });
   }
-  document.getElementById('menu-auto').addEventListener('click', function(){ autoMenu(); picking = null; saveMenu(); renderMenu(); });
+  document.getElementById('menu-auto').addEventListener('click', function(){ autoMenu(); picking = null; saveMenu(); renderMenu(); celebrate(); });
   document.getElementById('menu-clear').addEventListener('click', function(){ menu = {slots:{}, got:{}}; picking = null; saveMenu(); renderMenu(); });
   document.getElementById('menu-panel').addEventListener('click', function(e){
     var rm = e.target.closest('[data-rm]');
@@ -1673,9 +2109,49 @@ header.top h1{font-size:1.7rem; margin:0}
   });
 
   /* Lista de compras: se guarda en el teléfono */
-  var shop = [], shopOpen = false;
-  try { var s3 = JSON.parse(localStorage.getItem('que-comemos-compras') || '[]'); if (Array.isArray(s3)) shop = s3.filter(function(x){ return x && x.n; }); } catch (e) {}
-  function saveShop(){ try { localStorage.setItem('que-comemos-compras', JSON.stringify(shop)); } catch (e) {} }
+  /* Varias listas guardadas: cada una con su nombre y sus productos */
+  var lists = [], curList = 0, shop = [], shopOpen = false, editing = -1, listMode = '';
+  try {
+    var L0 = JSON.parse(localStorage.getItem('que-comemos-listas') || 'null');
+    if (L0 && Array.isArray(L0.lists) && L0.lists.length){ lists = L0.lists; curList = Math.min(L0.cur || 0, lists.length - 1); }
+  } catch (e) {}
+  if (!lists.length){
+    var old = [];
+    try { var s3 = JSON.parse(localStorage.getItem('que-comemos-compras') || '[]'); if (Array.isArray(s3)) old = s3.filter(function(x){ return x && x.n; }); } catch (e) {}
+    lists = [{name:'Mi lista', items:old}];
+  }
+  shop = lists[curList].items;
+  function saveShop(){
+    lists[curList].items = shop;
+    try { localStorage.setItem('que-comemos-listas', JSON.stringify({lists:lists, cur:curList})); } catch (e) {}
+  }
+  function qtyLine(x){
+    if (x.q) return x.q;
+    var qs = (x.f || []).map(function(rn){ return x.qs && x.qs[rn]; }).filter(Boolean);
+    return qs.join(' + ');
+  }
+  function listText(){
+    return '🛒 ' + lists[curList].name + '\n' + shop.filter(function(x){ return !x.b; }).map(function(x){
+      var q = qtyLine(x);
+      return '• ' + x.n + (q ? ': ' + q : '') + (x.note ? ' (' + x.note + ')' : '');
+    }).join('\n');
+  }
+  function renderLists(){
+    document.getElementById('lists-bar').innerHTML = lists.map(function(l, i){
+      var p = l.items.filter(function(x){ return !x.b; }).length;
+      return '<button type="button" data-list="' + i + '" aria-pressed="' + (i === curList) + '">' + esc(l.name) + (p ? ' <span class="cnt">(' + p + ')</span>' : '') + '</button>';
+    }).join('') + '<button type="button" class="new" data-newlist="1">＋ Nueva lista</button>';
+    var t = document.getElementById('list-tools');
+    if (listMode === 'new' || listMode === 'rename'){
+      t.innerHTML = '<input type="text" id="list-name" maxlength="40" placeholder="Nombre de la lista (ej: Súper del mes)" value="' + (listMode === 'rename' ? esc(lists[curList].name) : '') + '">' +
+        '<button type="button" class="btn" data-listsave="1">Guardar</button><button type="button" class="btn quiet" data-listcancel="1">Cancelar</button>';
+      try { var inp = document.getElementById('list-name'); inp.focus(); inp.select(); } catch (e) {}
+    } else if (listMode === 'delete'){
+      t.innerHTML = '<span class="note">¿Borrar la lista "' + esc(lists[curList].name) + '"?</span><button type="button" class="btn danger" data-listdelok="1">Sí, borrar</button><button type="button" class="btn quiet" data-listcancel="1">No</button>';
+    } else {
+      t.innerHTML = '<button type="button" class="btn quiet" data-listrename="1">✏️ Cambiar nombre</button>' + (lists.length > 1 ? '<button type="button" class="btn quiet" data-listdel="1">🗑️ Borrar lista</button>' : '');
+    }
+  }
   function renderShop(){
     var box = document.getElementById('shop');
     box.hidden = false;
@@ -1685,16 +2161,24 @@ header.top h1{font-size:1.7rem; margin:0}
     document.getElementById('shop-empty').hidden = shop.length > 0;
     document.getElementById('shop-actions').hidden = !shop.length;
     document.getElementById('shop-clear').hidden = !shop.length;
-    document.getElementById('shop-count').textContent = '(' + left + (left === 1 ? ' producto)' : ' productos)');
+    document.getElementById('shop-count').textContent = left ? '(' + left + (left === 1 ? ' producto)' : ' productos)') : '';
+    renderLists();
     document.getElementById('shop-list').innerHTML = shop.map(function(x, k){
-      return '<li class="' + (x.b ? 'bought' : '') + '"><button type="button" class="item" data-k="' + k + '" aria-pressed="' + !!x.b + '"><b>' + (x.b ? '✓ ' : '') + esc(x.n) + '</b>' + (x.f && x.f.length ? '<small>' + x.f.map(function(rn){ var q = x.qs && x.qs[rn]; return (q ? '<span class="q">' + esc(q) + '</span> para ' : 'Para ') + esc(rn); }).join(' · ') + '</small>' : '<small>Agregado por vos</small>') + '</button>' +
+      if (k === editing){
+        return '<li class="editing"><div class="editbox"><b>' + esc(x.n) + '</b>' +
+          '<input type="text" id="ed-q" placeholder="Cantidad (ej: 2 kg, 3 paquetes)" value="' + esc(qtyLine(x)) + '">' +
+          '<input type="text" id="ed-n" placeholder="Nota (ej: la marca de siempre)" value="' + esc(x.note || '') + '">' +
+          '<div class="row"><button type="button" class="btn" data-edsave="' + k + '">Guardar</button><button type="button" class="btn quiet" data-edcancel="1">Cancelar</button></div></div></li>';
+      }
+      var detail;
+      if (x.q) detail = '<small><span class="q">' + esc(x.q) + '</span></small>';
+      else if (x.f && x.f.length) detail = '<small>' + x.f.map(function(rn){ var q = x.qs && x.qs[rn]; return (q ? '<span class="q">' + esc(q) + '</span> para ' : 'Para ') + esc(rn); }).join(' · ') + '</small>';
+      else detail = '<small>Agregado por vos</small>';
+      return '<li class="' + (x.b ? 'bought' : '') + '"><button type="button" class="item" data-k="' + k + '" aria-pressed="' + !!x.b + '"><b>' + (x.b ? '✓ ' : '') + esc(x.n) + '</b>' + detail + (x.note ? '<span class="nt">' + esc(x.note) + '</span>' : '') + '</button>' +
+        '<button type="button" class="ed" data-ed="' + k + '" aria-label="Editar ' + esc(x.n) + '">✏️</button>' +
         '<button type="button" class="x" data-x="' + k + '" aria-label="Quitar ' + esc(x.n) + '">✕</button></li>';
     }).join('');
-    var txtList = shop.filter(function(x){ return !x.b; }).map(function(x){
-      var qs = (x.f || []).map(function(rn){ return x.qs && x.qs[rn]; }).filter(Boolean);
-      return '• ' + x.n + (qs.length ? ': ' + qs.join(' + ') : '');
-    }).join('\n');
-    document.getElementById('shop-wa').href = 'https://wa.me/?text=' + encodeURIComponent('🛒 Lista de compras\n' + txtList);
+    document.getElementById('shop-wa').href = 'https://wa.me/?text=' + encodeURIComponent(listText());
   }
   /* Busca en las cantidades de la receta la que corresponde a un ingrediente */
   var QSYN = {carne:['falda','roast beef','carne vacuna','carne para','nalga','cuadrada'], bife:['carne para milanesa','bife'], 'maíz pisado':['maiz'], fideos:['spaghetti','tallarines','fideos'], 'salsa de tomate':['pure de tomate','tomate triturado','salsa de tomate'], 'cebolla de verdeo':['verdeo'], 'tapas de empanadas':['tapa de empanada'], 'tapa de tarta':['tapa de tarta']};
@@ -1745,13 +2229,64 @@ header.top h1{font-size:1.7rem; margin:0}
     b.textContent = '✓ Agregado' + (n === 1 ? ' 1 producto' : ' ' + n + ' productos') + ' a la lista';
   });
   document.getElementById('shop-list').addEventListener('click', function(e){
+    var ed = e.target.closest('[data-ed]');
+    if (ed){ editing = parseInt(ed.getAttribute('data-ed'), 10); renderShop(); try { document.getElementById('ed-q').focus(); } catch (er) {} return; }
+    var es = e.target.closest('[data-edsave]');
+    if (es){
+      var o2 = shop[parseInt(es.getAttribute('data-edsave'), 10)];
+      var qv = document.getElementById('ed-q').value.trim(), nv = document.getElementById('ed-n').value.trim();
+      var auto = qtyLine({f:o2.f, qs:o2.qs});
+      o2.q = qv && qv !== auto ? qv : '';
+      o2.note = nv;
+      editing = -1; saveShop(); renderShop(); return;
+    }
+    if (e.target.closest('[data-edcancel]')){ editing = -1; renderShop(); return; }
     var x = e.target.closest('[data-x]'), it = e.target.closest('[data-k]');
-    if (x){ shop.splice(parseInt(x.getAttribute('data-x'), 10), 1); }
-    else if (it){ var o = shop[parseInt(it.getAttribute('data-k'), 10)]; o.b = !o.b; }
+    if (x){ shop.splice(parseInt(x.getAttribute('data-x'), 10), 1); editing = -1; }
+    else if (it){
+      var o = shop[parseInt(it.getAttribute('data-k'), 10)]; o.b = !o.b;
+      if (o.b && shop.length > 1 && shop.every(function(z){ return z.b; })) setTimeout(celebrate, 100);
+    }
     else return;
     saveShop(); renderShop();
   });
-  document.getElementById('shop-clear').addEventListener('click', function(){ shop = []; saveShop(); renderShop(); });
+  document.getElementById('shop-clear').addEventListener('click', function(){ shop = []; editing = -1; saveShop(); renderShop(); });
+  document.getElementById('lists-bar').addEventListener('click', function(e){
+    var b = e.target.closest('[data-list]');
+    if (b){ saveShop(); curList = parseInt(b.getAttribute('data-list'), 10); shop = lists[curList].items; editing = -1; listMode = ''; saveShop(); renderShop(); return; }
+    if (e.target.closest('[data-newlist]')){ listMode = 'new'; renderLists(); }
+  });
+  document.getElementById('list-tools').addEventListener('click', function(e){
+    if (e.target.closest('[data-listrename]')){ listMode = 'rename'; renderLists(); return; }
+    if (e.target.closest('[data-listdel]')){ listMode = 'delete'; renderLists(); return; }
+    if (e.target.closest('[data-listcancel]')){ listMode = ''; renderLists(); return; }
+    if (e.target.closest('[data-listdelok]')){
+      lists.splice(curList, 1); curList = 0; shop = lists[0].items; listMode = '';
+      try { localStorage.setItem('que-comemos-listas', JSON.stringify({lists:lists, cur:curList})); } catch (er) {}
+      renderShop(); return;
+    }
+    if (e.target.closest('[data-listsave]')){
+      var nm = (document.getElementById('list-name').value || '').trim();
+      if (!nm) return;
+      if (listMode === 'new'){ saveShop(); lists.push({name:nm, items:[]}); curList = lists.length - 1; shop = lists[curList].items; }
+      else lists[curList].name = nm;
+      listMode = ''; saveShop(); renderShop();
+    }
+  });
+  document.getElementById('list-tools').addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && e.target.id === 'list-name'){ e.preventDefault(); var b = this.querySelector('[data-listsave]'); if (b) b.click(); }
+  });
+  document.getElementById('shop-copy').addEventListener('click', function(){
+    var btn = this, txt = listText();
+    var done = function(){ btn.textContent = '✓ Lista copiada'; setTimeout(function(){ btn.textContent = '📋 Copiar lista'; }, 2000); };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, function(){ fallbackCopy(txt); done(); }); }
+      else { fallbackCopy(txt); done(); }
+    } catch (er) { fallbackCopy(txt); done(); }
+  });
+  function fallbackCopy(t){
+    try { var ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); } catch (e) {}
+  }
   document.getElementById('shop-have').addEventListener('click', function(){
     var got = shop.filter(function(x){ return x.b; });
     if (!got.length){ this.textContent = 'Primero tachá lo que compraste'; var t = this; setTimeout(function(){ t.textContent = '✓ Pasar lo comprado a "Lo que tengo"'; }, 2000); return; }
@@ -1905,7 +2440,8 @@ header.top h1{font-size:1.7rem; margin:0}
 
 
   /* Comer en casa o afuera */
-  var FOODS = ['lomitos','pizza','parrilla','empanadas','hamburguesas','sushi','pastas','comida vegetariana','helado','café'];
+  var FOODS = ['lomitos','pizza','parrilla','empanadas','hamburguesas','sushi','pastas','comida mexicana','comida vegetariana','milanesas','pollo','helado','café','cerveza'];
+  var FOOD_ICONS = {'lomitos':'🥪','pizza':'🍕','parrilla':'🔥','empanadas':'🥟','hamburguesas':'🍔','sushi':'🍣','pastas':'🍝','comida mexicana':'🌮','comida vegetariana':'🥗','milanesas':'🥩','pollo':'🍗','helado':'🍦','café':'☕','cerveza':'🍺'};
   var mode = 'casa', food = '', city = '';
   try {
     var s2 = JSON.parse(localStorage.getItem('que-comemos-afuera') || 'null');
@@ -1925,12 +2461,18 @@ header.top h1{font-size:1.7rem; margin:0}
   }
   function renderFoods(){
     document.getElementById('food-seg').innerHTML = FOODS.map(function(f){
-      return '<button type="button" class="chip" data-food="' + esc(f) + '" aria-pressed="' + (food === f) + '">' + esc(f) + '</button>';
+      return '<button type="button" class="chip" data-food="' + esc(f) + '" aria-pressed="' + (food === f) + '">' + (FOOD_ICONS[f] || '🍽️') + ' ' + esc(f) + '</button>';
     }).join('');
   }
   function updateMaps(){
     var what = foodInput.value.trim() || food;
     var where = city.trim();
+    var near = document.getElementById('maps-near');
+    if (near){
+      near.href = what ? 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(what + ' cerca de mí') : '#';
+      near.classList.toggle('off', !what);
+      near.textContent = what ? '📍 Ver ' + what + ' cerca de donde estoy ↗' : '📍 Buscar cerca de donde estoy ↗';
+    }
     if (what && where){
       mapsGo.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(what + ' en ' + where);
       mapsGo.classList.remove('off');
@@ -1957,9 +2499,10 @@ header.top h1{font-size:1.7rem; margin:0}
   });
   cityInput.addEventListener('input', function(){ city = cityInput.value; saveAfuera(); updateMaps(); });
   mapsGo.addEventListener('click', function(e){ if (mapsGo.classList.contains('off')) e.preventDefault(); });
+  document.getElementById('maps-near').addEventListener('click', function(e){ if (this.classList.contains('off')) e.preventDefault(); });
 
   renderTab(); renderMode(); renderFoods(); updateMaps();
-  renderHave(); renderOcc(); renderDiet(); renderServ(); renderAll();
+  renderHave(); renderOcc(); renderDiet(); renderServ(); renderVotes(); renderKind(); renderAll();
 })();
 </script>
 <script>
