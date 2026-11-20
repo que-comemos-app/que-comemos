@@ -150,6 +150,66 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .votebar li button{border:0; background:transparent; color:var(--muted); cursor:pointer; font-size:.8rem; width:28px; height:28px; border-radius:50%}
 .votebar .vsend{display:flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#fff; border-radius:12px; padding:11px; font-weight:800; text-decoration:none}
 .votebar .vsend.off{opacity:.45; pointer-events:auto}
+.home-main{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.hm-btn{font:inherit; text-align:left; border:0; border-radius:20px; padding:16px 14px; cursor:pointer; color:#fff; display:flex; flex-direction:column; gap:4px; min-height:132px; box-shadow:0 6px 16px rgba(0,0,0,.12); transition:transform .15s}
+.hm-btn:active{transform:scale(.97)}
+.hm-btn.tengo{background:linear-gradient(140deg,#e07a1f,#f2a541)}
+.hm-btn.compras{background:linear-gradient(140deg,#1b6b4f,#2f8a63)}
+.hm-btn .hm-ico{font-size:2.1rem; line-height:1; margin-bottom:auto; position:relative; align-self:flex-start}
+.hm-btn .hm-ico .badge{position:absolute; top:-6px; right:-14px; background:#fff; color:#1b6b4f; min-width:20px; height:20px; font-size:.72rem}
+.hm-btn b{font-size:1.08rem; line-height:1.15}
+.hm-btn small{font-size:.8rem; opacity:.92; line-height:1.25}
+.home-sec{margin:8px 2px 0; font-size:.85rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+.home-more{display:grid; grid-template-columns:repeat(3,1fr); gap:8px}
+.home-more button{font:inherit; font-size:.85rem; font-weight:700; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:12px 4px; display:flex; flex-direction:column; align-items:center; gap:4px; cursor:pointer; min-height:78px}
+.home-more button span{font-size:1.6rem; line-height:1}
+.home-more button[aria-pressed="true"]{border-color:var(--accent); background:var(--ok-bg)}
+#list-area{scroll-margin-top:96px}
+#tab-inicio{display:flex; flex-direction:column; gap:12px}
+#tab-inicio[hidden]{display:none}
+#list-area .votebar{display:none!important}
+.vote-panel:empty{display:none}
+.vote-panel .votebar{box-shadow:none}
+.vote-q{font:inherit; font-size:1rem; width:100%; border:1px solid var(--line); border-radius:12px; padding:10px 14px; background:var(--bg); color:var(--ink); min-height:46px; box-sizing:border-box}
+.vote-opts{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px}
+.vote-opts li{display:flex; align-items:center; gap:10px; background:var(--chip); border-radius:14px; padding:6px 6px 6px 10px}
+.vote-opts .vi{font-size:1.4rem}
+.vote-opts .vn{flex:1; font-weight:700}
+.vote-opts .vn small{display:block; font-weight:500; color:var(--muted); font-size:.78rem}
+.vote-opts button{font:inherit; font-weight:800; border:1px solid var(--accent); color:var(--accent); background:var(--surface); border-radius:999px; padding:6px 12px; min-height:36px; cursor:pointer}
+.vote-opts button.on{background:var(--accent); color:var(--accent-ink)}
+.vote-opts .vhd{background:none; padding:6px 2px 0; font-size:.8rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted)}
+.scan-photo{text-align:center; cursor:pointer}
+.scan-cam{display:flex; flex-direction:column; gap:8px}
+.scan-cam[hidden]{display:none}
+#scan-reader{width:100%; border-radius:16px; overflow:hidden; background:#000; min-height:220px}
+#scan-reader video{width:100%!important; border-radius:16px}
+#scan-out:empty{display:none}
+.prod{border:1px solid var(--line); border-radius:18px; padding:14px; background:var(--surface); display:flex; flex-direction:column; gap:10px}
+.prod-top{display:flex; gap:12px; align-items:center}
+.prod-top img{width:72px; height:72px; object-fit:contain; border-radius:12px; background:#fff; flex:none}
+.prod-top .pi{width:72px; height:72px; border-radius:12px; background:var(--chip); display:grid; place-items:center; font-size:2rem; flex:none}
+.prod-top b{font-size:1.1rem; display:block; line-height:1.2}
+.prod-top small{color:var(--muted)}
+.verdict{border-radius:14px; padding:12px 14px; font-weight:800; display:flex; gap:10px; align-items:flex-start}
+.verdict small{display:block; font-weight:500; margin-top:2px}
+.verdict.ok{background:var(--ok-bg); color:var(--accent)}
+.verdict.no{background:var(--danger-bg); color:var(--danger)}
+.verdict.maybe{background:var(--orange-bg); color:var(--ink)}
+.prod h4{margin:4px 0 0; font-size:.95rem}
+.prod .tags{display:flex; flex-wrap:wrap; gap:6px}
+.prod .tags span{background:var(--chip); border-radius:999px; padding:4px 10px; font-size:.82rem; font-weight:600}
+.prod .tags span.bad{background:var(--danger-bg); color:var(--danger)}
+.prod .tags span.mid{background:var(--orange-bg)}
+.prod .tags span.good{background:var(--ok-bg); color:var(--accent)}
+.prod .ingtxt{font-size:.88rem; color:var(--muted); line-height:1.45; margin:0}
+.prod table{width:100%; border-collapse:collapse; font-size:.92rem}
+.prod td{padding:6px 0; border-bottom:1px solid var(--line)}
+.prod td:last-child{text-align:right; font-weight:700}
+.scan-hist{display:flex; flex-direction:column; gap:6px; margin-top:6px}
+.scan-hist button{font:inherit; text-align:left; border:1px solid var(--line); background:var(--chip); color:var(--ink); border-radius:12px; padding:9px 12px; cursor:pointer; display:flex; justify-content:space-between; gap:8px}
+.scan-hist button small{color:var(--muted)}
+.note.small{font-size:.8rem}
 .kind-seg{display:grid; grid-template-columns:repeat(3,1fr); gap:6px; background:var(--chip); border-radius:14px; padding:4px}
 .kind-seg button{font:inherit; font-weight:700; font-size:.92rem; border:0; background:transparent; color:var(--muted); border-radius:10px; padding:9px 4px; cursor:pointer; min-height:42px}
 .kind-seg button[aria-pressed="true"]{background:var(--surface); color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
@@ -174,11 +234,35 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 #shop-toggle[aria-expanded="true"]{background:var(--orange-bg); border-color:var(--orange); color:var(--ink)}
 .buy-btn{align-self:flex-start; font:inherit; font-size:.82rem; font-weight:700; color:var(--orange); background:var(--orange-bg); border:1px solid var(--orange); border-radius:999px; padding:5px 12px; min-height:34px; cursor:pointer}
 .buy-btn.done{color:var(--accent); background:var(--ok-bg); border-color:var(--accent)}
+.shop-hero{border-radius:18px; padding:16px; background:linear-gradient(135deg, #1b6b4f, #2f8a63); color:#fff; display:flex; flex-direction:column; gap:10px; box-shadow:0 6px 18px rgba(27,107,79,.25)}
+.shop-hero.done{background:linear-gradient(135deg, #e07a1f, #f0a03c); box-shadow:0 6px 18px rgba(224,122,31,.3)}
+.shop-hero .top{display:flex; align-items:center; gap:12px}
+.shop-hero .emo{font-size:2.2rem; line-height:1}
+.shop-hero .msg{font-weight:800; font-size:1.15rem; line-height:1.2}
+.shop-hero .sub{font-size:.88rem; opacity:.9}
+.shop-hero .bar{height:10px; border-radius:999px; background:rgba(255,255,255,.28); overflow:hidden}
+.shop-hero .bar i{display:block; height:100%; border-radius:999px; background:#fff; transition:width .4s ease}
+.shop-empty{text-align:center; padding:26px 16px; border:2px dashed var(--line); border-radius:18px; color:var(--muted)}
+.shop-empty[hidden]{display:none}
+.shop-empty .big{font-size:3rem; margin-bottom:6px}
+.shop-empty b{color:var(--ink); font-size:1.05rem}
+.shop-empty p{margin:6px 0 0; font-size:.9rem}
+.shop-sec{list-style:none; margin:10px 2px 2px; font-size:.8rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); background:none!important; padding:0!important}
+.shoplist .ico{flex:none; width:40px; height:40px; border-radius:12px; background:var(--surface); display:grid; place-items:center; font-size:1.35rem; box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.shoplist .chk{flex:none; width:26px; height:26px; border-radius:50%; border:2px solid var(--line); display:grid; place-items:center; font-size:.85rem; font-weight:900; color:transparent; transition:all .2s; background:var(--surface)}
+.shoplist li.bought .chk{background:var(--accent); border-color:var(--accent); color:#fff; animation:pop .3s ease}
+.shoplist li.bought{opacity:.65}
+.shoplist li.bought .ico{filter:grayscale(.6)}
+@keyframes pop{0%{transform:scale(.6)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+.btn.wa{background:#25D366; border-color:#25D366; color:#fff}
 .shoplist{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px}
-.shoplist li{display:flex; align-items:center; gap:8px; background:var(--chip); border-radius:10px; padding:4px 4px 4px 12px}
-.shoplist .item{flex:1; min-width:0; text-align:left; font:inherit; color:var(--ink); background:none; border:0; padding:8px 0; cursor:pointer}
+.shoplist li{display:flex; align-items:center; gap:10px; background:var(--chip); border-radius:14px; padding:6px 4px 6px 8px; transition:opacity .2s}
+.shoplist .item{flex:1; min-width:0; display:flex; align-items:center; gap:10px; text-align:left; font:inherit; color:var(--ink); background:none; border:0; padding:8px 0; cursor:pointer}
+.shoplist .item .txt{flex:1; min-width:0}
+.shoplist .item .txt b{display:block}
+.shoplist .item .txt b::first-letter{text-transform:uppercase}
 .shoplist .item small{display:block; color:var(--muted); font-size:.78rem}
-.shoplist li.bought .item b{text-decoration:line-through; opacity:.6}
+.shoplist li.bought .item b{text-decoration:line-through}
 .shoplist .x{font:inherit; font-size:1.1rem; width:38px; height:38px; border:0; border-radius:8px; background:transparent; color:var(--muted); cursor:pointer}
 .btn.quiet{background:transparent; color:var(--muted); border-color:var(--line); font-weight:500}
 .note{font-size:.85rem; color:var(--muted); margin:0}
@@ -210,6 +294,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .best-tag{align-self:flex-start; font-size:.78rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:#fff; background:var(--orange); border-radius:999px; padding:4px 12px; margin-bottom:-4px}
 .title-row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
 .nut-btn{flex:none; font:inherit; font-size:.8rem; font-weight:700; padding:6px 10px; border-radius:999px; border:1px solid var(--line, #ccc); background:transparent; color:inherit; cursor:pointer; white-space:nowrap; min-height:36px}
+.rtools{display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 4px}
+.rt{flex:none; font:inherit; font-size:.8rem; font-weight:700; padding:6px 10px; border-radius:999px; border:1px solid var(--line, #ccc); background:transparent; color:inherit; cursor:pointer; white-space:nowrap; min-height:36px; text-decoration:none; display:inline-flex; align-items:center}
+.rt.vote-btn.on{border-color:var(--accent); background:var(--ok-bg)}
+.card h3{cursor:pointer}
 .nut-btn[aria-expanded="true"]{border-color:var(--orange); background:var(--orange-bg)}
 .nutbox{margin-top:10px; padding:12px; border-radius:12px; background:var(--chip)}
 .nutbox table{width:100%; border-collapse:collapse; font-size:.92rem}
@@ -271,7 +359,7 @@ header.top h1{font-size:1.7rem; margin:0}
 .fsum span{background:var(--chip); border:1px solid var(--line); border-radius:999px; padding:4px 10px}
 .fsum .clear{background:var(--danger-bg); border-color:var(--danger); color:var(--danger); font-weight:700}
 .fsum .edit{background:transparent; border:0; color:var(--accent); font-weight:700; text-decoration:underline}
-.tabbar{position:fixed; left:0; right:0; bottom:0; z-index:30; display:grid; grid-template-columns:repeat(5,1fr); background:var(--surface); border-top:1px solid var(--line); padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px)); box-shadow:0 -4px 16px rgba(0,0,0,.06)}
+.tabbar{position:fixed; left:0; right:0; bottom:0; z-index:30; display:grid; grid-template-columns:repeat(3,1fr); background:var(--surface); border-top:1px solid var(--line); padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px)); box-shadow:0 -4px 16px rgba(0,0,0,.06)}
 .tabbar button{font:inherit; font-size:.72rem; font-weight:600; color:var(--muted); background:transparent; border:0; display:flex; flex-direction:column; align-items:center; gap:2px; padding:4px 2px; cursor:pointer; min-height:52px; border-radius:12px}
 .tabbar .ti{font-size:1.45rem; line-height:1; position:relative; filter:grayscale(.6); opacity:.75}
 .tabbar button[aria-current="page"]{color:var(--accent); background:var(--ok-bg)}
@@ -313,6 +401,19 @@ header.top h1{font-size:1.7rem; margin:0}
       </form>
       <div id="search-out" aria-live="polite"></div>
     </section>
+    <div class="home-main">
+      <button type="button" class="hm-btn tengo" data-go="tengo"><span class="hm-ico">🥕</span><b>Lo que tengo</b><small>Cociná con lo que hay en casa</small></button>
+      <button type="button" class="hm-btn compras" data-go="compras"><span class="hm-ico">🛒<span class="badge" id="home-shop-n" hidden></span></span><b>Lista de compras</b><small id="home-shop-sub">Tus listas guardadas</small></button>
+    </div>
+    <h3 class="home-sec">Más opciones</h3>
+    <div class="home-more">
+      <button type="button" data-gokind="comidas"><span>🍽️</span>Comidas</button>
+      <button type="button" data-gokind="postres"><span>🍰</span>Postres</button>
+      <button type="button" data-gokind="tragos"><span>🍹</span>Tragos</button>
+      <button type="button" data-go="semana"><span>📅</span>Menú semanal</button>
+      <button type="button" data-goocc="1"><span>🎉</span>Ocasiones</button>
+      <button type="button" data-go="afuera"><span>📍</span>Comer afuera</button>
+    </div>
   </div>
 
   <div class="tab" id="tab-tengo" hidden>
@@ -369,14 +470,48 @@ header.top h1{font-size:1.7rem; margin:0}
       <input type="text" id="shop-add-input" placeholder="Ej: pan, yerba, detergente" autocomplete="off" enterkeyhint="done">
       <button class="btn" type="submit">Agregar</button>
     </form>
-    <p class="note" id="shop-empty">Tu lista está vacía. En cada receta tocá "🛒 Agregar lo que falta" para sumar productos.</p>
+    <div class="shop-hero" id="shop-hero" hidden></div>
+    <div class="shop-empty" id="shop-empty"><div class="big">🛒</div><b>Tu lista está vacía</b><p>Sumá productos con <b>＋ Agregar</b>, o desde cada receta con "🛒 Agregar lo que falta". También podés armar el menú de la semana y pasar todo a la lista de una.</p></div>
     <ul class="shoplist" id="shop-list"></ul>
     <div class="actions" id="shop-actions">
       <button class="btn ghost" type="button" id="shop-have">✓ Pasar lo comprado a "Lo que tengo"</button>
-      <a class="btn ghost" id="shop-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp ↗</a>
+      <a class="btn wa" id="shop-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
       <button class="btn ghost" type="button" id="shop-copy">📋 Copiar lista</button>
     </div>
     <p class="note">Tocá un producto para tacharlo cuando lo compres. Con ✏️ cambiás la cantidad o agregás una nota.</p>
+  </section>
+  </div>
+
+  <div class="tab" id="tab-escanear" hidden>
+  <section class="panel" aria-labelledby="t-scan">
+    <h2 id="t-scan">📷 Escanear producto</h2>
+    <p class="note">Apuntá al código de barras de un producto del súper para ver sus ingredientes, alérgenos e información nutricional, y si va con tu tipo de cocina.</p>
+    <button type="button" class="btn big" id="scan-start">📷 Escanear código de barras</button>
+    <label class="btn ghost scan-photo" id="scan-photo">📸 Sacar una foto del código<input type="file" accept="image/*" capture="environment" id="scan-file" hidden></label>
+    <div class="scan-cam" id="scan-cam" hidden>
+      <div id="scan-reader"></div>
+      <p class="note" id="scan-msg">Poné el código de barras dentro del recuadro y mantené el celular quieto.</p>
+      <button type="button" class="btn quiet" id="scan-stop">Cancelar</button>
+    </div>
+    <form class="search-row" id="scan-form">
+      <label for="scan-code" class="sr-only">Número del código de barras</label>
+      <input type="text" id="scan-code" inputmode="numeric" pattern="[0-9]*" placeholder="O escribí el número: 7790…" autocomplete="off" enterkeyhint="search">
+      <button class="btn" type="submit">Buscar</button>
+    </form>
+    <div id="scan-out" aria-live="polite"></div>
+    <div id="scan-hist"></div>
+    <p class="note small">Datos de <a href="https://ar.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a>, una base de datos libre que carga gente de todo el mundo. Puede estar incompleta: si sos celíaco o tenés alergias, revisá siempre la etiqueta y el logo oficial "Sin TACC".</p>
+  </section>
+  </div>
+
+  <div class="tab" id="tab-votar" hidden>
+  <section class="panel" aria-labelledby="t-votar">
+    <h2 id="t-votar">🗳️ Votar qué comemos</h2>
+    <p class="note">Elegí hasta 4 opciones y mandalas al grupo de WhatsApp, de la familia o de amigos. Cada uno responde con un número.</p>
+    <div class="vote-panel" id="vote-panel"></div>
+    <label for="vote-q" class="sub">Sumá opciones</label>
+    <input type="search" id="vote-q" class="vote-q" placeholder="Buscá un plato, postre o trago…" autocomplete="off" enterkeyhint="search">
+    <ul class="vote-opts" id="vote-opts"></ul>
   </section>
   </div>
 
@@ -405,10 +540,9 @@ header.top h1{font-size:1.7rem; margin:0}
 
 <nav class="tabbar" aria-label="Secciones">
   <button type="button" data-tab="inicio" aria-current="page"><span class="ti">🏠</span>Inicio</button>
-  <button type="button" data-tab="tengo"><span class="ti">🥕</span>Lo que tengo</button>
-  <button type="button" data-tab="semana"><span class="ti">📅</span>Semana</button>
-  <button type="button" data-tab="compras"><span class="ti">🛒<span class="badge" id="shop-badge" hidden></span></span>Compras</button>
-  <button type="button" data-tab="afuera"><span class="ti">🍽️</span>Afuera</button>
+  <button type="button" data-tab="escanear"><span class="ti">📷</span>Escanear</button>
+  <button type="button" data-tab="votar"><span class="ti">🗳️<span class="badge" id="vote-badge" hidden></span></span>Votar</button>
+  <span id="shop-badge" hidden style="display:none"></span>
 </nav>
 
 <div class="sheet-back" id="sheet" hidden>
@@ -459,21 +593,21 @@ header.top h1{font-size:1.7rem; margin:0}
 
 <script>
 (function(){
-  var PAISES = {FR:'🇫🇷 Francia', US:'🇺🇸 Estados Unidos', AR:'🇦🇷 Argentina', ES:'🇪🇸 España', IT:'🇮🇹 Italia', DE:'🇩🇪 Alemania', IL:'🇮🇱 Israel', OT:'🌍 Medio Oriente', AS:'🌏 Asia', MX:'🇲🇽 México'};
+  var PAISES = {JU:'✡️ Cocina judía', UY:'🇺🇾 Uruguay', CL:'🇨🇱 Chile', BO:'🇧🇴 Bolivia', PY:'🇵🇾 Paraguay', BR:'🇧🇷 Brasil', PE:'🇵🇪 Perú', FR:'🇫🇷 Francia', US:'🇺🇸 Estados Unidos', AR:'🇦🇷 Argentina', ES:'🇪🇸 España', IT:'🇮🇹 Italia', DE:'🇩🇪 Alemania', IL:'🇮🇱 Israel', OT:'🌙 Cocina árabe', AS:'🌏 Asia', MX:'🇲🇽 México'};
 
   var CATS = [
-    {name:'Bebidas', ico:'🍹', items:['fernet','gaseosa cola','gaseosa lima-limón','soda','agua tónica','jugo de naranja','ron','vodka','gin','tequila','cachaça','vermut','aperol','gancia','espumante','campari','yerba','licor de naranja']},
+    {name:'Bebidas', ico:'🍹', items:['pisco','cerveza','café','fernet','gaseosa cola','gaseosa lima-limón','soda','agua tónica','jugo de naranja','ron','vodka','gin','tequila','cachaça','vermut','aperol','gancia','espumante','campari','yerba','licor de naranja']},
     {name:'Verduras', ico:'🥬', items:['acelga','ajo','ají','alcaucil','apio','arvejas','batata','berenjena','berro','brócoli','calabaza','cebolla','cebolla de verdeo','cebolla morada','chauchas','champiñones','choclo','coliflor','espárragos','espinaca','habas','hinojo','hongos','kale','lechuga','mandioca','morrón','nabo','papa','pepino','puerro','rabanito','radicheta','remolacha','repollo','repollo colorado','rúcula','tomate','tomate cherry','zanahoria','zapallito','zapallo','zucchini','achicoria','brotes de soja','endibia','escarola','gírgolas','hongos de pino','lechuga mantecosa','lechuga morada','morrón amarillo','morrón verde','papines','portobellos','repollitos de Bruselas','tomate perita','zapallo anco','zapallo cabutia','echalote','apio nabo','acelga baby','espinaca baby']},
     {name:'Frutas', ico:'🍎', items:['ananá','arándanos','banana','cereza','ciruela','coco','damasco','durazno','frutilla','higo','kiwi','lima','limón','mandarina','mango','manzana','maracuyá','melón','membrillo','naranja','palta','pera','pomelo','sandía','uva','ciruelas','frambuesas','granada','kaki','manzana verde','moras','níspero','papaya','pelón','quinoto','pomelo rosado','pera williams','uva pasa']},
     {name:'Carnes rojas', ico:'🥩', items:['asado','bife','bola de lomo','carne','carne picada','chivito','colita de cuadril','cordero','cuadril','entraña','falda','lomo','matambre','milanesas','nalga','osobuco','paleta','peceto','roast beef','vacío','aguja','bife de chorizo','carne para guiso','cuadrada','garrón','hamburguesas','marucha','ojo de bife','tapa de asado','tapa de nalga','tortuguita','costillar','carne picada especial']},
-    {name:'Cerdo', ico:'🐖', items:['bondiola','carré de cerdo','cerdo','costillas de cerdo','matambre de cerdo','pechito de cerdo','solomillo de cerdo','carne picada de cerdo','chuletas de cerdo','lechón','patitas de cerdo','pernil de cerdo','cuerito de cerdo']},
+    {name:'Cerdo', ico:'🐖', items:['kassler','bondiola','carré de cerdo','cerdo','costillas de cerdo','matambre de cerdo','pechito de cerdo','solomillo de cerdo','carne picada de cerdo','chuletas de cerdo','lechón','patitas de cerdo','pernil de cerdo','cuerito de cerdo']},
     {name:'Carnes blancas', ico:'🍗', items:['alitas de pollo','conejo','muslos de pollo','pato','pavo','pechuga de pollo','pollo','carne picada de pollo','codorniz','gallina','hamburguesas de pollo','milanesas de pollo','pollo entero','suprema']},
     {name:'Pescados y mariscos', ico:'🐟', items:['abadejo','anchoas','atún','caballa','calamares','camarones','kanikama','langostinos','lenguado','mejillones','merluza','pejerrey','salmón','sardinas','trucha','almejas','bacalao','boga','corvina','dorado','merluza negra','pacú','pulpo','salmón ahumado','surubí','tilapia','vieiras','mix de mariscos']},
     {name:'Fiambres y embutidos', ico:'🥓', items:['chorizo','jamón','jamón crudo','longaniza','morcilla','mortadela','panceta','salame','salchichas','butifarra','chorizo colorado','leberwurst','lomito ahumado','paleta cocida','pastrón','queso de cerdo','salamín','salchicha parrillera','sopressata','jamón cocido']},
     {name:'Achuras', ico:'🫀', items:['chinchulines','hígado','lengua','mollejas','mondongo','riñones','corazón','corazones de pollo','hígado de pollo','rabo','sesos','tripa gorda']},
     {name:'Legumbres', ico:'🫘', items:['arvejas secas','garbanzos','lentejas','lentejas rojas','porotos','porotos colorados','porotos negros','soja','garbanzos en lata','habas secas','lentejones','lentejas en lata','porotos alubia','porotos en lata','porotos pallares','arvejas partidas']},
     {name:'Lácteos y huevos', ico:'🧀', items:['helado','queso cheddar','crema','dulce de leche','huevo','leche','leche condensada','manteca','mozzarella','parmesano','provoleta','queso','queso azul','queso crema','queso cremoso','queso de máquina','queso rallado','ricota','yogur','huevos de codorniz','leche descremada','leche en polvo','mascarpone','queso brie','queso de cabra','queso dambo','queso feta','queso fontina','queso fresco','queso gruyere','queso port salut','queso sardo','queso tybo','reggianito','yogur griego','crema chantilly','leche de almendras','leche de coco']},
-    {name:'Almacén', ico:'🥫', items:['merenguitos','frutas abrillantadas','whisky','masa madre','nachos','tortillas de maíz','pan de pancho','aceitunas','almendras','arroz','arroz integral','avena','azúcar','azúcar impalpable','cacao','caldo','chocolate','chucrut','cuscús','durazno en almíbar','esencia de vainilla','fideos','galletitas','gelatina','harina','harina integral','harina leudante','ketchup','levadura','maicena','maíz pisado','maní','masa filo','mayonesa','mermelada','miel','nueces','pan','pan de hamburguesa','pan lactal','pan rallado','pasas de uva','placas de lasaña','polenta','polvo de hornear','puré de tomate','quinoa','salsa de soja','salsa de tomate','semillas de girasol','sésamo','tapa de tarta','tapas de empanadas','tomate en lata','tostadas','alcaparras','arroz basmati','arroz para risotto','arroz yamaní','avellanas','azúcar mascabo','bicarbonato','castañas de cajú','champiñones en lata','chips de chocolate','choclo en lata','arvejas en lata','ciruelas pasas','coco rallado','copos de maíz','dulce de batata','dulce de membrillo','fideos de arroz','fideos integrales','granola','grisines','harina de garbanzo','harina de maíz','masa de hojaldre','mijo','ñoquis','orejones','palmitos','pan árabe','pan francés','pan integral','pepinillos','pistachos','polvo para flan','prepizzas','ravioles','rebozador','salsa barbacoa','salsa golf','semillas de chía','semillas de lino','semillas de zapallo','sorrentinos','tomates secos','tortillas de trigo','trigo burgol','edulcorante','fécula de mandioca','tapas de pascualina']},
+    {name:'Almacén', ico:'🥫', items:['grasa','piñones','tahini','harina de matzá','masa de strudel','merenguitos','frutas abrillantadas','whisky','masa madre','nachos','tortillas de maíz','pan de pancho','aceitunas','almendras','arroz','arroz integral','avena','azúcar','azúcar impalpable','cacao','caldo','chocolate','chucrut','cuscús','durazno en almíbar','esencia de vainilla','fideos','galletitas','gelatina','harina','harina integral','harina leudante','ketchup','levadura','maicena','maíz pisado','maní','masa filo','mayonesa','mermelada','miel','nueces','pan','pan de hamburguesa','pan lactal','pan rallado','pasas de uva','placas de lasaña','polenta','polvo de hornear','puré de tomate','quinoa','salsa de soja','salsa de tomate','semillas de girasol','sésamo','tapa de tarta','tapas de empanadas','tomate en lata','tostadas','alcaparras','arroz basmati','arroz para risotto','arroz yamaní','avellanas','azúcar mascabo','bicarbonato','castañas de cajú','champiñones en lata','chips de chocolate','choclo en lata','arvejas en lata','ciruelas pasas','coco rallado','copos de maíz','dulce de batata','dulce de membrillo','fideos de arroz','fideos integrales','granola','grisines','harina de garbanzo','harina de maíz','masa de hojaldre','mijo','ñoquis','orejones','palmitos','pan árabe','pan francés','pan integral','pepinillos','pistachos','polvo para flan','prepizzas','ravioles','rebozador','salsa barbacoa','salsa golf','semillas de chía','semillas de lino','semillas de zapallo','sorrentinos','tomates secos','tortillas de trigo','trigo burgol','edulcorante','fécula de mandioca','tapas de pascualina']},
     {name:'Aromáticas', ico:'🌿', items:['albahaca','ciboulette','cilantro','eneldo','estragón','jengibre','laurel','menta','orégano','perejil','romero','salvia','tomillo','ajedrea','albahaca morada','cedrón','mejorana','peperina','poleo','hierbabuena']},
     {name:'Condimentos', ico:'🧂', items:['aceite de oliva','aceto balsámico','ají molido','ajo en polvo','alcaravea','azafrán','canela','chimichurri','clavo de olor','comino','cúrcuma','curry','mostaza','nuez moscada','pimentón','provenzal','salsa picante','vinagre','vinagre de manzana','vino','aceite de girasol','aceite de sésamo','anís estrellado','cardamomo','cebolla en polvo','jengibre en polvo','mostaza en grano','pimentón ahumado','pimienta blanca','pimienta de cayena','pimienta negra','sal gruesa','sal marina','salsa inglesa','salsa teriyaki','vinagre de vino','vino blanco','vino tinto','condimento para pizza','condimento para arroz','hierbas provenzales']}
   ];
@@ -1230,7 +1364,227 @@ header.top h1{font-size:1.7rem; margin:0}
       s:['Exprimí los limones y pelá el jengibre.','Licuá el jugo con la menta, el jengibre, el azúcar y la mitad del agua.','Colá y sumá el resto del agua.','Serví en una jarra con hielo, rodajas de limón y hojas de menta. Ideal para el calor, sin alcohol.']},
     {n:'Tereré', drink:1, nonut:1, t:5, v:1, p:['AR'], b:1, i:['yerba','limón|naranja|menta'],
       q:[[1,'u','mate y bombilla','mates y bombillas'],[null,'','Yerba mate (3/4 del mate)'],[1000,'ml','de agua bien fría o jugo de pomelo, limón o naranja'],[null,'','Yuyos frescos: menta, cedrón o burrito, y hielo']],
-      s:['Llená 3/4 del mate con yerba, como para un mate común.','Prepará una jarra con agua bien fría, hielo y los yuyos machacados (o jugo de cítricos).','Cebá con el agua fría igual que el mate caliente, sin mover la bombilla.','Es la forma de tomar mate en verano en el Litoral, Paraguay y el norte argentino.']}
+      s:['Llená 3/4 del mate con yerba, como para un mate común.','Prepará una jarra con agua bien fría, hielo y los yuyos machacados (o jugo de cítricos).','Cebá con el agua fría igual que el mate caliente, sin mover la bombilla.','Es la forma de tomar mate en verano en el Litoral, Paraguay y el norte argentino.']},
+    /* España */
+    {n:'Fabada asturiana', t:1560, tt:'2 h 30 min (+ remojo de la noche anterior)', v:0, p:['ES'], b:6, i:['porotos alubia|porotos','chorizo colorado|chorizo','morcilla','panceta'],
+      q:[[500,'g','de porotos alubia (fabes) secos'],[2,'u','chorizo colorado','chorizos colorados'],[2,'u','morcilla','morcillas'],[200,'g','de panceta en un trozo'],[1,'u','cebolla','cebollas'],[2,'u','diente de ajo','dientes de ajo'],[1,'u','cucharadita de pimentón dulce','cucharaditas de pimentón dulce'],[null,'','Una pizca de azafrán (opcional), laurel y sal']],
+      s:['Dejá los porotos en remojo en agua fría toda la noche.','Escurrilos y ponelos en una olla grande con agua fría que los cubra apenas, la cebolla entera, el ajo, el laurel, la panceta, el chorizo y la morcilla enteros.','Llevá a hervor a fuego medio y espumá. Cuando hierva, agregá medio vaso de agua fría para "asustar" los porotos y que no se rompan. Repetí 2 o 3 veces durante la cocción.','Cociná tapado a fuego muy bajo 2 horas, sin revolver con cuchara: mové la olla en círculos para que no se peguen.','A mitad de cocción sumá el pimentón y el azafrán. Probá y salá al final (los embutidos ya aportan sal).','Sacá las carnes, cortalas en trozos y servilas encima de los porotos. Queda mejor si reposa 30 minutos antes de servir.']},
+    {n:'Pulpo a la gallega', t:70, p:['ES'], b:4, i:['pulpo','papa','pimentón','aceite de oliva'],
+      q:[[1500,'g','de pulpo (fresco o congelado)'],[4,'u','papa mediana','papas medianas'],[1,'u','cucharada de pimentón dulce','cucharadas de pimentón dulce'],[1,'u','pizca de pimentón picante (opcional)','pizcas de pimentón picante (opcional)'],[60,'ml','de aceite de oliva'],[null,'','Sal gruesa y una hoja de laurel']],
+      s:['Si el pulpo es fresco, congelalo al menos 1 día (así se ablanda); si es congelado, descongelalo en la heladera.','Herví abundante agua con laurel. Agarrá el pulpo por la cabeza y sumergilo y sacalo 3 veces ("asustarlo") para que se ricen los tentáculos. Después dejalo adentro.','Cociná 40 a 50 minutos, hasta que al pinchar la parte gruesa entre fácil. Apagá y dejalo reposar 10 minutos en el agua.','En esa misma agua cociná las papas peladas en rodajas gruesas, unos 20 minutos.','Cortá los tentáculos en rodajas con tijera.','Armá sobre una tabla de madera: papas, pulpo encima, sal gruesa, pimentón y un buen chorro de aceite de oliva. Servilo tibio.']},
+    {n:'Patatas bravas', t:45, v:1, p:['ES'], b:4, i:['papa','pimentón','mayonesa','ajo'],
+      q:[[1000,'g','de papa'],[1000,'ml','de aceite para freír'],[2,'u','cucharada de pimentón dulce','cucharadas de pimentón dulce'],[1,'u','cucharadita de pimentón picante o ají molido','cucharaditas de pimentón picante o ají molido'],[1,'u','cucharada de harina','cucharadas de harina'],[250,'ml','de caldo de verduras'],[100,'g','de mayonesa'],[1,'u','diente de ajo','dientes de ajo']],
+      s:['Pelá las papas y cortalas en cubos irregulares de 3 cm. Lavalas y secalas muy bien.','Freílas en aceite a 150 °C unos 8 minutos, hasta que estén tiernas. Sacalas.','Salsa brava: en una sartén con 2 cucharadas de aceite tostá la harina 1 minuto, sumá los pimentones y enseguida el caldo. Revolvé hasta que espese, 3 minutos. Salá.','Alioli rápido: mezclá la mayonesa con el ajo rallado.','Subí el aceite a 190 °C y volvé a freír las papas 2 a 3 minutos hasta que estén bien doradas y crocantes. Salalas.','Servilas con la salsa brava por encima y el alioli al costado. Son la tapa más pedida de los bares españoles.']},
+    {n:'Salmorejo', t:135, tt:'15 min (+ 2 h de heladera)', v:1, p:['ES'], b:4, i:['tomate','pan','ajo','aceite de oliva','huevo'],
+      q:[[1000,'g','de tomates bien maduros'],[200,'g','de pan del día anterior (sin corteza)'],[1,'u','diente de ajo','dientes de ajo'],[120,'ml','de aceite de oliva'],[1,'u','cucharada de vinagre','cucharadas de vinagre'],[2,'u','huevo duro (para servir)','huevos duros (para servir)'],[60,'g','de jamón crudo picado (opcional)']],
+      s:['Lavá los tomates, cortalos en trozos y licualos con el ajo y la sal hasta que quede bien líquido. Colalo para sacar pieles y semillas.','Remojá el pan en el tomate licuado 10 minutos.','Licuá todo de nuevo sumando el aceite en hilo y el vinagre, hasta lograr una crema espesa y brillante.','Probá de sal y llevalo a la heladera al menos 2 horas: se sirve bien frío.','Serví en platos hondos con huevo duro picado, jamón crudo y un chorrito de aceite de oliva. Es la sopa fría típica de Córdoba, España, más espesa que el gazpacho.']},
+    {n:'Cocido madrileño', t:210, tt:'3 h 30 min (+ remojo)', v:0, p:['ES'], b:8, i:['garbanzos','carne|osobuco|garrón','pollo|gallina','chorizo colorado|chorizo','panceta','papa','zanahoria','repollo'],
+      q:[[400,'g','de garbanzos secos'],[500,'g','de carne de ternera (osobuco o garrón)'],[0.5,'u','pollo o gallina','pollos o gallinas'],[2,'u','chorizo colorado','chorizos colorados'],[1,'u','morcilla (opcional)','morcillas (opcional)'],[150,'g','de panceta en un trozo'],[4,'u','papa','papas'],[3,'u','zanahoria','zanahorias'],[0.5,'u','repollo','repollos'],[150,'g','de fideos finos (cabello de ángel)'],[null,'','Sal, un hueso de caracú (opcional) y 2 dientes de ajo']],
+      s:['Dejá los garbanzos en remojo toda la noche.','En una olla grande poné la carne, el pollo, la panceta y el hueso con agua fría. Llevá a hervor y espumá bien.','Sumá los garbanzos dentro de una red o bolsita de tul (así no se desarman) y cociná a fuego bajo 2 horas y media.','En otra olla cociná el repollo en tiras con el chorizo y la morcilla 30 minutos, y después rehogalo con ajo.','Sumá a la olla grande las papas y zanahorias enteras los últimos 30 minutos.','Colá parte del caldo y cociná ahí los fideos: es el primer "vuelco", la sopa.','Segundo vuelco: garbanzos con las verduras. Tercer vuelco: las carnes y embutidos cortados. Se sirve todo en ese orden.']},
+    /* Alemania */
+    {n:'Gulasch', t:150, p:['DE','AR'], b:6, i:['carne para guiso|carne|paleta','cebolla','pimentón','morrón','puré de tomate|tomate en lata'],
+      q:[[1000,'g','de carne para guiso (paleta o roast beef)'],[4,'u','cebolla','cebollas'],[2,'u','cucharada de pimentón dulce','cucharadas de pimentón dulce'],[1,'u','morrón rojo','morrones rojos'],[2,'u','cucharada de puré de tomate','cucharadas de puré de tomate'],[2,'u','diente de ajo','dientes de ajo'],[750,'ml','de caldo de carne'],[200,'ml','de vino tinto (opcional)'],[null,'','Comino, laurel, sal y pimienta'],[null,'','Para acompañar: spätzle, puré o papas hervidas']],
+      s:['Cortá la carne en cubos de 3 cm y secala con papel.','Doralá en tandas en una olla con aceite bien caliente. Sacala.','En la misma olla cociná la cebolla en pluma a fuego bajo 15 minutos, hasta que esté dorada.','Sumá el ajo, el morrón en tiras y el puré de tomate. Fuera del fuego agregá el pimentón (si se quema, amarga).','Volvé la carne, sumá el vino, el caldo, el comino y el laurel. Tapá y cociná a fuego bajo 1 hora y media a 2 horas, hasta que la carne esté muy tierna y la salsa espesa.','Serví con spätzle, puré o papas. Es un guiso de origen húngaro muy popular en Alemania y en las colonias alemanas de Argentina.']},
+    {n:'Käsespätzle (spätzle con queso)', t:40, v:1, p:['DE'], b:4, i:['harina','huevo','queso','cebolla','manteca'],
+      q:[[400,'g','de harina 0000'],[4,'u','huevo','huevos'],[150,'ml','de agua o leche'],[200,'g','de queso gruyere, emmental o tybo rallado'],[3,'u','cebolla','cebollas'],[40,'g','de manteca'],[null,'','Sal, nuez moscada y ciboulette']],
+      s:['Mezclá la harina, los huevos, el agua, sal y nuez moscada, y batí con cuchara de madera hasta que la masa haga burbujas: tiene que ser espesa y pegajosa.','Herví abundante agua con sal. Pasá la masa por un rallador de agujeros grandes o un colador de agujeros grandes directo al agua, apretando con una espátula.','Cuando los spätzle suban a la superficie (1 a 2 minutos), sacalos con espumadera.','Cortá las cebollas en pluma y doralas en la manteca hasta que estén bien tostadas.','En una fuente, alterná capas de spätzle y queso rallado, y terminá con queso.','Gratiná 5 minutos a horno fuerte y serví con la cebolla dorada y ciboulette.']},
+    {n:'Schnitzel (milanesa vienesa de cerdo)', t:35, p:['DE','AR'], b:4, i:['carré de cerdo|solomillo de cerdo|cerdo','huevo','pan rallado','harina','limón'],
+      q:[[4,'u','bife de carré o lomo de cerdo (de 1 cm)','bifes de carré o lomo de cerdo (de 1 cm)'],[2,'u','huevo','huevos'],[150,'g','de pan rallado'],[60,'g','de harina'],[1,'u','limón','limones'],[60,'g','de manteca'],[300,'ml','de aceite para freír'],[null,'','Sal y pimienta'],[null,'','Para acompañar: ensalada de papas alemana']],
+      s:['Poné cada bife entre dos films y golpealo con un palo de amasar o martillo hasta dejarlo de medio centímetro.','Salpimentá. Pasalos por harina, después por huevo batido y por último por pan rallado, sin apretar mucho (así el rebozado se infla).','Calentá en una sartén grande el aceite con la manteca, que haya 1 cm de profundidad.','Freí los schnitzel de a uno, moviendo la sartén para que el aceite caliente les pase por encima, 2 a 3 minutos por lado, hasta que estén dorados y el rebozado haga "olas".','Escurrilos sobre papel y serví con gajos de limón y ensalada de papas.']},
+    {n:'Ensalada de papas alemana', t:40, p:['DE'], b:4, i:['papa','cebolla','panceta','vinagre','mostaza','caldo'],
+      q:[[1000,'g','de papa (de las que no se desarman)'],[1,'u','cebolla','cebollas'],[100,'g','de panceta en cubitos'],[150,'ml','de caldo caliente'],[3,'u','cucharada de vinagre','cucharadas de vinagre'],[1,'u','cucharada de mostaza','cucharadas de mostaza'],[3,'u','cucharada de aceite','cucharadas de aceite'],[4,'u','pepinillo (opcional)','pepinillos (opcional)'],[null,'','Ciboulette, sal y pimienta']],
+      s:['Herví las papas con cáscara hasta que estén tiernas, unos 25 minutos. Pelalas en caliente y cortalas en rodajas.','Dorá la panceta en una sartén y sumá la cebolla picada fina 3 minutos.','Agregá el caldo caliente, el vinagre, la mostaza, sal y pimienta, y dejá hervir 1 minuto.','Volcá la mezcla caliente sobre las papas tibias y mezclá suave: así absorben el aliño.','Dejala reposar 20 minutos, sumá el aceite, los pepinillos picados y la ciboulette. Se sirve tibia. Versión vegetariana: sin panceta y con caldo de verduras.']},
+    {n:'Kartoffelpuffer (tortitas de papa)', t:35, v:1, p:['DE'], b:4, i:['papa','cebolla','huevo','harina'],
+      q:[[1000,'g','de papa'],[1,'u','cebolla','cebollas'],[2,'u','huevo','huevos'],[3,'u','cucharada de harina','cucharadas de harina'],[200,'ml','de aceite para freír'],[null,'','Sal, pimienta y nuez moscada'],[null,'','Para acompañar: puré de manzana o crema ácida']],
+      s:['Pelá y rallá las papas y la cebolla con rallador grueso.','Ponelas en un repasador limpio y exprimilas con fuerza para sacarles todo el líquido (clave para que queden crocantes).','Mezclá con los huevos, la harina, sal, pimienta y nuez moscada.','Calentá aceite en una sartén (1/2 cm). Poné cucharadas de mezcla y aplastalas formando tortitas finas.','Cociná 3 a 4 minutos por lado hasta que estén bien doradas. Escurrilas sobre papel.','En Alemania se comen con puré de manzana; también van bárbaro con crema ácida o salmón ahumado.']},
+    {n:'Kassler con chucrut y puré', t:60, p:['DE','AR'], b:4, i:['kassler','chucrut','papa','leche','manteca'],
+      q:[[4,'u','costeleta de kassler (cerdo ahumado)','costeletas de kassler (cerdo ahumado)'],[500,'g','de chucrut'],[1,'u','cebolla','cebollas'],[1,'u','manzana','manzanas'],[1000,'g','de papa'],[150,'ml','de leche caliente'],[50,'g','de manteca'],[null,'','Laurel, granos de pimienta, alcaravea (opcional) y sal']],
+      s:['Enjuagá el chucrut si está muy ácido y escurrilo.','Rehogá la cebolla en pluma con una cucharada de manteca, sumá la manzana rallada, el chucrut, el laurel, la alcaravea y medio vaso de agua. Cociná tapado 20 minutos.','Acomodá las costeletas de kassler encima del chucrut, tapá y cociná 15 minutos más a fuego bajo (ya vienen cocidas, solo hay que calentarlas).','Mientras tanto hervi las papas peladas, pisalas y mezclalas con la manteca y la leche caliente. Salá.','Serví cada costeleta con chucrut y puré, y mostaza al costado. Clásico de los restaurantes alemanes de Villa General Belgrano.']},
+    /* Francia */
+    {n:'Ratatouille', t:70, v:1, p:['FR'], b:4, i:['berenjena','zucchini|zapallito','morrón','tomate','cebolla','ajo'],
+      q:[[1,'u','berenjena','berenjenas'],[2,'u','zucchini o zapallito','zucchinis o zapallitos'],[1,'u','morrón rojo','morrones rojos'],[1,'u','morrón amarillo o verde','morrones amarillos o verdes'],[4,'u','tomate perita','tomates perita'],[1,'u','cebolla','cebollas'],[3,'u','diente de ajo','dientes de ajo'],[60,'ml','de aceite de oliva'],[null,'','Tomillo, laurel, albahaca, sal y pimienta']],
+      s:['Cortá todas las verduras en cubos de 2 cm (los tomates, pelados).','Saltá la berenjena en una sartén con aceite hasta que esté dorada. Sacala. Repetí con los zucchinis y después con los morrones (por separado, así cada uno conserva su sabor).','En una olla rehogá la cebolla y el ajo, sumá los tomates, el tomillo y el laurel, y cociná 10 minutos.','Volvé todas las verduras a la olla, salpimentá y cociná tapado a fuego bajo 30 minutos.','Terminá con albahaca fresca y un chorrito de aceite de oliva. Se come caliente, tibio o frío, y es todavía mejor al día siguiente.']},
+    {n:'Boeuf bourguignon (carne al vino tinto)', t:200, p:['FR'], b:6, i:['carne para guiso|paleta|carne','vino tinto','panceta','champiñones','cebolla','zanahoria'],
+      q:[[1200,'g','de carne para guiso (paleta, roast beef o carnaza)'],[750,'ml','de vino tinto (una botella)'],[150,'g','de panceta en cubitos'],[250,'g','de champiñones'],[12,'u','cebollita chica (o 2 cebollas)','cebollitas chicas (o 2 cebollas)'],[2,'u','zanahoria','zanahorias'],[2,'u','diente de ajo','dientes de ajo'],[2,'u','cucharada de harina','cucharadas de harina'],[1,'u','cucharada de puré de tomate','cucharadas de puré de tomate'],[300,'ml','de caldo de carne'],[30,'g','de manteca'],[null,'','Tomillo, laurel, sal y pimienta']],
+      s:['Cortá la carne en cubos grandes (5 cm) y secala bien.','Dorá la panceta en una olla de hierro y sacala. En esa grasa dorá la carne en tandas hasta que esté bien tostada.','Sumá la zanahoria en rodajas y el ajo, espolvoreá la harina y revolvé 2 minutos.','Agregá el puré de tomate, el vino, el caldo, el tomillo y el laurel, y volvé la panceta. Tapá y cociná a fuego muy bajo (o al horno a 160 °C) 2 horas y media.','Aparte, dorá las cebollitas y los champiñones en la manteca, y sumalos los últimos 30 minutos.','La salsa tiene que quedar espesa y brillante. Servilo con puré, papas hervidas o pasta.']},
+    {n:'Sopa de cebolla gratinada', t:75, v:1, p:['FR'], b:4, i:['cebolla','manteca','caldo','pan','queso gruyere|queso'],
+      q:[[1000,'g','de cebolla'],[50,'g','de manteca'],[1,'u','cucharada de harina','cucharadas de harina'],[150,'ml','de vino blanco'],[1500,'ml','de caldo de carne o verduras'],[8,'u','rodaja de pan francés','rodajas de pan francés'],[200,'g','de queso gruyere o tybo rallado'],[null,'','Tomillo, laurel, sal y pimienta']],
+      s:['Cortá las cebollas en pluma fina.','Cocinalas en la manteca a fuego bajo 40 minutos, revolviendo cada tanto, hasta que estén bien doradas y caramelizadas (no apures este paso: es el sabor de la sopa).','Espolvoreá la harina, revolvé 1 minuto y sumá el vino blanco.','Agregá el caldo caliente, el tomillo y el laurel, y cociná 20 minutos. Salpimentá.','Tostá las rodajas de pan.','Serví la sopa en cazuelas aptas para horno, poné el pan encima, cubrí con mucho queso y gratiná a horno fuerte o grill hasta que esté dorado y burbujeante.']},
+    {n:'Croque monsieur', t:25, p:['FR'], b:2, i:['pan lactal','jamón cocido|jamón','queso gruyere|queso','manteca','leche','harina'],
+      q:[[4,'u','rebanada de pan lactal','rebanadas de pan lactal'],[4,'u','feta de jamón cocido','fetas de jamón cocido'],[100,'g','de queso gruyere o tybo rallado'],[20,'g','de manteca'],[150,'ml','de leche'],[1,'u','cucharada de harina','cucharadas de harina'],[null,'','Nuez moscada, sal y pimienta'],[null,'','Croque madame: con un huevo frito encima']],
+      s:['Salsa blanca rápida: derretí la manteca, sumá la harina, revolvé 1 minuto y agregá la leche de a poco batiendo hasta que espese. Condimentá con nuez moscada, sal y pimienta.','Untá las rebanadas de pan con un poco de salsa blanca.','Armá los sándwiches con jamón y la mitad del queso.','Cubrí la tapa con el resto de la salsa blanca y el queso.','Horneá a 220 °C (o grill) unos 8 a 10 minutos, hasta que esté dorado y burbujeante. Con un huevo frito encima se llama croque madame.']},
+    {n:'Papas gratinadas (gratin dauphinois)', t:80, v:1, p:['FR'], b:6, i:['papa','crema','leche','ajo'],
+      q:[[1200,'g','de papa'],[300,'ml','de crema de leche'],[300,'ml','de leche'],[2,'u','diente de ajo','dientes de ajo'],[20,'g','de manteca'],[80,'g','de queso gruyere rallado (opcional)'],[null,'','Nuez moscada, sal y pimienta']],
+      s:['Pelá las papas y cortalas en rodajas muy finas (2 o 3 mm), sin lavarlas: el almidón ayuda a espesar.','En una olla calentá la leche con la crema, el ajo machacado, sal, pimienta y nuez moscada. Sumá las papas y cociná 10 minutos revolviendo suave.','Enmantecá una fuente y frotala con ajo.','Volcá las papas con la crema, acomodándolas en capas.','Si querés, cubrí con queso. Horneá a 170 °C unos 50 minutos, hasta que estén tiernas y doradas arriba. Ideal para acompañar carnes.']},
+    {n:'Crème brûlée', t:300, tt:'1 h (+ 4 h de heladera)', v:1, d:1, p:['FR'], b:6, i:['crema','huevo','azúcar','esencia de vainilla'],
+      q:[[500,'ml','de crema de leche'],[6,'u','yema','yemas'],[100,'g','de azúcar'],[1,'u','cucharadita de esencia de vainilla (o 1 chaucha)','cucharaditas de esencia de vainilla'],[60,'g','de azúcar para caramelizar']],
+      s:['Calentá la crema con la vainilla hasta que esté por hervir.','Batí las yemas con el azúcar (sin espumar), y sumá la crema caliente de a poco, revolviendo.','Colá la mezcla y repartila en cazuelitas bajas.','Horneá a baño María a 150 °C unos 35 a 40 minutos, hasta que estén firmes en los bordes y tiemblen un poco en el centro.','Enfrialas y llevalas a la heladera al menos 4 horas.','Antes de servir, espolvoreá una capa fina de azúcar y quemala con soplete (o bajo el grill muy fuerte) hasta que quede una costra dura de caramelo.']},
+    {n:'Profiteroles con chocolate', t:70, v:1, d:1, p:['FR','AR'], b:6, i:['harina','manteca','huevo','crema','chocolate'],
+      q:[[125,'g','de harina 0000'],[100,'g','de manteca'],[250,'ml','de agua'],[4,'u','huevo','huevos'],[1,'u','pizca de sal','pizcas de sal'],[400,'ml','de crema de leche (relleno)'],[50,'g','de azúcar'],[150,'g','de chocolate semiamargo'],[100,'ml','de crema (salsa)']],
+      s:['Masa bomba: herví el agua con la manteca y la sal. Sumá la harina de golpe y revolvé hasta que la masa se despegue de la olla. Pasala a un bol.','Sumá los huevos de a uno, batiendo bien entre cada uno, hasta lograr una masa lisa y brillante.','Con manga o dos cucharas, formá bolitas de 3 cm en una placa enmantecada, separadas.','Horneá a 200 °C unos 25 minutos sin abrir el horno, hasta que estén infladas y doradas. Dejalas enfriar.','Batí la crema con el azúcar a punto chantilly y rellenalas haciendo un agujerito abajo.','Derretí el chocolate con la crema caliente y bañalas al servir.']},
+    /* Cocina judía */
+    {n:'Varenikes de papa', t:90, v:1, p:['JU','AR'], b:6, i:['harina','papa','cebolla','huevo'],
+      q:[[400,'g','de harina 0000 (masa)'],[1,'u','huevo (masa)','huevos (masa)'],[180,'ml','de agua tibia'],[2,'u','cucharada de aceite (masa)','cucharadas de aceite (masa)'],[800,'g','de papa (relleno)'],[3,'u','cebolla','cebollas'],[50,'g','de manteca o aceite'],[null,'','Sal y pimienta'],[null,'','Para servir: cebolla frita y crema ácida']],
+      s:['Masa: mezclá la harina, el huevo, el agua, el aceite y una pizca de sal. Amasá 5 minutos hasta que esté lisa, tapala y dejala descansar 30 minutos.','Relleno: herví las papas, hacelas puré. Dorá las cebollas picadas en la manteca hasta que estén bien doradas y sumá la mitad al puré. Salpimentá bien.','Estirá la masa bien fina y cortá círculos de 7 cm.','Poné una cucharadita de relleno en cada círculo, doblá en media luna y apretá los bordes con los dedos para sellar.','Herví abundante agua con sal y cociná los varenikes en tandas, 3 a 4 minutos después de que suban.','Servilos con el resto de la cebolla frita por encima y crema ácida. Son la comida de las abuelas judías de origen ucraniano y polaco.']},
+    {n:'Knishes de papa', t:75, v:1, p:['JU','AR'], b:12, i:['harina','papa','cebolla','huevo'],
+      q:[[300,'g','de harina 0000'],[1,'u','huevo (masa)','huevos (masa)'],[80,'ml','de aceite'],[100,'ml','de agua tibia'],[1,'u','cucharadita de polvo de hornear','cucharaditas de polvo de hornear'],[800,'g','de papa'],[2,'u','cebolla','cebollas'],[1,'u','huevo (para pintar)','huevos (para pintar)'],[null,'','Sal, pimienta y semillas de sésamo (opcional)']],
+      s:['Masa: mezclá la harina, el polvo de hornear, la sal, el huevo, el aceite y el agua. Amasá hasta que esté suave, tapala y dejala descansar 30 minutos.','Relleno: herví las papas y hacé un puré. Dorá las cebollas picadas en aceite y mezclalas con el puré. Salpimentá con generosidad.','Estirá la masa fina en un rectángulo. Poné un cordón de relleno a lo largo del borde y enrollá como un cilindro.','Cortá porciones de 5 cm apretando con el costado de la mano para cerrar las puntas, y aplastalas un poco para darles forma de bocado redondo.','Pintalas con huevo, espolvoreá sésamo y horneá a 190 °C unos 30 minutos, hasta que estén doradas.','Se comen tibias. Típicas de las rotiserías judías de Once y Villa Crespo.']},
+    {n:'Jalá (pan trenzado)', t:180, tt:'3 h (con levado)', v:1, p:['JU','IL'], b:10, i:['harina','huevo','levadura','azúcar','miel|azúcar'],
+      q:[[500,'g','de harina 0000'],[2,'u','huevo (masa)','huevos (masa)'],[25,'g','de levadura fresca'],[200,'ml','de agua tibia'],[60,'g','de azúcar o miel'],[60,'ml','de aceite'],[10,'g','de sal'],[1,'u','huevo (para pintar)','huevos (para pintar)'],[null,'','Semillas de sésamo o amapola']],
+      s:['Disolvé la levadura en el agua tibia con una cucharada del azúcar y esperá 10 minutos a que espume.','Mezclá la harina con el resto del azúcar y la sal. Sumá los huevos, el aceite y la levadura. Amasá 10 minutos hasta lograr una masa lisa y elástica.','Dejala levar tapada 1 hora y media, hasta que duplique.','Desgasificala, dividila en 3 (o 6) partes y formá tiras largas. Trenzalas y pegá las puntas abajo.','Ponela en una placa, dejala levar 45 minutos más y pintala con huevo batido. Espolvoreá semillas.','Horneá a 180 °C unos 30 a 35 minutos, hasta que esté bien dorada y suene hueca al golpear abajo. Es el pan del Shabat y las fiestas.']},
+    {n:'Sopa de pollo con kneidalaj', t:150, p:['JU','IL'], b:6, i:['pollo|gallina','zanahoria','apio','cebolla','harina de matzá','huevo'],
+      q:[[1,'u','pollo o media gallina','pollos o medias gallinas'],[3,'u','zanahoria','zanahorias'],[2,'u','rama de apio','ramas de apio'],[1,'u','cebolla','cebollas'],[1,'u','puerro (opcional)','puerros (opcional)'],[2500,'ml','de agua'],[150,'g','de harina de matzá (kneidalaj)'],[3,'u','huevo','huevos'],[3,'u','cucharada de aceite','cucharadas de aceite'],[null,'','Eneldo o perejil, sal y pimienta']],
+      s:['Poné el pollo en una olla con el agua fría. Llevá a hervor y espumá bien.','Sumá la cebolla, las zanahorias, el apio, el puerro y sal. Cociná a fuego bajo 1 hora y media, sin que hierva fuerte, así el caldo queda claro.','Kneidalaj: batí los huevos con el aceite, sal y 3 cucharadas de caldo. Sumá la harina de matzá y mezclá. Llevá la mezcla 30 minutos a la heladera.','Con las manos mojadas formá bolitas del tamaño de una nuez (crecen al cocinarse).','Cociná las bolitas en agua hirviendo con sal (o en parte del caldo) 25 minutos, tapado.','Desmenuzá el pollo y serví el caldo con zanahoria, pollo, los kneidalaj y eneldo. Es la "penicilina judía" para los días fríos o de gripe.']},
+    {n:'Lekaj (budín de miel)', t:75, v:1, d:1, p:['JU'], b:10, i:['miel','harina','huevo','azúcar'],
+      q:[[200,'g','de miel'],[300,'g','de harina leudante'],[3,'u','huevo','huevos'],[150,'g','de azúcar mascabo o común'],[120,'ml','de aceite'],[150,'ml','de café o té fuerte tibio'],[1,'u','cucharadita de canela','cucharaditas de canela'],[null,'','Una pizca de clavo de olor, ralladura de naranja y nueces picadas (opcional)']],
+      s:['Batí los huevos con el azúcar hasta que estén espumosos.','Sumá la miel, el aceite y el café, y mezclá.','Agregá la harina con la canela, el clavo y la ralladura, sin batir de más. Si querés, sumá nueces.','Volcá en un molde de budín enmantecado y horneá a 170 °C unos 50 minutos, hasta que al pinchar salga seco.','Dejalo enfriar envuelto: mejora al día siguiente. Se come en Rosh Hashaná para desear un año dulce.']},
+    {n:'Babka de chocolate', t:240, tt:'4 h (con levado)', v:1, d:1, p:['JU','IL','US'], b:10, i:['harina','manteca','huevo','levadura','chocolate','azúcar','leche'],
+      q:[[500,'g','de harina 0000'],[100,'g','de azúcar (masa)'],[25,'g','de levadura fresca'],[120,'ml','de leche tibia'],[3,'u','huevo','huevos'],[120,'g','de manteca blanda (masa)'],[200,'g','de chocolate semiamargo (relleno)'],[100,'g','de manteca (relleno)'],[50,'g','de azúcar impalpable (relleno)'],[30,'g','de cacao (relleno)'],[null,'','Almíbar: 100 g de azúcar y 100 ml de agua']],
+      s:['Disolvé la levadura en la leche tibia. Mezclá con la harina, el azúcar, los huevos y una pizca de sal. Amasá y sumá la manteca de a poco hasta que la masa esté lisa y brillante.','Dejala levar tapada 1 hora y media (o toda la noche en la heladera, queda más fácil de estirar).','Relleno: derretí el chocolate con la manteca y sumá el azúcar impalpable y el cacao.','Estirá la masa en un rectángulo de 40 × 30 cm, untá el relleno y enrollá por el lado largo.','Cortá el rollo a lo largo en dos, dejando el relleno a la vista, y trenzá las dos mitades. Ponela en un molde de budín y dejala levar 1 hora.','Horneá a 180 °C unos 40 minutos. Apenas sale, bañala con el almíbar caliente.']},
+    {n:'Sándwich de pastrón', t:10, p:['JU','US','AR'], b:2, i:['pastrón','pan','mostaza','pepinillos'],
+      q:[[250,'g','de pastrón en fetas finas'],[4,'u','rebanada de pan de centeno o pan lactal','rebanadas de pan de centeno o pan lactal'],[2,'u','cucharada de mostaza','cucharadas de mostaza'],[4,'u','pepinillo','pepinillos'],[null,'','Opcional: chucrut y queso suizo (estilo Reuben)']],
+      s:['Calentá el pastrón al vapor o en una sartén tapada con una cucharada de agua, 2 minutos: así queda tierno y jugoso.','Tostá apenas el pan y untalo con mostaza.','Apilá bastante pastrón caliente sobre el pan y tapá.','Serví con pepinillos al costado. Clásico de los delis judíos de Nueva York y de Villa Crespo.']},
+    /* Cocina árabe */
+    {n:'Kibbe al horno', t:75, p:['OT','AR'], b:6, i:['trigo burgol','carne picada','cebolla','menta','piñones|nueces'],
+      q:[[300,'g','de trigo burgol fino'],[700,'g','de carne picada magra'],[2,'u','cebolla','cebollas'],[1,'u','puñado de menta fresca','puñados de menta fresca'],[50,'g','de piñones o nueces picadas (relleno)'],[60,'g','de manteca derretida'],[null,'','Comino, pimienta de Jamaica o canela, sal y pimienta']],
+      s:['Remojá el burgol en agua 20 minutos y exprimilo muy bien con las manos.','Masa: procesá o amasá el burgol con 500 g de carne, una cebolla rallada, la menta picada, sal, pimienta y comino, hasta que quede una pasta.','Relleno: dorá la otra cebolla picada con los 200 g de carne restantes, sumá los piñones o nueces, canela, sal y pimienta.','En una fuente aceitada extendé la mitad de la masa (con las manos mojadas), cubrí con el relleno y tapá con el resto de la masa.','Marcá rombos con un cuchillo, rociá con la manteca derretida y horneá a 190 °C unos 35 a 40 minutos, hasta que esté dorado.','Servilo con yogur natural o ensalada de pepino. Es el plato insignia de la cocina sirio-libanesa.']},
+    {n:'Shawarma de pollo', t:150, tt:'30 min (+ 2 h de marinada)', p:['OT'], b:4, i:['muslos de pollo|pechuga de pollo|pollo','pan árabe','yogur','ajo','limón','tomate','lechuga'],
+      q:[[800,'g','de muslos o pechuga de pollo deshuesados'],[4,'u','pan árabe grande','panes árabes grandes'],[200,'g','de yogur natural'],[3,'u','diente de ajo','dientes de ajo'],[1,'u','limón','limones'],[2,'u','tomate','tomates'],[0.5,'u','planta de lechuga','plantas de lechuga'],[1,'u','cebolla morada','cebollas moradas'],[null,'','Especias: comino, pimentón, cúrcuma, canela, pimienta y sal'],[null,'','Salsa: yogur, ajo, limón y sal']],
+      s:['Marinada: mezclá 3 cucharadas de yogur, el jugo de medio limón, un diente de ajo rallado, las especias, aceite y sal. Untá el pollo y dejalo en la heladera al menos 2 horas.','Cociná el pollo en una plancha o sartén bien caliente 5 a 6 minutos por lado, hasta que esté dorado y cocido. Dejalo reposar y cortalo en tiras finas.','Salsa: mezclá el resto del yogur con ajo rallado, jugo de limón y sal.','Calentá el pan árabe, untalo con salsa y armá con pollo, tomate, lechuga y cebolla morada.','Enrollalo bien apretado y envolvelo en papel. Se puede sumar papas fritas adentro, como en los locales del centro.']},
+    {n:'Mujaddara (lentejas con arroz y cebolla)', t:60, v:1, p:['OT'], b:4, i:['lentejas','arroz','cebolla'],
+      q:[[200,'g','de lentejas'],[150,'g','de arroz'],[3,'u','cebolla grande','cebollas grandes'],[80,'ml','de aceite de oliva'],[null,'','Comino, sal y pimienta'],[null,'','Para servir: yogur natural y ensalada de tomate y pepino']],
+      s:['Cociná las lentejas en agua sin sal 15 minutos (que queden firmes). Escurrilas y guardá el agua.','Cortá las cebollas en pluma fina y freílas en el aceite a fuego medio 20 a 25 minutos, hasta que estén bien doradas y crocantes. Sacá la mitad y reservala.','En la misma olla con la otra mitad de cebolla, sumá el arroz y el comino y revolvé 1 minuto.','Agregá las lentejas y 400 ml del agua de cocción. Salá, tapá y cociná a fuego bajo 18 minutos.','Dejá reposar 5 minutos, servilo con la cebolla crocante por encima y yogur al costado. Es comida humilde y riquísima, y es vegana si no le ponés yogur.']},
+    {n:'Baba ganoush', t:50, v:1, p:['OT','IL'], b:4, i:['berenjena','ajo','limón','sésamo|aceite de oliva'],
+      q:[[2,'u','berenjena grande','berenjenas grandes'],[2,'u','cucharada de tahini (pasta de sésamo)','cucharadas de tahini (pasta de sésamo)'],[1,'u','diente de ajo','dientes de ajo'],[1,'u','limón (jugo)','limones (jugo)'],[3,'u','cucharada de aceite de oliva','cucharadas de aceite de oliva'],[null,'','Comino, pimentón, perejil y sal'],[null,'','Para acompañar: pan árabe']],
+      s:['Pinchá las berenjenas y cocinalas enteras directamente sobre la llama de la hornalla, en la parrilla o en el horno a máxima temperatura, dándolas vuelta, hasta que la piel esté quemada y estén blandas (30 a 40 minutos). Ese ahumado es la clave.','Ponelas en un bol tapado 10 minutos, así se pelan fácil.','Pelalas, escurrí el líquido amargo y pisá la pulpa con un tenedor.','Mezclá con el tahini, el ajo rallado, el jugo de limón, el comino y la sal.','Serví con aceite de oliva, pimentón y perejil por encima, y pan árabe para untar.']},
+    {n:'Kofta (brochettes de carne especiada)', t:40, p:['OT'], b:4, i:['carne picada','cebolla','perejil','comino'],
+      q:[[700,'g','de carne picada (vaca o mitad cordero)'],[1,'u','cebolla','cebollas'],[1,'u','puñado de perejil','puñados de perejil'],[1,'u','puñado de menta (opcional)','puñados de menta (opcional)'],[2,'u','diente de ajo','dientes de ajo'],[1,'u','cucharadita de comino','cucharaditas de comino'],[1,'u','cucharadita de pimentón','cucharaditas de pimentón'],[null,'','Canela, sal y pimienta'],[null,'','Para servir: pan árabe, yogur y ensalada']],
+      s:['Rallá la cebolla y exprimila para sacarle el jugo.','Mezclá la carne con la cebolla, el perejil y la menta picados, el ajo, las especias, sal y pimienta. Amasá 2 minutos para que se una bien.','Con las manos mojadas, formá cilindros alargados alrededor de palitos de brochette (remojados en agua si son de madera).','Cocinalos en la parrilla, plancha o grill bien caliente 3 a 4 minutos por lado.','Servilos con pan árabe, salsa de yogur con ajo y ensalada de tomate, pepino y cebolla.']},
+    {n:'Arroz árabe con fideos', t:35, v:1, p:['OT'], b:4, i:['arroz','fideos','manteca|aceite de girasol'],
+      q:[[300,'g','de arroz'],[60,'g','de fideos cabello de ángel cortados'],[40,'g','de manteca o aceite'],[600,'ml','de caldo o agua caliente'],[null,'','Sal y canela (opcional)'],[null,'','Opcional: almendras tostadas para servir']],
+      s:['Lavá el arroz hasta que el agua salga clara y escurrilo.','En una olla derretí la manteca y dorá los fideos revolviendo hasta que estén color tostado (cuidado, se queman rápido).','Sumá el arroz y revolvé 1 minuto para nacararlo.','Agregá el caldo caliente y sal, llevá a hervor, tapá y cociná a fuego mínimo 15 minutos sin destapar.','Apagá, dejá reposar 5 minutos tapado y desgraná con tenedor. Es la guarnición clásica para kibbe, niños envueltos o pollo.']},
+    {n:'Baklava', t:90, v:1, d:1, p:['OT'], b:16, i:['masa filo','nueces','manteca','azúcar','miel'],
+      q:[[450,'g','de masa filo'],[300,'g','de nueces y pistachos picados'],[200,'g','de manteca derretida'],[1,'u','cucharadita de canela','cucharaditas de canela'],[250,'g','de azúcar (almíbar)'],[200,'ml','de agua (almíbar)'],[100,'g','de miel'],[1,'u','limón (jugo)','limones (jugo)'],[null,'','Agua de azahar (opcional)']],
+      s:['Almíbar: herví el azúcar con el agua 10 minutos, sumá la miel, el jugo de limón y el azahar. Dejalo enfriar.','Mezclá las nueces y pistachos con la canela.','En una fuente enmantecada poné 8 hojas de masa filo, pintando cada una con manteca. Tapá la masa que no usás con un repasador húmedo para que no se seque.','Esparcí un tercio de las nueces, poné 4 hojas más pintadas y repetí. Terminá con 8 hojas pintadas con manteca.','Cortá en rombos antes de hornear, hasta el fondo. Horneá a 170 °C unos 40 a 45 minutos, hasta que esté bien dorada.','Apenas sale del horno, bañala con el almíbar frío. Dejala reposar varias horas antes de servir para que absorba.']},
+    /* Uruguay */
+    {n:'Chivito uruguayo', t:30, pop:1, p:['UY','AR'], b:2, i:['lomo|bife','pan','jamón','queso','huevo','lechuga','tomate'],
+      q:[[2,'u','bife fino de lomo o nalga','bifes finos de lomo o nalga'],[2,'u','pan de sándwich grande (o pan francés)','panes de sándwich grandes'],[2,'u','feta de jamón cocido','fetas de jamón cocido'],[2,'u','feta de muzzarella','fetas de muzzarella'],[2,'u','huevo','huevos'],[4,'u','feta de panceta (opcional)','fetas de panceta (opcional)'],[2,'u','hoja de lechuga','hojas de lechuga'],[1,'u','tomate','tomates'],[null,'','Mayonesa, aceitunas y morrón asado (opcional), sal'],[null,'','Para acompañar: papas fritas y ensalada rusa']],
+      s:['Salá los bifes y cocinalos en una plancha bien caliente 1 minuto por lado.','Sin sacarlos de la plancha, poné encima el jamón y el queso, y tapá 1 minuto para que se derrita.','Al costado dorá la panceta y hacé los huevos fritos o a la plancha.','Tostá apenas el pan y untalo con mayonesa.','Armá: lechuga, tomate, el bife con jamón y queso, panceta, huevo y morrón. Tapá y serví con papas fritas. Es el sándwich nacional de Uruguay.']},
+    {n:'Fainá', t:80, tt:'20 min (+ 1 h de reposo)', v:1, p:['UY','AR','IT'], b:6, i:['harina de garbanzo','aceite de oliva'],
+      q:[[250,'g','de harina de garbanzo'],[750,'ml','de agua'],[60,'ml','de aceite de oliva o girasol'],[8,'g','de sal'],[null,'','Pimienta negra (y parmesano rallado, opcional)']],
+      s:['Batí la harina de garbanzo con el agua y la sal hasta que no queden grumos. Dejala reposar al menos 1 hora (mejor 3); sacá la espuma de arriba.','Prendé el horno al máximo (250 °C) con la pizzera adentro y la mitad del aceite.','Mezclá el resto del aceite con la preparación.','Sacá la pizzera muy caliente y volcá la mezcla: tiene que quedar de medio centímetro de alto.','Horneá en la parte alta 15 a 20 minutos, hasta que esté dorada arriba y crocante en los bordes.','Servila caliente con pimienta. Se come sola o arriba de la porción de muzzarella ("a caballo").']},
+    {n:'Martín Fierro (queso y dulce)', t:5, v:1, d:1, p:['UY','AR'], b:4, i:['queso fresco|queso','dulce de membrillo|dulce de batata'],
+      q:[[300,'g','de queso fresco, cremoso o de máquina'],[300,'g','de dulce de membrillo o de batata']],
+      s:['Cortá el queso en tajadas de 1 cm.','Cortá el dulce en tajadas del mismo tamaño.','Serví una tajada de queso con una de dulce encima. En Argentina se lo llama "vigilante" y en Uruguay "Martín Fierro". El postre más simple y querido de los bodegones.']},
+    /* Chile */
+    {n:'Pastel de choclo', t:90, p:['CL','AR'], b:6, i:['choclo','carne picada|carne','pollo','cebolla','huevo','leche'],
+      q:[[8,'u','choclo (o 800 g de granos)','choclos (o 800 g de granos)'],[500,'g','de carne picada o en cubitos'],[1,'u','pechuga de pollo cocida','pechugas de pollo cocidas'],[3,'u','cebolla','cebollas'],[3,'u','huevo duro','huevos duros'],[100,'g','de aceitunas negras'],[50,'g','de pasas de uva (opcional)'],[200,'ml','de leche'],[40,'g','de manteca'],[null,'','Albahaca, comino, ají molido, pimentón, sal y azúcar para espolvorear']],
+      s:['Pino (relleno): rehogá la cebolla picada, sumá la carne y condimentá con comino, pimentón, ají y sal. Cociná 15 minutos.','Pastelera: procesá o rallá el choclo. Cocinalo en una olla con la manteca, la leche, albahaca picada y sal, revolviendo 10 a 15 minutos hasta que espese como un puré.','En una fuente (o cazuelas de barro) poné el pino, encima trozos de pollo, huevo duro en rodajas, aceitunas y pasas.','Cubrí con la pastelera de choclo y alisá.','Espolvoreá con azúcar y horneá a 200 °C unos 30 minutos, hasta que esté dorado y caramelizado arriba. Es el plato de verano de Chile.']},
+    {n:'Porotos granados', t:60, v:1, p:['CL'], b:6, i:['porotos|porotos alubia','choclo','zapallo','cebolla','albahaca'],
+      q:[[600,'g','de porotos frescos (o 400 g de porotos en lata)'],[4,'u','choclo','choclos'],[400,'g','de zapallo'],[1,'u','cebolla','cebollas'],[1,'u','cucharadita de pimentón','cucharaditas de pimentón'],[1,'u','puñado de albahaca','puñados de albahaca'],[1000,'ml','de agua o caldo'],[null,'','Sal y ají molido']],
+      s:['Rehogá la cebolla picada con el pimentón en una olla con aceite.','Sumá los porotos y el zapallo en cubos, cubrí con el agua o caldo y cociná 30 minutos (con porotos en lata, 10 minutos).','Rallá la mitad de los choclos y desgraná el resto.','Sumá el choclo a la olla y cociná 15 minutos más, revolviendo, hasta que espese.','Terminá con albahaca picada y sal. Se sirve con pebre o ají. Típico del verano chileno.']},
+    {n:'Pebre chileno', t:15, v:1, p:['CL'], b:6, i:['tomate','cebolla','cilantro','ajo','ají'],
+      q:[[3,'u','tomate','tomates'],[1,'u','cebolla','cebollas'],[1,'u','puñado de cilantro','puñados de cilantro'],[1,'u','ají verde o rojo','ajíes verdes o rojos'],[1,'u','diente de ajo','dientes de ajo'],[3,'u','cucharada de aceite','cucharadas de aceite'],[2,'u','cucharada de vinagre o jugo de limón','cucharadas de vinagre o jugo de limón'],[null,'','Sal']],
+      s:['Picá la cebolla muy chica y lavala con agua caliente para sacarle el picor. Escurrila.','Picá los tomates sin semillas, el cilantro, el ají y el ajo.','Mezclá todo con el aceite, el vinagre y la sal.','Dejalo reposar 15 minutos. Se come con pan, sopaipillas, empanadas o carne asada.']},
+    {n:'Sopaipillas', t:40, v:1, p:['CL'], b:6, i:['harina','zapallo','manteca'],
+      q:[[300,'g','de zapallo cocido y hecho puré'],[400,'g','de harina leudante'],[60,'g','de manteca derretida'],[1,'u','cucharadita de sal','cucharaditas de sal'],[1000,'ml','de aceite para freír']],
+      s:['Mezclá el puré de zapallo tibio con la manteca y la sal.','Sumá la harina de a poco y amasá hasta lograr una masa suave que no se pegue.','Estirala de medio centímetro y cortá círculos de 8 cm. Pinchalos con un tenedor.','Freílos en aceite a 180 °C hasta que se inflen y estén dorados, 2 minutos por lado.','Servilas con pebre, o dulces "pasadas" bañadas en almíbar de chancaca (azúcar mascabo) para los días de lluvia.']},
+    /* Bolivia */
+    {n:'Salteñas bolivianas', t:300, tt:'1 h 30 min (+ 4 h para enfriar el relleno)', p:['BO','AR'], b:12, i:['harina','carne|pollo','papa','arvejas','huevo','gelatina'],
+      q:[[600,'g','de harina 0000 (masa)'],[150,'g','de manteca derretida (masa)'],[100,'g','de azúcar (masa)'],[200,'ml','de agua tibia (masa)'],[1,'u','cucharadita de ají molido o pimentón (masa)','cucharaditas de ají molido o pimentón (masa)'],[600,'g','de carne en cubitos o pollo'],[2,'u','papa en cubitos chicos','papas en cubitos chicos'],[100,'g','de arvejas'],[2,'u','cebolla','cebollas'],[2,'u','huevo duro','huevos duros'],[1,'u','sobre de gelatina sin sabor','sobres de gelatina sin sabor'],[600,'ml','de caldo'],[null,'','Comino, orégano, ají molido, perejil, azúcar, sal, aceitunas y pasas']],
+      s:['Jigote (relleno): rehogá la cebolla con ají y comino, sumá la carne y cociná 10 minutos. Agregá el caldo, la papa y las arvejas, y cociná hasta que estén tiernas.','Disolvé la gelatina en un poco de agua fría y sumala al relleno caliente. Agregá perejil, una cucharada de azúcar y sal. Llevalo a la heladera 4 horas o toda la noche: tiene que quedar gelatinoso (así el jugo queda adentro).','Masa: mezclá la harina con el azúcar y el ají, sumá la manteca derretida y el agua, y amasá hasta que esté lisa.','Estirala, cortá discos de 13 cm y poné relleno frío, un trozo de huevo, una aceituna y una pasa.','Cerrá con repulgue por arriba (como una canoa) y pintalas con huevo.','Horneá a 220 °C unos 20 minutos, hasta que estén bien doradas. Se comen a media mañana y con cuidado: tienen mucho jugo.']},
+    {n:'Sopa de maní', t:75, p:['BO'], b:6, i:['maní','carne|pollo','papa','zanahoria','arvejas','fideos'],
+      q:[[200,'g','de maní pelado sin sal'],[500,'g','de costilla de vaca o pollo'],[3,'u','papa','papas'],[1,'u','zanahoria','zanahorias'],[100,'g','de arvejas'],[100,'g','de fideos o macarrones'],[1,'u','cebolla','cebollas'],[2500,'ml','de agua'],[null,'','Orégano, comino, perejil y sal'],[null,'','Opcional: papas fritas en bastón para servir encima']],
+      s:['Cociná la carne en el agua con sal 40 minutos, espumando. Sacala y guardá el caldo.','Licuá el maní con un poco de caldo hasta que quede una crema lisa.','Rehogá la cebolla y la zanahoria picadas, sumá el caldo y el maní licuado, y cociná a fuego bajo revolviendo (se pega fácil).','Sumá las papas en cubos, las arvejas, la carne y los fideos, y cociná 15 a 20 minutos.','Condimentá con orégano, comino y sal. Serví con perejil y papas fritas en bastón arriba, como en Cochabamba.']},
+    /* Paraguay */
+    {n:'Sopa paraguaya', t:70, v:1, p:['PY','AR'], b:8, i:['harina de maíz|polenta','queso fresco|queso','cebolla','huevo','leche'],
+      q:[[300,'g','de harina de maíz (o polenta)'],[300,'g','de queso fresco o cremoso'],[2,'u','cebolla','cebollas'],[4,'u','huevo','huevos'],[400,'ml','de leche'],[100,'g','de manteca o grasa'],[null,'','Sal']],
+      s:['Cortá las cebollas en juliana y cocinalas en un poco de agua con sal 10 minutos, hasta que estén blandas. Dejalas enfriar.','Batí la manteca con los huevos.','Sumá la cebolla con su agua, el queso desmenuzado y la leche.','Agregá la harina de maíz de a poco, mezclando, hasta lograr una mezcla espesa pero que se pueda volcar.','Volcá en una fuente enmantecada y horneá a 200 °C unos 40 a 45 minutos, hasta que esté bien dorada.','Aunque se llame "sopa", es un pan de maíz y queso: el plato nacional de Paraguay.']},
+    {n:'Chipa guazú', t:65, v:1, p:['PY','AR'], b:8, i:['choclo','queso fresco|queso','huevo','leche','cebolla'],
+      q:[[6,'u','choclo (o 600 g de granos)','choclos (o 600 g de granos)'],[300,'g','de queso fresco o cremoso'],[4,'u','huevo','huevos'],[250,'ml','de leche'],[1,'u','cebolla','cebollas'],[80,'g','de manteca'],[null,'','Sal']],
+      s:['Desgraná los choclos y procesá los granos con la leche, sin que quede un puré liso del todo.','Rehogá la cebolla picada en la mitad de la manteca.','Batí los huevos con el resto de la manteca derretida y sumá el choclo, la cebolla, el queso en cubitos y sal.','Volcá en una fuente enmantecada.','Horneá a 200 °C unos 40 minutos, hasta que esté firme y dorada. Es más húmeda que la sopa paraguaya, porque se hace con choclo fresco.']},
+    {n:'Mbejú', t:25, v:1, p:['PY','AR'], b:4, i:['fécula de mandioca','queso','leche','manteca'],
+      q:[[250,'g','de almidón (fécula) de mandioca'],[150,'g','de queso fresco o de máquina rallado'],[50,'g','de manteca'],[100,'ml','de leche'],[null,'','Sal']],
+      s:['Arená la fécula con la manteca blanda y la sal, frotando con las manos.','Sumá el queso rallado y mezclá.','Agregá la leche de a poco hasta que la mezcla quede como arena húmeda, que se una al apretarla.','Calentá una sartén antiadherente y extendé una capa de 1 cm de mezcla, apretando.','Cociná a fuego medio 4 a 5 minutos por lado, hasta que esté dorado y unido. Se come caliente, con mate cocido.']},
+    /* Brasil */
+    {n:'Feijoada', t:1500, tt:'3 h (+ remojo)', p:['BR'], b:8, i:['porotos negros','costillas de cerdo|cerdo','chorizo|longaniza','panceta','cebolla','ajo','naranja'],
+      q:[[500,'g','de porotos negros secos'],[500,'g','de costillas de cerdo (mejor ahumadas)'],[2,'u','chorizo o longaniza','chorizos o longanizas'],[200,'g','de panceta'],[300,'g','de carne de vaca (tapa de asado o falda)'],[2,'u','cebolla','cebollas'],[4,'u','diente de ajo','dientes de ajo'],[2,'u','hoja de laurel','hojas de laurel'],[null,'','Sal y pimienta'],[null,'','Para servir: arroz blanco, naranja en gajos, farofa (harina de mandioca tostada) y repollo salteado']],
+      s:['Remojá los porotos toda la noche.','Cociná los porotos escurridos en agua nueva con laurel, a fuego bajo, 1 hora.','Sumá las costillas, la carne de vaca y la panceta en trozos, y cociná 1 hora más.','Aparte, dorá la cebolla y el ajo picados y el chorizo en rodajas. Sumalos a la olla.','Cociná 30 a 40 minutos más, hasta que todo esté muy tierno y el caldo espeso. Si querés, pisá un cucharón de porotos para espesar.','Serví con arroz blanco, gajos de naranja, farofa y repollo salteado. Es el plato de los sábados en Brasil.']},
+    {n:'Pão de queijo', t:45, v:1, p:['BR'], b:6, i:['fécula de mandioca','queso','leche','huevo'],
+      q:[[250,'g','de almidón (fécula) de mandioca'],[150,'ml','de leche'],[60,'ml','de aceite'],[1,'u','huevo','huevos'],[150,'g','de queso rallado (sardo, parmesano o de máquina)'],[null,'','Sal']],
+      s:['Herví la leche con el aceite y la sal.','Volcala caliente sobre la fécula y mezclá con cuchara: queda grumoso, es normal. Dejala entibiar.','Sumá el huevo y amasá hasta integrar, y después el queso.','Con las manos aceitadas formá bolitas de 3 cm y ponelas en una placa.','Horneá a 200 °C unos 20 minutos, hasta que estén infladas y doradas. Se comen calentitos: crocantes afuera y elásticos adentro. Sin TACC.']},
+    {n:'Brigadeiros', t:150, tt:'20 min (+ 2 h para enfriar)', v:1, d:1, p:['BR'], b:20, i:['leche condensada','cacao','manteca'],
+      q:[[395,'g','de leche condensada (1 lata)'],[2,'u','cucharada de cacao amargo','cucharadas de cacao amargo'],[20,'g','de manteca'],[100,'g','de granas de chocolate (para pasar)']],
+      s:['Poné la leche condensada, el cacao y la manteca en una olla.','Cociná a fuego bajo revolviendo sin parar 10 a 15 minutos, hasta que la mezcla se despegue del fondo al inclinar la olla.','Pasala a un plato enmantecado y dejala enfriar del todo (2 horas, o 1 en la heladera).','Con las manos enmantecadas, formá bolitas de 2 cm.','Pasalas por granas de chocolate y ponelas en pirotines. Son los bombones de cumpleaños de Brasil.']},
+    {n:'Moqueca de pescado', t:50, p:['BR'], b:4, i:['merluza|abadejo|corvina','leche de coco','tomate','morrón','cebolla','cilantro','limón'],
+      q:[[800,'g','de filetes de pescado firme (abadejo, corvina o merluza)'],[400,'ml','de leche de coco'],[3,'u','tomate','tomates'],[1,'u','morrón rojo','morrones rojos'],[1,'u','morrón amarillo o verde','morrones amarillos o verdes'],[1,'u','cebolla','cebollas'],[2,'u','diente de ajo','dientes de ajo'],[1,'u','limón','limones'],[1,'u','puñado de cilantro','puñados de cilantro'],[2,'u','cucharada de aceite de dendê o aceite con pimentón','cucharadas de aceite de dendê o aceite con pimentón'],[null,'','Sal y ají picante']],
+      s:['Cortá el pescado en trozos grandes y marinalo con jugo de limón, ajo y sal 15 minutos.','En una olla ancha acomodá capas de cebolla, tomate y morrones en rodajas, y el pescado encima. Repetí.','Volcá la leche de coco y el aceite.','Tapá y cociná a fuego medio 15 a 20 minutos, sin revolver (mové la olla), hasta que el pescado esté cocido.','Terminá con cilantro picado y serví con arroz blanco. Es el guiso de pescado de Bahía.']},
+    /* Perú */
+    {n:'Ceviche', t:30, p:['PE'], b:4, i:['merluza|corvina|abadejo|lenguado','limón','cebolla morada','cilantro','ají'],
+      q:[[600,'g','de pescado blanco muy fresco (corvina, lenguado o merluza)'],[12,'u','limón (jugo)','limones (jugo)'],[1,'u','cebolla morada','cebollas moradas'],[1,'u','puñado de cilantro','puñados de cilantro'],[1,'u','ají picante (o ají amarillo)','ajíes picantes'],[1,'u','diente de ajo','dientes de ajo'],[null,'','Sal'],[null,'','Para acompañar: batata hervida y choclo']],
+      s:['Cortá el pescado en cubos de 2 cm, ponelo en un bol bien frío y salalo.','Cortá la cebolla en pluma muy fina y dejala en agua con hielo 10 minutos (queda crocante y menos picante).','Exprimí los limones en el momento, sin apretar de más (si no, amarga).','Volcá el jugo sobre el pescado, sumá el ajo rallado, el ají picado y el cilantro. Mezclá y esperá 3 a 5 minutos: el limón "cocina" el pescado.','Sumá la cebolla escurrida y serví enseguida con batata y choclo. Usá pescado muy fresco o previamente congelado.']},
+    {n:'Lomo saltado', t:35, p:['PE','AR'], b:4, i:['lomo|bife|cuadril','cebolla morada','tomate','papa','salsa de soja','arroz'],
+      q:[[600,'g','de lomo o cuadril en tiras'],[1,'u','cebolla morada','cebollas morada'],[2,'u','tomate','tomates'],[1,'u','ají amarillo o morrón','ajíes amarillos o morrones'],[3,'u','cucharada de salsa de soja','cucharadas de salsa de soja'],[2,'u','cucharada de vinagre','cucharadas de vinagre'],[2,'u','diente de ajo','dientes de ajo'],[600,'g','de papas fritas en bastón'],[300,'g','de arroz blanco cocido'],[null,'','Cilantro o perejil, comino, sal y pimienta']],
+      s:['Salpimentá la carne con comino.','Calentá un wok o sartén grande al máximo con aceite y saltá la carne en tandas 1 a 2 minutos, que se dore sin largar jugo. Sacala.','En la misma sartén saltá la cebolla en gajos gruesos y el ajo 1 minuto, y sumá el ají en tiras.','Agregá los tomates en gajos, la salsa de soja y el vinagre, y volvé la carne. Saltá 1 minuto más.','Apagá, sumá las papas fritas y el cilantro, y mezclá. Serví enseguida con arroz blanco.']},
+    {n:'Ají de gallina', t:60, p:['PE'], b:4, i:['pechuga de pollo|pollo|gallina','pan','leche','cebolla','ají','nueces|maní','queso'],
+      q:[[800,'g','de pechuga de pollo'],[4,'u','rebanada de pan lactal o pan del día anterior','rebanadas de pan lactal'],[300,'ml','de leche evaporada o común'],[1,'u','cebolla','cebollas'],[3,'u','ají amarillo (o 2 cucharadas de pasta de ají amarillo)','ajíes amarillos'],[2,'u','diente de ajo','dientes de ajo'],[50,'g','de nueces o maní'],[50,'g','de queso parmesano rallado'],[null,'','Cúrcuma, sal, pimienta, aceitunas negras y huevo duro para servir'],[null,'','Para acompañar: arroz blanco y papas hervidas']],
+      s:['Cociná la pechuga en agua con sal 20 minutos. Desmenuzala en hebras y guardá el caldo.','Remojá el pan en la leche y licualo con los ajíes, las nueces y un poco de caldo.','Rehogá la cebolla y el ajo picados hasta que estén transparentes.','Sumá la crema de ají y pan, la cúrcuma y cociná 5 minutos revolviendo. Si está muy espesa, agregá caldo.','Agregá el pollo y el queso, y cociná 5 minutos más.','Serví con arroz blanco, papas hervidas, aceitunas y huevo duro.']},
+    /* Más postres */
+    {n:'Pan dulce', t:720, tt:'12 h (con levados largos)', v:1, d:1, p:['AR','IT'], b:12, i:['harina','manteca','huevo','azúcar','levadura','frutas abrillantadas','pasas de uva','nueces'],
+      q:[[500,'g','de harina 0000'],[30,'g','de levadura fresca'],[120,'g','de azúcar'],[3,'u','huevo','huevos'],[120,'g','de manteca blanda'],[120,'ml','de leche tibia'],[100,'g','de frutas abrillantadas'],[100,'g','de pasas de uva'],[80,'g','de nueces picadas'],[null,'','Ralladura de naranja y limón, esencia de vainilla, agua de azahar y una pizca de sal']],
+      s:['Esponja: mezclá la levadura con la leche tibia, una cucharada de azúcar y 3 cucharadas de harina. Dejala 20 minutos hasta que haga burbujas.','Sumá la harina, el azúcar, los huevos, las ralladuras, la vainilla, el azahar y la sal. Amasá y agregá la manteca de a poco. Amasá 10 minutos hasta que esté lisa y elástica (es una masa húmeda).','Dejala levar tapada 2 horas, o toda la noche en la heladera (queda más aromático).','Sumá las frutas, pasas y nueces pasadas por harina, y bollá. Ponela en un molde de papel para pan dulce de 1 kg.','Dejala levar hasta que llegue casi al borde del molde (2 a 3 horas). Hacele un corte en cruz arriba y poné un trocito de manteca.','Horneá a 170 °C unos 50 minutos, hasta que al pinchar salga seco. Dejalo enfriar colgado boca abajo atravesado con dos palitos, así no se baja.']},
+    {n:'Rosca de Pascua', t:240, tt:'4 h (con levado)', v:1, d:1, p:['AR'], b:10, i:['harina','manteca','huevo','azúcar','levadura','leche'],
+      q:[[500,'g','de harina 0000'],[25,'g','de levadura fresca'],[100,'g','de azúcar'],[3,'u','huevo','huevos'],[100,'g','de manteca blanda'],[150,'ml','de leche tibia'],[300,'ml','de leche (crema pastelera)'],[2,'u','yema (crema pastelera)','yemas (crema pastelera)'],[60,'g','de azúcar (crema pastelera)'],[30,'g','de maicena'],[null,'','Ralladura de limón y naranja, azahar, cerezas en almíbar, azúcar en granas y almendras para decorar']],
+      s:['Disolvé la levadura en la leche tibia con una cucharada de azúcar.','Mezclá con la harina, el azúcar, los huevos, las ralladuras y el azahar. Amasá y sumá la manteca hasta lograr una masa lisa. Dejala levar 1 hora y media.','Crema pastelera: calentá la leche; batí las yemas con el azúcar y la maicena, sumá la leche caliente y volvé al fuego revolviendo hasta que espese. Enfriala tapada.','Formá un cilindro largo con la masa y cerralo en una corona sobre una placa. Dejala levar 1 hora.','Pintala con huevo y decorá con la crema pastelera en manga, cerezas, almendras y azúcar en granas.','Horneá a 180 °C unos 30 minutos, hasta que esté dorada. Si querés, pintala con almíbar al salir.']},
+    {n:'Budín inglés', t:80, v:1, d:1, p:['AR'], b:10, i:['harina','manteca','azúcar','huevo','frutas abrillantadas','pasas de uva'],
+      q:[[250,'g','de harina leudante'],[200,'g','de manteca blanda'],[200,'g','de azúcar'],[4,'u','huevo','huevos'],[150,'g','de frutas abrillantadas'],[100,'g','de pasas de uva'],[50,'g','de nueces picadas'],[null,'','Ralladura de limón, esencia de vainilla y un chorrito de coñac o ron (opcional)']],
+      s:['Batí la manteca con el azúcar hasta que esté cremosa y clara.','Sumá los huevos de a uno, batiendo bien, y la ralladura y la vainilla.','Agregá la harina tamizada de a poco.','Pasá las frutas, las pasas y las nueces por un poco de harina (así no se van al fondo) y sumalas.','Volcá en un molde de budín enmantecado y enharinado.','Horneá a 170 °C unos 55 a 60 minutos, hasta que al pinchar salga seco. Si querés, rocialo con coñac al salir.']},
+    {n:'Isla flotante', t:60, v:1, d:1, p:['AR','FR'], b:6, i:['huevo','azúcar','leche'],
+      q:[[6,'u','clara','claras'],[200,'g','de azúcar (merengue)'],[200,'g','de azúcar (caramelo)'],[500,'ml','de leche (crema inglesa)'],[4,'u','yema','yemas'],[80,'g','de azúcar (crema inglesa)'],[null,'','Esencia de vainilla']],
+      s:['Caramelo: derretí 200 g de azúcar en una olla a fuego medio sin revolver, hasta que esté dorado. Volcalo en un molde tipo savarin (con agujero) y cubrí bien los costados.','Merengue: batí las claras a punto nieve y sumá el azúcar de a poco hasta que quede firme y brillante.','Llená el molde con el merengue, apretando para que no queden huecos.','Horneá a baño María a 160 °C unos 30 minutos, hasta que esté firme. Dejalo enfriar en el molde.','Crema inglesa: calentá la leche con vainilla. Batí las yemas con el azúcar, sumá la leche y cociná a fuego bajo revolviendo, sin hervir, hasta que nape la cuchara. Enfriala.','Desmoldá la isla sobre una fuente honda y servila rodeada de crema inglesa.']},
+    {n:'Peras al vino tinto', t:50, v:1, d:1, p:['AR','FR','ES'], b:4, i:['pera','vino tinto','azúcar','canela'],
+      q:[[4,'u','pera firme','peras firmes'],[750,'ml','de vino tinto'],[150,'g','de azúcar'],[1,'u','rama de canela','ramas de canela'],[2,'u','clavo de olor','clavos de olor'],[1,'u','cáscara de naranja','cáscaras de naranja'],[null,'','Opcional: crema batida o helado de crema para servir']],
+      s:['Pelá las peras dejándoles el cabito, y cortales la base para que se paren.','En una olla chica poné el vino, el azúcar, la canela, el clavo y la cáscara de naranja. Llevá a hervor.','Sumá las peras paradas o acostadas y cociná a fuego bajo 25 a 30 minutos, dándolas vuelta para que se tiñan parejo, hasta que estén tiernas al pinchar.','Sacá las peras y reducí el vino a fuego fuerte 10 minutos, hasta que espese como un almíbar.','Servilas tibias o frías bañadas con el almíbar, con crema o helado. El alcohol se evapora casi todo con la cocción.']},
+    {n:'Dulce de leche casero', t:150, v:1, d:1, p:['AR','UY'], b:8, i:['leche','azúcar'],
+      q:[[2000,'ml','de leche entera'],[500,'g','de azúcar'],[0.5,'u','cucharadita de bicarbonato de sodio','cucharaditas de bicarbonato de sodio'],[null,'','Esencia de vainilla o una chaucha'],[null,'','Rinde unos 800 g']],
+      s:['Poné la leche y el azúcar en una olla grande de fondo grueso (la leche sube mucho al hervir).','Llevá a hervor revolviendo con cuchara de madera, y sumá el bicarbonato disuelto en un poco de leche (le da el color y evita que se corte).','Cociná a fuego bajo 2 horas, revolviendo cada tanto; los últimos 30 minutos revolvé seguido porque se pega.','Está listo cuando toma color caramelo y, al poner una gota en un plato frío, no se escurre. Sumá la vainilla.','Pasalo a frascos limpios y dejalo enfriar: espesa más al enfriarse. Dura 1 mes en la heladera.']},
+    {n:'Garrapiñada', t:20, v:1, d:1, p:['AR'], b:6, i:['maní','azúcar'],
+      q:[[250,'g','de maní pelado sin sal (o almendras)'],[200,'g','de azúcar'],[100,'ml','de agua'],[null,'','Opcional: esencia de vainilla o una cucharadita de cacao']],
+      s:['Poné el maní, el azúcar y el agua en una sartén u olla.','Cociná a fuego medio revolviendo sin parar con cuchara de madera.','Primero el agua hierve, después el azúcar se seca y se pone arenosa y blanca, pegada al maní: seguí revolviendo.','Bajá el fuego: el azúcar empieza a caramelizarse y el maní queda brillante y dorado. Ahí sumá la vainilla.','Volcala enseguida sobre papel manteca y separá los maníes con dos tenedores. Dejala enfriar. Es la de los carritos de la plaza.']},
+    {n:'Bizcochitos de grasa', t:50, v:1, d:1, p:['AR'], b:8, i:['harina','grasa|manteca'],
+      q:[[500,'g','de harina 0000'],[150,'g','de grasa vacuna (o manteca)'],[250,'ml','de agua tibia'],[25,'g','de levadura fresca (opcional, para que sean más livianos)'],[10,'g','de sal'],[null,'','Rinde unos 40 bizcochitos']],
+      s:['Mezclá la harina con la sal, sumá la grasa blanda y arená con las manos.','Agregá el agua (con la levadura disuelta, si usás) y amasá hasta lograr una masa lisa.','Estirala, doblala en 3 como una carta y volvé a estirar. Repetí 3 veces: así quedan hojaldrados.','Estirá de 1 cm y cortá con un cortante chico de 4 cm. Pinchalos con un tenedor.','Horneá a 200 °C unos 20 a 25 minutos, hasta que estén apenas dorados. Los compañeros ideales del mate.']},
+    /* Más tragos */
+    {n:'Negroni', drink:1, alc:1, t:3, v:1, p:['IT','AR'], b:1, i:['gin','campari','vermut'],
+      q:[[30,'ml','de gin'],[30,'ml','de Campari'],[30,'ml','de vermut rojo'],[null,'','Hielo y una cáscara o rodaja de naranja']],
+      s:['Poné hielo en un vaso bajo.','Sumá el gin, el Campari y el vermut en partes iguales.','Revolvé 20 segundos con cuchara para enfriar.','Decorá con la cáscara de naranja, retorciéndola encima del vaso para que suelte el aroma. Nació en Florencia.']},
+    {n:'Campari con naranja', drink:1, alc:1, t:3, v:1, p:['AR','IT'], b:1, i:['campari','jugo de naranja|naranja'],
+      q:[[60,'ml','de Campari'],[150,'ml','de jugo de naranja (mejor exprimido)'],[null,'','Hielo y una rodaja de naranja']],
+      s:['Llená un vaso alto con hielo.','Serví el Campari y completá con el jugo de naranja.','Revolvé y decorá con una rodaja de naranja. Con soda en lugar de jugo es el "Campari con soda".']},
+    {n:'Cuba libre', drink:1, alc:1, t:3, v:1, p:['AR'], b:1, i:['ron','gaseosa cola','lima|limón'],
+      q:[[50,'ml','de ron (blanco u oscuro)'],[150,'ml','de gaseosa cola fría'],[0.5,'u','lima o limón','limas o limones'],[null,'','Hielo']],
+      s:['Exprimí la lima en un vaso alto y dejá el gajo adentro.','Llená de hielo y sumá el ron.','Completá con la cola y revolvé suave.']},
+    {n:'Tinto de verano', drink:1, alc:1, t:3, v:1, p:['ES','AR'], b:1, i:['vino tinto','gaseosa lima-limón|soda','limón'],
+      q:[[120,'ml','de vino tinto joven'],[120,'ml','de gaseosa lima-limón (o soda)'],[null,'','Mucho hielo y una rodaja de limón']],
+      s:['Llená un vaso alto con hielo.','Serví el vino tinto hasta la mitad.','Completá con la gaseosa y decorá con una rodaja de limón. Es lo que se toma en España en verano, más que la sangría.']},
+    {n:'Pisco sour', drink:1, alc:1, t:5, v:1, p:['PE','CL'], b:1, i:['pisco','limón|lima','azúcar','huevo'],
+      q:[[60,'ml','de pisco'],[30,'ml','de jugo de limón o lima'],[20,'g','de azúcar (o 30 ml de almíbar)'],[1,'u','clara de huevo muy fresca','claras de huevo muy frescas'],[null,'','Hielo y unas gotas de amargo de angostura']],
+      s:['Poné el pisco, el jugo, el azúcar y la clara en una coctelera (o licuadora) con hielo.','Agitá muy fuerte 15 segundos (o licuá 10), hasta que se forme mucha espuma.','Colá en una copa.','Poné 2 o 3 gotas de amargo de angostura sobre la espuma. Perú y Chile se disputan su origen.']},
+    {n:'Chocolate caliente', drink:1, t:10, v:1, p:['AR','ES'], b:2, i:['leche','chocolate','azúcar'],
+      q:[[500,'ml','de leche'],[100,'g','de chocolate semiamargo picado'],[1,'u','cucharada de azúcar','cucharadas de azúcar'],[1,'u','cucharadita de maicena (para espesarlo, opcional)','cucharaditas de maicena (opcional)'],[null,'','Opcional: canela, crema batida o malvaviscos']],
+      s:['Calentá la leche con el azúcar sin que hierva.','Sumá el chocolate picado y revolvé hasta que se derrita.','Si lo querés espeso, como en las chocolaterías españolas para mojar churros, disolvé la maicena en un poco de leche fría y sumala; cociná 2 minutos revolviendo.','Servilo con canela o crema batida.']},
+    {n:'Café helado (frappé)', drink:1, t:5, v:1, p:['AR'], b:2, i:['café','leche','azúcar'],
+      q:[[200,'ml','de café fuerte frío (o 2 cucharaditas de café instantáneo)'],[200,'ml','de leche fría'],[2,'u','cucharada de azúcar','cucharadas de azúcar'],[null,'','Mucho hielo'],[null,'','Opcional: una bocha de helado de crema o dulce de leche']],
+      s:['Licuá el café, la leche, el azúcar y bastante hielo hasta que quede espumoso.','Si querés, sumá una bocha de helado y licuá 5 segundos más.','Serví en vasos altos con sorbete. Ideal para las tardes de calor.']},
+    {n:'Smoothie de frutos rojos', drink:1, t:5, v:1, p:['AR'], b:2, i:['frutilla|frambuesas|arándanos','banana','yogur'],
+      q:[[200,'g','de frutos rojos frescos o congelados'],[1,'u','banana','bananas'],[200,'g','de yogur natural'],[150,'ml','de leche o jugo de naranja'],[1,'u','cucharada de miel (opcional)','cucharadas de miel (opcional)']],
+      s:['Poné todo en la licuadora.','Licuá 1 minuto hasta que quede bien cremoso.','Si usás fruta fresca, sumá hielo; con fruta congelada queda espeso como un helado.','Servilo enseguida. Con leche vegetal y sin yogur es vegano.']},
+    {n:'Jugo de naranja y zanahoria', drink:1, t:10, v:1, p:['AR'], b:2, i:['naranja','zanahoria'],
+      q:[[4,'u','naranja','naranjas'],[2,'u','zanahoria','zanahorias'],[1,'u','trozo de jengibre (opcional)','trozos de jengibre (opcional)'],[null,'','Hielo']],
+      s:['Exprimí las naranjas.','Pelá las zanahorias, cortalas en trozos y licualas con el jugo de naranja (y el jengibre) 1 minuto.','Si lo querés más liviano, colalo.','Servilo enseguida con hielo: es cuando más vitaminas conserva.']},
+    {n:'Mate cocido con leche', drink:1, t:10, v:1, p:['AR','PY'], b:2, i:['yerba','leche'],
+      q:[[2,'u','cucharada de yerba (o 2 saquitos de mate cocido)','cucharadas de yerba (o saquitos)'],[300,'ml','de agua'],[200,'ml','de leche'],[null,'','Azúcar o miel a gusto'],[null,'','Opcional: cáscara de naranja o un toque de canela']],
+      s:['Calentá el agua sin que hierva (a unos 80 °C).','Sumá la yerba (o los saquitos) y dejala 3 a 5 minutos.','Colá y sumá la leche caliente.','Endulzá a gusto. El clásico de la merienda con bizcochitos o tostadas.']}
   ];
 
   var selected = new Set();
@@ -1311,9 +1665,8 @@ header.top h1{font-size:1.7rem; margin:0}
   var DIET_KEYS = Object.keys(DIETS);
   function dietOk(r){ return DIETS[diet].ok(r) && occOk(r); }
   /* Comidas, postres o tragos */
-  var kind = 'comidas';
-  try { var k0 = localStorage.getItem('que-comemos-tipo'); if (['comidas','postres','tragos'].indexOf(k0) !== -1) kind = k0; } catch (e) {}
-  function kindOk(r){ return kind === 'tragos' ? !!r.drink : kind === 'postres' ? (!!r.d && !r.drink) : (!r.d && !r.drink); }
+  var kind = '';
+  function kindOk(r){ return kind === 'tragos' ? !!r.drink : kind === 'postres' ? (!!r.d && !r.drink) : kind === 'comidas' ? (!r.d && !r.drink) : !r.drink; }
   function renderKind(){
     var el = document.getElementById('kind-seg');
     if (!el) return;
@@ -1324,15 +1677,15 @@ header.top h1{font-size:1.7rem; margin:0}
   /* Ocasiones: cada una agrupa recetas por nombre */
   var OCCASIONS = [
     ['todas','🍽️ Todas', null],
-    ['romantica','❤️ Cena romántica', /mousse|sambayón|don pedro|risotto|salmón|langostinos|carbonara|sorrentinos|ravioles|pollo al champiñón|caprese|bruschetta|ñoquis de ricota|flan|panqueques con dulce|paella|rogel|tiramisú|panna cotta|saltimbocca|ossobuco|pesto|cacio e pepe/i],
+    ['romantica','❤️ Cena romántica', /boeuf bourguignon|crème brûlée|ratatouille|peras al vino|negroni|mousse|sambayón|don pedro|risotto|salmón|langostinos|carbonara|sorrentinos|ravioles|pollo al champiñón|caprese|bruschetta|ñoquis de ricota|flan|panqueques con dulce|paella|rogel|tiramisú|panna cotta|saltimbocca|ossobuco|pesto|cacio e pepe/i],
     ['vianda','💼 Vianda o almuerzo laboral', /quiche|tarta|milanesa|ensalada (?!de frutas)|tortilla|empanadas|wok|arroz con pollo|salpicón|hamburguesas de lentejas|pollo grillado|frittata|tabule|fideos con atún|zapallitos rellenos|morrones rellenos|albóndigas|canelones|lasaña|pastel de papa|guiso de garbanzos|curry/i],
     ['cumple','🎂 Cumpleaños o para muchos', /selva negra|chajá|pionono|carrot|torta de naranja|tarta de coco|torta balcarce|torta de chocolate|lemon pie|budín|medialunas|bolas de fraile|panchos|nachos|brownies|cookies|cheesecake|alitas|empanadas|pizza|fugazzeta|sándwich|choripán|chocotorta|alfajores|bizcochuelo|tarta|pastafrola|matambre|hamburguesas caseras|tortas fritas|chipá|pastelitos|lasaña|paella|asado criollo|rogel/i],
-    ['amigos','🍻 Con amigos', /fernet|gin tonic|vermut|mojito|caipirinha|aperol|nachos|tacos|fajitas|quesadillas|burritos|alitas|costillitas|pulled pork|panchos|asado criollo|choripán|provoleta|fugazzeta|pizza|empanadas|hamburguesas caseras|matambre a la pizza|rabas|lomito|paella|chimichurri|salsa criolla|berenjenas en escabeche|sándwich de milanesa/i],
-    ['domingo','👨‍👩‍👧 Domingo en familia', /ravioles|sorrentinos|ñoquis|fideos caseros|tallarines con tuco|puchero|pollo al horno|carne al horno|canelones|lasaña|asado criollo|bondiola|cerdo a la riojana|matambre|guiso|vacío|cazuela/i],
-    ['fiestas','🎄 Fiestas', /torta galesa|pionono|selva negra|torta balcarce|lemon pie|sambayón|helado casero|vitel toné|matambre arrollado|salpicón|ensaladilla rusa|ensalada rusa|tomates rellenos|pollo en escabeche|lechón|carne al horno|pastafrola|rogel|budín|torta de ricota|alfajores|flan|ensalada de frutas/i],
+    ['amigos','🍻 Con amigos', /negroni|cuba libre|campari|tinto de verano|pisco sour|chivito|kofta|shawarma|fainá|fernet|gin tonic|vermut|mojito|caipirinha|aperol|nachos|tacos|fajitas|quesadillas|burritos|alitas|costillitas|pulled pork|panchos|asado criollo|choripán|provoleta|fugazzeta|pizza|empanadas|hamburguesas caseras|matambre a la pizza|rabas|lomito|paella|chimichurri|salsa criolla|berenjenas en escabeche|sándwich de milanesa/i],
+    ['domingo','👨‍👩‍👧 Domingo en familia', /gulasch|kibbe|pastel de choclo|varenikes|ravioles|sorrentinos|ñoquis|fideos caseros|tallarines con tuco|puchero|pollo al horno|carne al horno|canelones|lasaña|asado criollo|bondiola|cerdo a la riojana|matambre|guiso|vacío|cazuela/i],
+    ['fiestas','🎄 Fiestas', /pan dulce|budín inglés|peras al vino|vitel|torta galesa|pionono|selva negra|torta balcarce|lemon pie|sambayón|helado casero|vitel toné|matambre arrollado|salpicón|ensaladilla rusa|ensalada rusa|tomates rellenos|pollo en escabeche|lechón|carne al horno|pastafrola|rogel|budín|torta de ricota|alfajores|flan|ensalada de frutas/i],
     ['chicos','🧒 Para chicos', /panchos|pancakes|mac and cheese|quesadillas|cookies|brownies|milanesa|hamburguesa|panqueques|pizza|fideos con salsa|puré|tortilla de papa|omelette|empanadas de jamón|tostado|albóndigas|ñoquis|arroz con pollo|pollo al horno|chocotorta|alfajores|bizcochuelo|ensalada de frutas|tostadas francesas|budín/i],
     ['patrias','🇦🇷 Fechas patrias', /mazamorra|locro|empanadas|pastelitos|carbonada|humita|tamales|asado criollo|choripán|tortas fritas|pastafrola/i],
-    ['lluvia','🌧️ Día de lluvia', /churros|bolas de fraile|tortas fritas|guiso|locro|sopa|puchero|carbonada|buseca|minestrone|guiso de lentejas|lentejas a la|polenta|cazuela|chipá|budín|panqueques|pastelitos|niños envueltos/i]
+    ['lluvia','🌧️ Día de lluvia', /chocolate caliente|sopa de cebolla|sopa de maní|fabada|feijoada|cocido|sopaipillas|churros|bolas de fraile|tortas fritas|guiso|locro|sopa|puchero|carbonada|buseca|minestrone|guiso de lentejas|lentejas a la|polenta|cazuela|chipá|budín|panqueques|pastelitos|niños envueltos/i]
   ];
   var occasion = 'todas';
   try { var oc0 = localStorage.getItem('que-comemos-ocasion'); if (oc0 && OCCASIONS.some(function(o){ return o[0] === oc0; })) occasion = oc0; } catch (e) {}
@@ -1348,9 +1701,9 @@ header.top h1{font-size:1.7rem; margin:0}
   document.getElementById('kind-seg').addEventListener('click', function(e){
     var b = e.target.closest('button[data-kind]');
     if (!b) return;
-    kind = b.getAttribute('data-kind');
-    try { localStorage.setItem('que-comemos-tipo', kind); } catch (er) {}
-    renderKind(); renderResults();
+    var nk = b.getAttribute('data-kind');
+    kind = kind === nk ? '' : nk;
+    renderKind(); renderResults(); updateListArea();
   });
   document.getElementById('occ-seg').addEventListener('click', function(e){
     var b = e.target.closest('button[data-occ]');
@@ -1516,6 +1869,16 @@ header.top h1{font-size:1.7rem; margin:0}
 
   /* Datos nutricionales aproximados: se calculan con las cantidades de cada receta (valores cada 100 g: kcal, proteínas, carbohidratos, grasas, fibra; w = peso de 1 unidad en g) */
   var NUT = [
+    [/^claras?|clara de huevo/, 52,11,.7,.2,0, 33],
+    [/campari/, 240,0,24,0,0],
+    [/pisco|de ron \(/, 230,0,0,0,0],
+    [/pulpo/, 82,15,2,1,0],
+    [/kassler/, 180,20,1,10,0, 250],
+    [/pastrón/, 150,20,2,6,0],
+    [/burgol/, 342,12,76,1.3,18],
+    [/harina de matzá/, 390,10,84,1,3],
+    [/tahini/, 595,17,21,54,9, 15],
+    [/masa filo/, 300,7,53,6,2],
     [/hojas? de menta|puñados? de menta/, 44,3,8,.7,7, 1],
     [/cucharaditas? de azúcar/, 387,0,100,0,0, 5],
     [/cucharadas? de azúcar|cucharadas? de miel/, 387,0,100,0,0, 12],
@@ -1711,10 +2074,32 @@ header.top h1{font-size:1.7rem; margin:0}
   try { var v0 = JSON.parse(localStorage.getItem('que-comemos-votos') || '[]'); if (Array.isArray(v0)) votes = v0.slice(0, 4); } catch (e) {}
   function saveVotes(){ try { localStorage.setItem('que-comemos-votos', JSON.stringify(votes)); } catch (e) {} }
   var NUM = ['1️⃣','2️⃣','3️⃣','4️⃣'];
+  var voteQ = '';
+  function renderVoteTab(){
+    var vb = document.getElementById('vote-badge'); vb.hidden = !votes.length; vb.textContent = votes.length;
+    var vp = document.getElementById('vote-panel');
+    vp.innerHTML = votes.length ? '<div class="votebar">' + document.getElementById('votebar').innerHTML + '</div>' : '';
+    var q = norm(voteQ), list, head;
+    if (q.length >= 2){
+      var words = q.split(/\s+/).filter(function(w){ return w.length > 1 && ['de','con','la','el','a','al'].indexOf(w) === -1; }).map(function(w){ return w.replace(/(es|s)$/, ''); });
+      list = R.filter(function(r){ var n = norm(r.n); return words.every(function(w){ return n.indexOf(w) !== -1; }); }).slice(0, 10);
+      head = list.length ? '' : '<li class="vhd">No encontramos ese plato</li>';
+    } else {
+      list = POPULARES.slice(0, 10).map(function(n){ return R.filter(function(r){ return r.n === n; })[0]; }).filter(Boolean);
+      head = '<li class="vhd">Ideas rápidas</li>';
+    }
+    document.getElementById('vote-opts').innerHTML = head + list.map(function(r){
+      var on = votes.indexOf(r.n) !== -1;
+      return '<li><span class="vi">' + dishIcon(r) + '</span><span class="vn">' + esc(r.n) + '<small>⏱ ' + esc(r.tt || r.t + ' min') + '</small></span><button type="button" class="' + (on ? 'on' : '') + '" data-vote="' + esc(r.n) + '">' + (on ? '✓ Sumado' : '＋ Sumar') + '</button></li>';
+    }).join('');
+  }
+  document.getElementById('vote-q').addEventListener('input', function(){ voteQ = this.value; renderVoteTab(); });
   function renderVotes(){
     var bar = document.getElementById('votebar');
     if (!bar) return;
     bar.hidden = !votes.length;
+    try { updateListArea(); } catch (e) {}
+    try { renderVoteTab(); } catch (e) {}
     if (!votes.length){ bar.innerHTML = ''; return; }
     var msg = '🍽️ ¿Qué comemos? ¡Voten!\n\n' + votes.map(function(n, i){ return NUM[i] + ' ' + n; }).join('\n') + '\n\nRespondé con el número 👇';
     bar.innerHTML = '<div class="vhead"><div><p class="vt">🗳️ Votación</p><p class="vsub">Mandala al grupo y que elijan</p></div><button type="button" class="vclear" data-voteclear="1">Borrar</button></div>' +
@@ -1729,6 +2114,7 @@ header.top h1{font-size:1.7rem; margin:0}
       if (i !== -1) votes.splice(i, 1);
       else { if (votes.length >= 4){ b.textContent = 'Máximo 4 opciones'; return; } votes.push(n); }
       saveVotes(); renderVotes();
+      if (b.closest('#vote-opts')) return;
       b.classList.toggle('on', votes.indexOf(n) !== -1);
       b.textContent = votes.indexOf(n) !== -1 ? '✓ En la votación' : '🗳️ Sumar a la votación';
       return;
@@ -1787,9 +2173,12 @@ header.top h1{font-size:1.7rem; margin:0}
       qty = '<p class="note" style="margin-top:10px">Estamos revisando las cantidades de esta receta.</p>';
     }
     return '<article class="card' + (best ? ' best' : '') + '">' + (best ? '<span class="best-tag">' + best + '</span>' : '') +
-      '<div class="title-row"><h3><span class="dish" aria-hidden="true">' + dishIcon(r) + '</span><span>' + esc(r.n) + '</span></h3>' + (r.nonut ? '' : '<button type="button" class="nut-btn" aria-expanded="false">📊 Nutrición</button>') + '</div>' +
-      '<div class="meta">' + pill + '<span>⏱ ' + (r.tt || r.t + ' min') + '</span></div>' + nutBox(r) +
+      '<div class="title-row"><h3><span class="dish" aria-hidden="true">' + dishIcon(r) + '</span><span>' + esc(r.n) + '</span></h3></div>' +
+      '<div class="meta">' + pill + '<span>⏱ ' + (r.tt || r.t + ' min') + '</span></div>' +
       '<details><summary>Ver receta</summary>' +
+      '<div class="rtools">' + (r.nonut ? '' : '<button type="button" class="nut-btn" aria-expanded="false">📊 Nutrición</button>') +
+        '<button type="button" class="rt vote-btn' + (votes.indexOf(r.n) !== -1 ? ' on' : '') + '" data-vote="' + esc(r.n) + '">' + (votes.indexOf(r.n) !== -1 ? '✓ En la votación' : '🗳️ Sumar a la votación') + '</button>' +
+        '<a class="rt" href="' + yt('receta ' + r.n) + '" target="_blank" rel="noopener">▶️ Videos</a></div>' + nutBox(r) +
       '<p class="sub">Ingredientes</p><div class="ings">' + ings + '</div>' +
       (m.miss.length || (m.opt && m.opt.length) ? '<button type="button" class="buy-btn" data-r="' + R.indexOf(r) + '">🛒 ' + (useHave ? 'Agregar lo que falta a la lista de compras' : 'Agregar ingredientes a la lista de compras') + '</button>' : '') +
 
@@ -1797,7 +2186,6 @@ header.top h1{font-size:1.7rem; margin:0}
       '<p class="sub">Pasos</p><ol>' + r.s.map(function(s){ return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>' +
       (r.alc ? '<p class="note alc">🔞 Contiene alcohol. Solo para mayores de 18. Tomá con moderación y si vas a manejar, no tomes.</p>' : '') +
       (DATOS[r.n] ? '<div class="dato"><b>💡 ¿Sabías que…?</b><p>' + esc(DATOS[r.n]) + '</p></div>' : '') + '</details>' +
-      '<div class="actions"><button type="button" class="btn ghost vote-btn' + (votes.indexOf(r.n) !== -1 ? ' on' : '') + '" data-vote="' + esc(r.n) + '">' + (votes.indexOf(r.n) !== -1 ? '✓ En la votación' : '🗳️ Sumar a la votación') + '</button><a class="btn ghost" href="' + yt('receta ' + r.n) + '" target="_blank" rel="noopener">Ver videos en YouTube ↗</a></div>' +
       '</article>';
   }
 
@@ -1808,7 +2196,7 @@ header.top h1{font-size:1.7rem; margin:0}
   }
 
   var shown = 3, resCount = 0, resVisible = false, showClose = false, goLabel = '';
-  var TABS = ['inicio','tengo','semana','compras','afuera'];
+  var TABS = ['inicio','tengo','semana','compras','afuera','votar','escanear'];
   var tab = 'inicio';
   try { var t0 = localStorage.getItem('que-comemos-tab'); if (TABS.indexOf(t0) !== -1) tab = t0; } catch (e) {}
   var useHave = tab === 'tengo';
@@ -1816,14 +2204,185 @@ header.top h1{font-size:1.7rem; margin:0}
   function renderTab(){
     useHave = tab === 'tengo';
     TABS.forEach(function(t){ document.getElementById('tab-' + t).hidden = t !== tab; });
-    document.getElementById('list-area').hidden = !(tab === 'inicio' || tab === 'tengo');
+    updateListArea();
     document.getElementById('filters-open').hidden = !(tab === 'inicio' || tab === 'tengo' || tab === 'semana');
     Array.prototype.forEach.call(document.querySelectorAll('.tabbar button'), function(b){
       if (b.getAttribute('data-tab') === tab) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
     });
     mode = tab === 'afuera' ? 'afuera' : 'casa';
   }
+  function updateListArea(){
+    var la = document.getElementById('list-area');
+    if (!la) return;
+    var homeActive = !!kind || occasion !== 'todas';
+    la.hidden = !(tab === 'tengo' || (tab === 'inicio' && homeActive));
+    document.getElementById('kind-seg').hidden = tab === 'inicio' && !kind;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-gokind]'), function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-gokind') === kind)); });
+  }
+  document.getElementById('tab-inicio').addEventListener('click', function(e){
+    var g = e.target.closest('[data-go]');
+    if (g){ goTab(g.getAttribute('data-go')); return; }
+    var k = e.target.closest('[data-gokind]');
+    if (k){
+      var nk = k.getAttribute('data-gokind');
+      kind = kind === nk ? '' : nk;
+      renderKind(); renderResults(); updateListArea();
+      if (kind) try { document.getElementById('list-area').scrollIntoView({behavior:'smooth', block:'start'}); } catch (er) {}
+      return;
+    }
+    if (e.target.closest('[data-goocc]')) openSheet(true);
+  });
+  /* Escáner de productos: código de barras + Open Food Facts */
+  var scanner = null, scanBusy = false, scanHist = [];
+  try { var sh0 = JSON.parse(localStorage.getItem('que-comemos-escaneos') || '[]'); if (Array.isArray(sh0)) scanHist = sh0.slice(0, 8); } catch (e) {}
+  var ALERG = {gluten:'Gluten (TACC)', milk:'Leche', eggs:'Huevo', nuts:'Frutos secos', peanuts:'Maní', soybeans:'Soja', fish:'Pescado', crustaceans:'Crustáceos', molluscs:'Moluscos', 'sesame-seeds':'Sésamo', celery:'Apio', mustard:'Mostaza', 'sulphur-dioxide-and-sulphites':'Sulfitos', lupin:'Lupino'};
+  function offTags(arr){ return (arr || []).map(function(t){ return String(t).replace(/^[a-z]{2}:/, ''); }); }
+  function loadScanLib(){
+    return new Promise(function(ok, fail){
+      var lib = window.Html5Qrcode || (window.__Html5QrcodeLibrary__ && window.__Html5QrcodeLibrary__.Html5Qrcode);
+      if (lib) return ok(lib);
+      var sc = document.createElement('script');
+      sc.src = 'https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js';
+      sc.onload = function(){ var l = window.Html5Qrcode || (window.__Html5QrcodeLibrary__ && window.__Html5QrcodeLibrary__.Html5Qrcode); l ? ok(l) : fail(); };
+      sc.onerror = fail;
+      document.head.appendChild(sc);
+    });
+  }
+  function stopScan(){
+    var cam = document.getElementById('scan-cam');
+    if (scanner){ var sx = scanner; scanner = null; try { sx.stop().then(function(){ try { sx.clear(); } catch (e) {} }, function(){}); } catch (e) {} }
+    cam.hidden = true;
+    document.getElementById('scan-start').hidden = false;
+  }
+  function startScan(){
+    var msg = document.getElementById('scan-msg');
+    document.getElementById('scan-cam').hidden = false;
+    document.getElementById('scan-start').hidden = true;
+    document.getElementById('scan-out').innerHTML = '';
+    msg.textContent = 'Abriendo la cámara…';
+    loadScanLib().then(function(Lib){
+      var F = window.Html5QrcodeSupportedFormats || (window.__Html5QrcodeLibrary__ && window.__Html5QrcodeLibrary__.Html5QrcodeSupportedFormats) || {EAN_13:9, EAN_8:10, UPC_A:14, UPC_E:15};
+      scanner = new Lib('scan-reader', {formatsToSupport:[F.EAN_13, F.EAN_8, F.UPC_A, F.UPC_E], verbose:false});
+      return scanner.start({facingMode:'environment'}, {fps:10, qrbox:function(w, h){ return {width:Math.round(w * 0.85), height:Math.round(Math.min(h, w) * 0.45)}; }, experimentalFeatures:{useBarCodeDetectorIfSupported:true}}, function(code){
+        if (scanBusy) return;
+        scanBusy = true;
+        try { if (navigator.vibrate) navigator.vibrate(80); } catch (e) {}
+        stopScan();
+        lookupProduct(code).then(function(){ scanBusy = false; });
+      }, function(){}).then(function(){ msg.textContent = 'Poné el código de barras dentro del recuadro y mantené el celular quieto.'; });
+    }).catch(function(err){
+      stopScan();
+      var why = err && (err.name || err.message || String(err));
+      var txt = !window.isSecureContext ? 'La cámara solo funciona desde la app instalada o la página segura (https).' :
+        /NotAllowed|Permission/i.test(why || '') ? 'El celular no dio permiso para usar la cámara. En iPhone: Ajustes → Safari → Cámara → Permitir (o Preguntar), y volvé a intentar.' :
+        !why ? 'No se pudo cargar el lector de códigos. Revisá tu conexión a internet.' :
+        'No pudimos abrir la cámara (' + why + ').';
+      document.getElementById('scan-out').innerHTML = '<div class="empty"><b>No se pudo escanear</b><p>' + esc(txt) + '</p><p>Mientras tanto podés usar <b>📸 Sacar una foto del código</b> o escribir el número abajo.</p></div>';
+    });
+  }
+  function dietVerdict(p){
+    var al = offTags(p.allergens_tags), tr = offTags(p.traces_tags), an = offTags(p.ingredients_analysis_tags), lb = offTags(p.labels_tags).join(' ');
+    var n = p.nutriments || {}, kcal = n['energy-kcal_100g'], carb = n.carbohydrates_100g;
+    var noIng = !p.ingredients_text_es && !p.ingredients_text;
+    var V = function(c, t, d){ return {c:c, t:t, d:d}; };
+    if (diet === 'vegan'){
+      if (an.indexOf('non-vegan') !== -1 || al.indexOf('milk') !== -1 || al.indexOf('eggs') !== -1) return V('no', '❌ No es apto vegano', 'Tiene ingredientes de origen animal.');
+      if (an.indexOf('vegan') !== -1) return V('ok', '✅ Apto vegano', 'Según sus ingredientes no tiene productos animales.');
+      return V('maybe', '⚠️ No sabemos si es vegano', noIng ? 'Faltan los ingredientes en la base de datos.' : 'Revisá la etiqueta: puede tener algún ingrediente animal.');
+    }
+    if (diet === 'veg' || diet === 'pesc'){
+      if (an.indexOf('non-vegetarian') !== -1) return diet === 'pesc' ? V('maybe', '⚠️ Puede tener carne o pescado', 'Revisá la etiqueta para ver qué tipo de carne lleva.') : V('no', '❌ No es vegetariano', 'Tiene carne, pescado o derivados.');
+      if (an.indexOf('vegetarian') !== -1 || an.indexOf('vegan') !== -1) return V('ok', diet === 'pesc' ? '✅ Apto pescetariano' : '✅ Apto vegetariano', 'Según sus ingredientes no tiene carne.');
+      return V('maybe', '⚠️ No sabemos si es vegetariano', 'Revisá los ingredientes en la etiqueta.');
+    }
+    if (diet === 'tacc'){
+      if (al.indexOf('gluten') !== -1) return V('no', '❌ Tiene gluten (TACC)', 'No es apto para celíacos.');
+      if (/gluten-free|no-gluten|sin-tacc|sin-gluten/.test(lb)) return V(tr.indexOf('gluten') !== -1 ? 'maybe' : 'ok', '✅ Figura como sin gluten', 'Igual buscá en el paquete el logo oficial "Sin TACC".');
+      if (tr.indexOf('gluten') !== -1) return V('maybe', '⚠️ Puede contener trazas de gluten', 'No es seguro para celíacos.');
+      return V('maybe', '⚠️ No figura como Sin TACC', 'No encontramos gluten en los datos, pero solo es seguro si tiene el logo oficial "Sin TACC".');
+    }
+    if (diet === 'lact'){
+      if (al.indexOf('milk') !== -1) return V('no', '❌ Tiene leche', 'Contiene leche o derivados (lactosa).');
+      if (tr.indexOf('milk') !== -1) return V('maybe', '⚠️ Puede contener trazas de leche', 'Revisá la etiqueta.');
+      return V(noIng ? 'maybe' : 'ok', noIng ? '⚠️ No sabemos si tiene leche' : '✅ No figura leche', noIng ? 'Faltan los ingredientes en la base de datos.' : 'Según los datos no tiene leche entre sus ingredientes.');
+    }
+    if (diet === 'keto'){
+      if (carb == null) return V('maybe', '⚠️ No sabemos cuántos carbohidratos tiene', 'Faltan los datos nutricionales.');
+      return carb <= 10 ? V('ok', '✅ Bajo en carbohidratos', Math.round(carb) + ' g de carbohidratos cada 100 g.') : V('no', '❌ Alto en carbohidratos', Math.round(carb) + ' g de carbohidratos cada 100 g.');
+    }
+    if (diet === 'light'){
+      if (kcal == null) return V('maybe', '⚠️ No sabemos cuántas calorías tiene', 'Faltan los datos nutricionales.');
+      return kcal <= 150 ? V('ok', '✅ Liviano', Math.round(kcal) + ' kcal cada 100 g.') : kcal <= 300 ? V('maybe', '⚠️ Calorías moderadas', Math.round(kcal) + ' kcal cada 100 g.') : V('no', '❌ Muy calórico', Math.round(kcal) + ' kcal cada 100 g.');
+    }
+    return null;
+  }
+  function productHtml(p, code){
+    var name = p.product_name_es || p.product_name || 'Producto sin nombre';
+    var al = offTags(p.allergens_tags), tr = offTags(p.traces_tags).filter(function(t){ return al.indexOf(t) === -1; });
+    var n = p.nutriments || {}, lv = p.nutrient_levels || {};
+    var v = dietVerdict(p);
+    var row = function(lab, key, unit, dec){ var x = n[key]; return x == null ? '' : '<tr><td>' + lab + '</td><td>' + (Math.round(x * (dec || 1)) / (dec || 1)).toString().replace('.', ',') + ' ' + unit + '</td></tr>'; };
+    var sodium = n.sodium_100g != null ? n.sodium_100g * 1000 : (n.salt_100g != null ? n.salt_100g * 400 : null);
+    var LV = {high:['bad','Alto en'], moderate:['mid','Medio en'], low:['good','Bajo en']};
+    var LN = {fat:'grasas', 'saturated-fat':'grasas saturadas', sugars:'azúcares', salt:'sal (sodio)'};
+    var levels = Object.keys(LN).filter(function(k){ return lv[k]; }).map(function(k){ var x = LV[lv[k]] || ['', '']; return '<span class="' + x[0] + '">' + x[1] + ' ' + LN[k] + '</span>'; }).join('');
+    var ing = p.ingredients_text_es || p.ingredients_text || '';
+    return '<div class="prod"><div class="prod-top">' + (p.image_front_small_url ? '<img src="' + esc(p.image_front_small_url) + '" alt="">' : '<span class="pi">🛍️</span>') +
+      '<div><b>' + esc(name) + '</b><small>' + esc([p.brands, p.quantity].filter(Boolean).join(' · ')) + '</small><small style="display:block">Código ' + esc(code) + '</small></div></div>' +
+      (v ? '<div class="verdict ' + v.c + '"><span>' + v.t + '<small>' + esc(v.d) + ' (Tipo de cocina: ' + esc(DIETS[diet].l) + ')</small></span></div>' : '<p class="note">Elegí un tipo de cocina en ⚙️ Filtros (vegana, sin TACC, sin lactosa…) y te decimos si este producto va con tu forma de comer.</p>') +
+      '<h4>⚠️ Alérgenos</h4><div class="tags">' + (al.length ? al.map(function(t){ return '<span class="bad">' + esc(ALERG[t] || t) + '</span>'; }).join('') : '<span>No figuran alérgenos</span>') + tr.map(function(t){ return '<span class="mid">Puede tener trazas: ' + esc(ALERG[t] || t) + '</span>'; }).join('') + '</div>' +
+      (levels ? '<h4>📊 Cada 100 g</h4><div class="tags">' + levels + '</div>' : '') +
+      '<h4>Información nutricional (cada 100 g)</h4>' +
+      (n['energy-kcal_100g'] != null || n.carbohydrates_100g != null ? '<table>' + row('Valor energético', 'energy-kcal_100g', 'kcal') + row('Carbohidratos', 'carbohydrates_100g', 'g', 10) + row('de los cuales azúcares', 'sugars_100g', 'g', 10) + row('Proteínas', 'proteins_100g', 'g', 10) + row('Grasas totales', 'fat_100g', 'g', 10) + row('Grasas saturadas', 'saturated-fat_100g', 'g', 10) + row('Fibra', 'fiber_100g', 'g', 10) + (sodium != null ? '<tr><td>Sodio</td><td>' + Math.round(sodium) + ' mg</td></tr>' : '') + '</table>' : '<p class="note">No hay datos nutricionales cargados para este producto.</p>') +
+      '<h4>Ingredientes</h4>' + (ing ? '<p class="ingtxt">' + esc(ing) + '</p>' : '<p class="note">No hay ingredientes cargados.</p>') +
+      '<a class="btn ghost" href="https://ar.openfoodfacts.org/producto/' + encodeURIComponent(code) + '" target="_blank" rel="noopener">Ver más en Open Food Facts ↗</a></div>';
+  }
+  function lookupProduct(code){
+    code = String(code || '').replace(/\D/g, '');
+    var out = document.getElementById('scan-out');
+    if (code.length < 6){ out.innerHTML = '<div class="empty">Ese código es muy corto. Revisá el número debajo de las barras.</div>'; return Promise.resolve(); }
+    out.innerHTML = '<div class="empty">🔎 Buscando el producto ' + esc(code) + '…</div>';
+    var fields = 'product_name,product_name_es,brands,quantity,image_front_small_url,ingredients_text,ingredients_text_es,allergens_tags,traces_tags,labels_tags,ingredients_analysis_tags,nutriments,nutrient_levels';
+    return fetch('https://world.openfoodfacts.org/api/v2/product/' + code + '.json?fields=' + fields).then(function(r){ return r.json(); }).then(function(d){
+      if (!d || d.status !== 1 || !d.product){
+        out.innerHTML = '<div class="empty"><b>No encontramos este producto</b><p>El código ' + esc(code) + ' todavía no está cargado en la base de datos. Si querés, podés sumarlo vos desde la app de Open Food Facts y queda disponible para todos.</p></div>';
+        return;
+      }
+      out.innerHTML = productHtml(d.product, code);
+      var nm = d.product.product_name_es || d.product.product_name || 'Producto';
+      scanHist = scanHist.filter(function(h){ return h.c !== code; });
+      scanHist.unshift({c:code, n:nm, b:d.product.brands || ''});
+      scanHist = scanHist.slice(0, 8);
+      try { localStorage.setItem('que-comemos-escaneos', JSON.stringify(scanHist)); } catch (e) {}
+      renderScanHist();
+    }).catch(function(){
+      out.innerHTML = '<div class="empty">No pudimos conectarnos para buscar el producto. Revisá que tengas internet e intentá de nuevo.</div>';
+    });
+  }
+  function renderScanHist(){
+    var el = document.getElementById('scan-hist');
+    el.innerHTML = scanHist.length ? '<p class="sub">Últimos escaneados</p><div class="scan-hist">' + scanHist.map(function(h){ return '<button type="button" data-scancode="' + esc(h.c) + '"><span>' + esc(h.n) + '</span><small>' + esc(h.b) + '</small></button>'; }).join('') + '</div>' : '';
+  }
+  document.getElementById('scan-start').addEventListener('click', startScan);
+  document.getElementById('scan-file').addEventListener('change', function(){
+    var file = this.files && this.files[0], inp = this;
+    if (!file) return;
+    stopScan();
+    var out = document.getElementById('scan-out');
+    out.innerHTML = '<div class="empty">🔎 Leyendo el código de la foto…</div>';
+    loadScanLib().then(function(Lib){
+      var r = new Lib('scan-reader');
+      return r.scanFile(file, false).then(function(code){ try { r.clear(); } catch (e) {} return lookupProduct(code); });
+    }).catch(function(err){
+      out.innerHTML = '<div class="empty"><b>No pudimos leer el código en la foto</b><p>' + (err ? 'Probá sacarla más de cerca, con buena luz y que el código salga derecho y enfocado.' : 'No se pudo cargar el lector de códigos. Revisá tu conexión.') + ' También podés escribir el número abajo.</p></div>';
+    }).then(function(){ inp.value = ''; });
+  });
+  document.getElementById('scan-stop').addEventListener('click', stopScan);
+  document.getElementById('scan-form').addEventListener('submit', function(e){ e.preventDefault(); stopScan(); lookupProduct(document.getElementById('scan-code').value); });
+  document.getElementById('scan-hist').addEventListener('click', function(e){ var b = e.target.closest('[data-scancode]'); if (b){ lookupProduct(b.getAttribute('data-scancode')); try { window.scrollTo(0, 0); } catch (er) {} } });
+  renderScanHist();
   function goTab(t){
+    if (t !== 'escanear') try { stopScan(); } catch (e) {}
     tab = t;
     try { localStorage.setItem('que-comemos-tab', t); } catch (e) {}
     renderTab(); renderResults(); renderSearch(); renderMenu(); renderShop();
@@ -1848,10 +2407,10 @@ header.top h1{font-size:1.7rem; margin:0}
   })();
   /* Panel de filtros */
   function renderFsum(){
-    var parts = [DIETS[diet].l];
+    var parts = [diet === 'general' ? '🍽️ Cocina general' : DIETS[diet].l];
     var oc = OCCASIONS.filter(function(o){ return o[0] === occasion; })[0];
     if (oc && oc[0] !== 'todas') parts.push(oc[1]);
-    parts.push('👥 ' + serv);
+    parts.push('👥 Para ' + serv + (serv == 1 ? ' persona' : ' personas'));
     if (maxTime) parts.push('⏱ ' + (maxTime >= 60 ? maxTime / 60 + ' h' : maxTime + ' min'));
     var active = diet !== 'general' || occasion !== 'todas' || maxTime;
     document.getElementById('filters-sum').innerHTML = parts.map(function(p){ return '<span>' + esc(p) + '</span>'; }).join('') + '<span class="edit">Cambiar</span>' + (active ? '<span class="clear" data-fclear="1">✕ Quitar filtros</span>' : '');
@@ -1870,6 +2429,11 @@ header.top h1{font-size:1.7rem; margin:0}
     Array.prototype.forEach.call(document.querySelectorAll('#time-seg button'), function(x){ x.setAttribute('aria-pressed', x.getAttribute('data-time') === '0' ? 'true' : 'false'); });
     save(); renderDiet(); renderOcc(); renderResults(); renderSearch(); renderMenu();
   });
+  /* Orden de "más populares" en Argentina (no al azar) */
+  var POPULARES = ['Milanesas fritas','Asado criollo','Empanadas de carne','Pizza casera','Ñoquis de papa','Milanesa a la napolitana','Tallarines con tuco','Ravioles de ricota y verdura','Pastel de papa','Pollo al horno con papas','Hamburguesas caseras','Choripán','Locro','Guiso de lentejas','Tarta de jamón y queso','Tortilla de papa','Fugazzeta','Sorrentinos de jamón y queso','Canelones de verdura','Lasaña de carne','Matambre a la pizza','Carne al horno con papas','Puchero','Arroz con pollo','Albóndigas con salsa','Provoleta','Lomito completo','Sándwich de milanesa','Milanesas de pollo','Bondiola al horno con papas','Tarta de verdura','Empanadas de jamón y queso','Pollo al verdeo','Revuelto gramajo','Guiso de arroz','Carbonada criolla','Humita en olla','Tacos de carne','Spaghetti a la carbonara','Paella valenciana',
+    'Flan casero','Chocotorta','Torta Balcarce','Lemon pie','Alfajores de maicena','Tiramisú','Panqueques con dulce de leche','Arroz con leche','Budín de pan','Torta de chocolate húmeda','Tarta de coco y dulce de leche','Cheesecake','Pastafrola','Churros con dulce de leche','Helado casero de dulce de leche','Medialunas de manteca','Bizcochuelo',
+    'Fernet con coca','Gin tonic','Vermut con soda','Aperol spritz','Clericó','Mojito','Caipirinha','Gancia con limón','Sangría','Submarino','Licuado de banana','Limonada con menta y jengibre','Tereré'];
+  function popRank(r){ var i = POPULARES.indexOf(r.n); return i === -1 ? 999 : i; }
   function dayRank(r){
     var d = new Date(), k = d.getFullYear() * 400 + d.getMonth() * 32 + d.getDate(), h = k;
     for (var i = 0; i < r.n.length; i++) h = (h * 31 + r.n.charCodeAt(i)) % 1000003;
@@ -1892,18 +2456,26 @@ header.top h1{font-size:1.7rem; margin:0}
   window.addEventListener('resize', checkRes);
   function renderResults(keep){
     try { renderFsum(); } catch (e) {}
+    try { updateListArea(); } catch (e) {}
     if (keep !== true){ shown = 3; showClose = false; }
     var names = Array.from(selected);
     goLabel = '';
     if (!useHave){
+      if (!kind && occasion === 'todas'){
+        elRes.innerHTML = '';
+        resCount = 0; checkRes();
+        return;
+      }
       var all = R.filter(function(r){ return (!maxTime || r.t <= maxTime) && dietOk(r) && kindOk(r); }).map(matches);
       all.sort(function(a, b){
+        var pa = popRank(a.r), pb = popRank(b.r);
+        if (pa !== pb) return pa - pb;
         var ha = a.r.p.indexOf(home) !== -1 ? 0 : 1, hb = b.r.p.indexOf(home) !== -1 ? 0 : 1;
         if (ha !== hb) return ha - hb;
-        return dayRank(a.r) - dayRank(b.r);
+        return a.r.n.localeCompare(b.r.n, 'es');
       });
       var restA = all.length - shown;
-      elRes.innerHTML = '<div class="group-head"><p class="note">Hay <strong>' + all.length + '</strong> ' + (kind === 'tragos' ? 'tragos y bebidas' : kind === 'postres' ? 'postres' : 'recetas') + '. Estas son algunas ideas para hoy.</p></div>' +
+      elRes.innerHTML = '<div class="group-head"><p class="note">Hay <strong>' + all.length + '</strong> ' + (kind === 'tragos' ? 'tragos y bebidas' : kind === 'postres' ? 'postres' : 'recetas') + ', empezando por las más populares.</p></div>' +
         (all.length ? '<div class="group">' + all.slice(0, shown).map(function(m, i){ return card(m, i); }).join('') +
           (restA > 0 ? '<button type="button" class="btn big more-btn">Ver ' + Math.min(3, restA) + ' recetas más <span>(quedan ' + restA + ')</span></button>' : '') + '</div>'
         : '<div class="empty">No encontramos recetas con esos filtros.</div>');
@@ -2152,18 +2724,55 @@ header.top h1{font-size:1.7rem; margin:0}
       t.innerHTML = '<button type="button" class="btn quiet" data-listrename="1">✏️ Cambiar nombre</button>' + (lists.length > 1 ? '<button type="button" class="btn quiet" data-listdel="1">🗑️ Borrar lista</button>' : '');
     }
   }
+  /* Íconos de productos para la lista */
+  var SHOP_ICO = {papa:'🥔',batata:'🍠',tomate:'🍅','tomate perita':'🍅','tomate cherry':'🍅',cebolla:'🧅','cebolla morada':'🧅',ajo:'🧄',zanahoria:'🥕',lechuga:'🥬',acelga:'🥬',espinaca:'🥬',brócoli:'🥦',choclo:'🌽',morrón:'🫑',berenjena:'🍆',pepino:'🥒',zapallito:'🥒',zucchini:'🥒',hongos:'🍄',champiñones:'🍄',palta:'🥑',limón:'🍋',lima:'🍋',naranja:'🍊',mandarina:'🍊',banana:'🍌',manzana:'🍎','manzana verde':'🍏',pera:'🍐',frutilla:'🍓',durazno:'🍑',cereza:'🍒',uva:'🍇',ananá:'🍍',kiwi:'🥝',coco:'🥥',mango:'🥭',sandía:'🍉',melón:'🍈',
+    carne:'🥩','carne picada':'🥩',bife:'🥩',falda:'🥩',pollo:'🍗',cerdo:'🥓',panceta:'🥓',jamón:'🍖',salchichas:'🌭',chorizo:'🌭',pescado:'🐟',merluza:'🐟',atún:'🐟',salmón:'🐟',langostinos:'🦐',
+    huevo:'🥚',leche:'🥛',queso:'🧀','queso rallado':'🧀',mozzarella:'🧀',manteca:'🧈',crema:'🥛',yogur:'🥛',helado:'🍨','dulce de leche':'🍯',miel:'🍯',
+    pan:'🍞','pan rallado':'🍞',harina:'🌾',arroz:'🍚',fideos:'🍝',azúcar:'🍬',sal:'🧂',aceite:'🫒','aceite de oliva':'🫒','aceite de girasol':'🌻',chocolate:'🍫',cacao:'🍫',café:'☕',yerba:'🧉',té:'🍵',galletitas:'🍪',
+    vino:'🍷','vino tinto':'🍷','vino blanco':'🥂',espumante:'🍾',fernet:'🥃',whisky:'🥃',gin:'🍸',vodka:'🍸',ron:'🍹',tequila:'🍹','gaseosa cola':'🥤','gaseosa lima-limón':'🥤',soda:'🫧','agua tónica':'🫧',cerveza:'🍺'};
+  function shopIco(x){
+    var k = (x.k || x.n || '').toLowerCase();
+    if (SHOP_ICO[k]) return SHOP_ICO[k];
+    var w = k.split(/\s+/)[0];
+    if (SHOP_ICO[w]) return SHOP_ICO[w];
+    for (var c = 0; c < CATS.length; c++) if (CATS[c].items.indexOf(k) !== -1) return CATS[c].ico;
+    return '🛍️';
+  }
   function renderShop(){
     var box = document.getElementById('shop');
     box.hidden = false;
     var left = shop.filter(function(x){ return !x.b; }).length;
     var badge = document.getElementById('shop-badge');
     badge.hidden = !left; badge.textContent = left;
+    var hb = document.getElementById('home-shop-n'); hb.hidden = !left; hb.textContent = left;
+    document.getElementById('home-shop-sub').textContent = left ? (left === 1 ? 'Te falta 1 producto' : 'Te faltan ' + left + ' productos') : 'Tus listas guardadas';
     document.getElementById('shop-empty').hidden = shop.length > 0;
     document.getElementById('shop-actions').hidden = !shop.length;
     document.getElementById('shop-clear').hidden = !shop.length;
-    document.getElementById('shop-count').textContent = left ? '(' + left + (left === 1 ? ' producto)' : ' productos)') : '';
+    document.getElementById('shop-count').textContent = '';
+    var tot = shop.length, got = tot - left, hero = document.getElementById('shop-hero');
+    hero.hidden = !tot;
+    if (tot){
+      var pct = Math.round(got / tot * 100), msg, emo, sub;
+      if (!left){ emo = '🎉'; msg = '¡Lista completa!'; sub = 'Compraste todo. Pasalo a "Lo que tengo" y a cocinar.'; }
+      else if (!got){ emo = '🛒'; msg = left + (left === 1 ? ' producto para comprar' : ' productos para comprar'); sub = 'Tocá cada uno cuando lo pongas en el changuito.'; }
+      else if (pct >= 50){ emo = '💪'; msg = '¡Ya casi! Te ' + (left === 1 ? 'falta 1' : 'faltan ' + left); sub = got + ' de ' + tot + ' en el changuito'; }
+      else { emo = '🚀'; msg = '¡Vas bien! Te faltan ' + left; sub = got + ' de ' + tot + ' en el changuito'; }
+      hero.className = 'shop-hero' + (left ? '' : ' done');
+      hero.innerHTML = '<div class="top"><span class="emo">' + emo + '</span><div><div class="msg">' + msg + '</div><div class="sub">' + sub + '</div></div></div><div class="bar"><i style="width:' + pct + '%"></i></div>';
+    }
     renderLists();
-    document.getElementById('shop-list').innerHTML = shop.map(function(x, k){
+    var order = shop.map(function(x, k){ return k; }).filter(function(k){ return !shop[k].b; }).concat(shop.map(function(x, k){ return k; }).filter(function(k){ return shop[k].b; }));
+    var firstBought = true;
+    document.getElementById('shop-list').innerHTML = order.map(function(k){
+      var x = shop[k], head = '';
+      if (x.b && firstBought){ firstBought = false; head = '<li class="shop-sec">🛒 Ya en el changuito (' + got + ')</li>'; }
+      return head + rowHtml(x, k);
+    }).join('');
+    document.getElementById('shop-wa').href = 'https://wa.me/?text=' + encodeURIComponent(listText());
+  }
+  function rowHtml(x, k){
+    {
       if (k === editing){
         return '<li class="editing"><div class="editbox"><b>' + esc(x.n) + '</b>' +
           '<input type="text" id="ed-q" placeholder="Cantidad (ej: 2 kg, 3 paquetes)" value="' + esc(qtyLine(x)) + '">' +
@@ -2174,11 +2783,10 @@ header.top h1{font-size:1.7rem; margin:0}
       if (x.q) detail = '<small><span class="q">' + esc(x.q) + '</span></small>';
       else if (x.f && x.f.length) detail = '<small>' + x.f.map(function(rn){ var q = x.qs && x.qs[rn]; return (q ? '<span class="q">' + esc(q) + '</span> para ' : 'Para ') + esc(rn); }).join(' · ') + '</small>';
       else detail = '<small>Agregado por vos</small>';
-      return '<li class="' + (x.b ? 'bought' : '') + '"><button type="button" class="item" data-k="' + k + '" aria-pressed="' + !!x.b + '"><b>' + (x.b ? '✓ ' : '') + esc(x.n) + '</b>' + detail + (x.note ? '<span class="nt">' + esc(x.note) + '</span>' : '') + '</button>' +
+      return '<li class="' + (x.b ? 'bought' : '') + '"><button type="button" class="item" data-k="' + k + '" aria-pressed="' + !!x.b + '"><span class="chk">✓</span><span class="ico">' + shopIco(x) + '</span><span class="txt"><b>' + esc(x.n) + '</b>' + detail + (x.note ? '<span class="nt">' + esc(x.note) + '</span>' : '') + '</span></button>' +
         '<button type="button" class="ed" data-ed="' + k + '" aria-label="Editar ' + esc(x.n) + '">✏️</button>' +
         '<button type="button" class="x" data-x="' + k + '" aria-label="Quitar ' + esc(x.n) + '">✕</button></li>';
-    }).join('');
-    document.getElementById('shop-wa').href = 'https://wa.me/?text=' + encodeURIComponent(listText());
+    }
   }
   /* Busca en las cantidades de la receta la que corresponde a un ingrediente */
   var QSYN = {carne:['falda','roast beef','carne vacuna','carne para','nalga','cuadrada'], bife:['carne para milanesa','bife'], 'maíz pisado':['maiz'], fideos:['spaghetti','tallarines','fideos'], 'salsa de tomate':['pure de tomate','tomate triturado','salsa de tomate'], 'cebolla de verdeo':['verdeo'], 'tapas de empanadas':['tapa de empanada'], 'tapa de tarta':['tapa de tarta']};
@@ -2355,6 +2963,12 @@ header.top h1{font-size:1.7rem; margin:0}
     nb.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
+  document.addEventListener('click', function(e){
+    var h = e.target.closest('.card h3, .card .meta:not(.tags)');
+    if (!h) return;
+    var d = h.closest('.card').querySelector('details');
+    if (d) d.open = !d.open;
+  });
   elRes.addEventListener('click', function(e){
     var cb = e.target.closest('.close-btn');
     if (cb){ showClose = !showClose; shown = 3; renderResults(true); try { elRes.scrollIntoView({behavior:'smooth', block:'start'}); } catch (er) {} return; }
