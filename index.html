@@ -2,6 +2,17 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="no-referrer">
+<script>
+/* Seguridad: en la página publicada, solo se permite cargar cosas de los sitios que la app usa */
+(function(){
+  if (!/(^|\.)onrender\.com$/.test(location.hostname)) return;
+  var m = document.createElement('meta');
+  m.httpEquiv = 'Content-Security-Policy';
+  m.content = "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com/html5-qrcode@2.3.8/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' blob: mediastream:; connect-src 'self' https://world.openfoodfacts.org https://ar.openfoodfacts.org https://es.wikipedia.org; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'";
+  document.head.appendChild(m);
+})();
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Qué comemos</title>
 <meta name="description" content="Decidí qué comer con lo que tenés en casa, o dónde salir a comer.">
@@ -94,6 +105,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .menu-toggle[aria-expanded="true"]{border-color:var(--orange); background:var(--orange-bg)}
 .menu-toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
 .menu-tools{display:flex; gap:8px; flex-wrap:wrap}
+.wnav{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:4px 0 6px}
+.wn-b{font:inherit; font-size:1.1rem; width:48px; height:48px; border-radius:12px; border:1px solid var(--accent); background:var(--surface); color:var(--accent); cursor:pointer}
+.wn-b:disabled{opacity:.3; cursor:default}
+.wn-t{flex:1; text-align:center; display:flex; flex-direction:column; line-height:1.2}
+.wn-t b{font-family:var(--font-display); font-size:1.1rem; color:var(--accent)}
+.wn-t small{color:var(--muted); font-size:.9rem}
+.wn-today{font:inherit; font-size:.9rem; width:100%; border:0; background:none; color:var(--accent); text-decoration:underline; cursor:pointer; padding:6px; min-height:40px}
 .week{display:flex; flex-direction:column; gap:8px}
 .day{display:grid; grid-template-columns:56px 1fr 1fr; gap:6px; align-items:stretch}
 .day .dname{font-weight:800; font-family:var(--font-display); align-self:center; color:var(--accent)}
@@ -163,7 +181,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .hm-wide small{display:block; color:var(--muted); font-size:.82rem}
 .hm-wide .hm-arrow{font-size:1.8rem; color:#e07a1f; line-height:1}
 .home-more .tool-shop span{position:relative}
-.home-more .tool-shop .badge{position:absolute; top:-6px; right:-14px; font-style:normal; font-size:.7rem; min-width:18px; height:18px}
+.home-more .tool-shop .badge{position:absolute; top:-10px; right:-6px; border:2px solid #fff; font-style:normal; font-size:.7rem; min-width:18px; height:18px}
 .hm-btn.tengo{background:linear-gradient(140deg,#e07a1f,#f2a541)}
 .hm-btn.compras{background:linear-gradient(140deg,#1b6b4f,#2f8a63)}
 .hm-btn .hm-ico{font-size:2.1rem; line-height:1; margin-bottom:auto; position:relative; align-self:flex-start}
@@ -304,7 +322,74 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .kind-seg button{font:inherit; font-weight:700; font-size:.82rem; border:0; background:transparent; color:var(--muted); border-radius:10px; padding:9px 4px; cursor:pointer; min-height:42px}
 .kind-seg button[aria-pressed="true"]{background:var(--surface); color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
 .note.alc{background:var(--danger-bg); color:var(--danger); border-radius:10px; padding:8px 12px; margin-top:10px}
-.lists-bar{display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none}
+.lists-bar{display:flex; flex-direction:column; gap:10px; padding-bottom:4px}
+.shop-add{margin-top:2px}
+.shop-add input{border:2px solid var(--accent) !important}
+#shop .panel-head{align-items:center; flex-wrap:nowrap}
+.ruta-t{margin:0 0 4px}
+.ruta-list{display:flex; flex-direction:column; gap:8px; margin:10px 0}
+.ruta-op{display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--line); border-radius:14px; background:var(--surface); color:var(--ink); text-decoration:none}
+.ruta-op .ri{font-size:1.7rem}
+.ruta-op .rt{flex:1; display:flex !important; flex-direction:column; align-items:flex-start !important; text-align:left !important; border:0 !important; background:none !important; padding:0 !important; margin:0 !important; border-radius:0 !important; min-width:0; box-shadow:none !important}
+.ruta-op .ri, .ruta-op .ra{border:0 !important; background:none !important; padding:0 !important; box-shadow:none !important}
+.ruta-op .rt small{color:var(--muted); font-size:.8rem; white-space:normal !important}
+.ruta-op .ra{color:var(--accent); font-weight:800}
+.vmodal.ruta-m .vbox{text-align:left; max-height:88vh; overflow:auto}
+.ruta-tip{background:var(--chip); border-radius:12px; padding:10px 12px}
+.week .day.today{background:#e6f4ec; border-radius:14px; padding:6px; margin:0 -6px; border:2px solid #2f9a6c}
+.week .day.today .dname{color:#1b6b4f}
+.week .dname small{display:block; font-size:.72rem; font-weight:600; color:var(--muted)}
+.slot .sl-acts{position:absolute; top:2px; right:2px; display:flex; gap:0}
+.slot .sl-acts .rm{position:static}
+.slot .sw{cursor:pointer; width:26px; height:24px; display:grid; place-items:center; font-size:.85rem}
+.slot.full{padding-right:8px !important}
+.slot.full small{padding-right:24px; min-height:22px; white-space:nowrap; overflow-wrap:normal; letter-spacing:0; font-size:.66rem}
+.slot .sl-acts .rm, .slot .sw{width:22px !important}
+.slot{min-width:0; overflow-wrap:anywhere}
+.day{grid-template-columns:50px minmax(0,1fr) minmax(0,1fr) !important}
+.menu-tools{align-items:center; margin:6px 0 10px}
+.menu-clear-box{margin:0}
+.menu-clear-box .note{margin:4px 0}
+.menu-clear-box .btn{min-height:44px}
+.slot.full{padding-bottom:30px !important}
+.slot.full{padding-bottom:40px !important}
+.slot .lk{position:absolute; bottom:3px; right:3px; height:36px; min-width:36px; padding:0 8px; border-radius:18px; display:flex; align-items:center; justify-content:center; gap:3px; font-size:.75rem; font-weight:700; color:var(--muted); cursor:pointer}
+.slot .lk .pin{font-size:1.35rem; line-height:1; filter:grayscale(1); opacity:.45}
+.slot.locked .lk .pin{filter:none; opacity:1}
+.slot.locked{border-width:2px; background:#fff6e5; border-color:var(--orange)}
+.slot.locked .lk{color:#9a5a00; background:#ffe6b8}
+.pedila{display:flex; width:100%; margin:10px 0 2px; background:#25d366 !important; border-color:#25d366 !important; color:#fff !important; justify-content:center}
+.pedila-n{text-align:center; margin:0 0 10px}
+.done-btn{width:100%; background:#2f9a6c !important; color:#fff !important; border-color:#2f9a6c !important; font-size:1.05rem; min-height:54px}
+#shop-done-msg{width:100%}
+.cart-tot{display:flex; flex-direction:column; align-items:center; gap:2px; flex:none}
+.cart-tot .ct-ico{position:relative; font-size:2rem; line-height:1}
+.cart-tot .ct-ico i{position:absolute; top:-8px; right:-12px; min-width:24px; height:24px; padding:0 6px; border-radius:999px; background:#2f9a6c; color:#fff; font-style:normal; font-size:.85rem; font-weight:800; display:grid; place-items:center; border:2px solid #fff}
+.cart-tot small{font-size:.7rem; font-weight:700; color:#1b6b4f; white-space:nowrap}
+.cart-tot.bump .ct-ico{animation:pop .35s ease}
+.ls-btns{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.lists-bar .ls-btn{font:inherit; font-size:.95rem; font-weight:700; border:2px solid var(--accent); background:var(--surface); color:var(--accent); border-radius:14px; padding:12px 8px; cursor:pointer; min-height:50px}
+.lists-bar .ls-btn[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink)}
+.lists-bar .ls-btn.new{border-style:dashed}
+.lists-bar .ls-btn .cnt{display:inline-block; min-width:22px; padding:1px 6px; border-radius:999px; background:var(--chip); color:var(--ink); font-size:.8rem; margin-left:4px}
+.ls-cur{display:flex; align-items:center; gap:8px; flex-wrap:wrap; background:var(--chip); border-radius:12px; padding:8px 12px}
+.ls-cur .ls-lbl{width:100%; font-size:.72rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+.ls-cur b{flex:1; font-size:1.1rem}
+.ls-cur .ls-ren{border:0; background:transparent; font-size:1.1rem; cursor:pointer}
+.list-tools .ls-q{width:100%; margin:0; font-weight:700}
+.list-tools.saved{flex-direction:column; align-items:stretch}
+.list-tools.saved input{flex:none}
+.ls-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px}
+.ls-list li{display:flex; align-items:center; border:1px solid var(--line); border-radius:14px; background:var(--surface)}
+.ls-list li.on{border:2px solid var(--accent)}
+.ls-list .ls-open{flex:1; font:inherit; text-align:left; background:transparent; border:0; padding:12px 14px; color:var(--ink); cursor:pointer; display:flex; flex-direction:column; gap:2px}
+.ls-list .ls-open b{font-size:1.02rem}
+.ls-list .ls-ico{font-size:1.6rem; padding-left:12px; flex:none}
+.ls-pend{display:inline-grid; place-items:center; min-width:24px; height:24px; padding:0 7px; border-radius:999px; background:#e07a1f; color:#fff; font-size:.8rem; font-weight:800; margin-left:6px; vertical-align:2px}
+.ls-pend.ok{background:#2f9a6c}
+.ls-list .ls-open small{color:var(--muted); font-size:.8rem}
+.ls-list .x{border:0; background:transparent; font-size:1rem; width:44px; height:44px; cursor:pointer}
+.ls-list .ls-none{padding:12px; color:var(--muted); border-style:dashed}
 .lists-bar::-webkit-scrollbar{display:none}
 .lists-bar button{flex:none; font:inherit; font-size:.9rem; font-weight:600; border:1px solid var(--line); background:var(--chip); color:var(--ink); border-radius:999px; padding:7px 14px; cursor:pointer; min-height:38px}
 .lists-bar button[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)}
@@ -523,6 +608,15 @@ header.top h1{font-size:1.7rem; margin:0}
 .pr-acts{display:flex; flex-direction:column; gap:8px}
 #pr-copied{margin-top:8px}
 .shoplist .ed, .shoplist .x{width:32px !important; flex:none}
+.shoplist li:not(.shop-sec):not(.bought){background:var(--surface); border:2px solid #f0c49a; border-left:6px solid #e07a1f; box-shadow:0 2px 8px rgba(224,122,31,.10)}
+.shoplist li:not(.shop-sec):not(.bought) .chk{border-color:#e07a1f; border-width:2.5px; width:28px; height:28px}
+.shoplist li:not(.shop-sec):not(.bought) .item b{font-size:1.02rem}
+.shoplist li.bought{background:#e3f2e9; border:2px solid transparent; border-left:6px solid #2f9a6c; opacity:.8}
+.shoplist li.bought .chk{width:28px; height:28px; background:#2f9a6c; border-color:#2f9a6c}
+.shoplist li.bought .item b{color:var(--muted)}
+.shoplist li.shop-sec{background:transparent !important; border:0 !important; box-shadow:none !important; padding:10px 2px 2px; font-weight:800; font-size:.95rem; letter-spacing:.2px}
+.shoplist li.shop-sec.pend{color:#c2541c}
+.shoplist li.shop-sec.done{color:#1b6b4f; margin-top:10px; border-top:2px dashed #b9dcc8 !important; padding-top:14px}
 .pr-hint{display:block; font-size:.75rem; font-weight:700; color:#1b6b4f; margin-top:2px}
 .wnote{margin:-4px 0 6px; font-size:.82rem; color:var(--muted)}
 .occ-intro{margin:-4px 0 4px; color:var(--muted); font-size:.92rem}
@@ -572,13 +666,14 @@ header.top h1{font-size:1.7rem; margin:0}
     </div>
     <h3 class="home-sec">Herramientas</h3>
     <div class="home-more six">
-      <button type="button" data-go="compras" class="tool-shop"><span>🛒<i class="badge" id="home-shop-n" hidden></i></span><em class="tl">Lista de compras<small id="home-shop-sub" hidden></small></em></button>
+      <button type="button" data-go="compras" class="tool-shop"><span>📝<i class="badge" id="home-shop-n" hidden></i></span><em class="tl">Lista de compras<small id="home-shop-sub" hidden></small></em></button>
       <button type="button" data-go="precios"><span>💲</span><em class="tl">Mis precios<small>Compará lo que pagás</small></em></button>
       <button type="button" data-go="votar" class="tool-shop"><span>🗳️<i class="badge" id="vote-badge" hidden></i></span>Votar qué comer</button>
       <button type="button" data-go="escanear"><span>📷</span>Escanear producto</button>
       <button type="button" data-go="semana"><span>📅</span>Menú semanal</button>
       <button type="button" data-goocc="1"><span>🎉</span>Ocasiones</button>
-      <a class="tool-wide" href="https://www.google.com/maps/search/?api=1&amp;query=estaciones%20de%20servicio%20cerca%20de%20m%C3%AD" target="_blank" rel="noopener"><span>⛽</span>Estaciones de servicio cerca</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=estaciones%20de%20servicio%20cerca%20de%20m%C3%AD" target="_blank" rel="noopener"><span>⛽</span>Estaciones de servicio</a>
+      <button type="button" data-ruta="1"><span>🚗</span>Comer en la ruta</button>
     </div>
   </div>
 
@@ -587,7 +682,7 @@ header.top h1{font-size:1.7rem; margin:0}
       <h2 id="t-buscar">🏠 ¿Qué querés comer hoy?</h2>
       <form class="search-row" id="search-form" role="search">
         <label for="search-input" class="sr-only">Nombre del plato</label>
-        <input type="search" id="search-input" placeholder="Ej: locro, milanesa…" autocomplete="off" enterkeyhint="search">
+        <input type="search" id="search-input" maxlength="80" placeholder="Ej: locro, milanesa…" autocomplete="off" enterkeyhint="search">
         <button class="btn" type="submit">🔎 Buscar</button>
       </form>
       <div id="search-out" aria-live="polite"></div>
@@ -611,7 +706,7 @@ header.top h1{font-size:1.7rem; margin:0}
     <div id="ingredients" style="display:flex;flex-direction:column;gap:18px"></div>
     <form class="add" id="add-form">
       <label for="custom-input" class="note" style="width:100%">¿Falta algo? Sumalo acá</label>
-      <input type="text" id="custom-input" placeholder="Ej: choclo, ricota, aceitunas" autocomplete="off">
+      <input type="text" id="custom-input" maxlength="60" placeholder="Ej: choclo, ricota, aceitunas" autocomplete="off">
       <button class="btn ghost" type="submit">Agregar</button>
     </form>
     <p class="note">Contamos con que siempre tenés sal, pimienta, aceite, agua y condimentos básicos.</p>
@@ -620,7 +715,7 @@ header.top h1{font-size:1.7rem; margin:0}
 
   <div id="list-area">
     <div class="kind-seg" id="kind-seg" role="group" aria-label="Qué buscás"></div>
-    <input type="search" id="kind-q" class="vote-q kind-q" placeholder="🔎 Buscar…" autocomplete="off" enterkeyhint="search" hidden>
+    <input type="search" id="kind-q" maxlength="80" class="vote-q kind-q" placeholder="🔎 Buscar…" autocomplete="off" enterkeyhint="search" hidden>
     <div class="votebar" id="votebar" hidden></div>
     <button type="button" class="fsum" id="filters-sum"></button>
     <section class="results" id="results" aria-live="polite"></section>
@@ -629,12 +724,13 @@ header.top h1{font-size:1.7rem; margin:0}
   <div class="tab" id="tab-semana" hidden>
   <section class="panel" id="menu-panel" aria-labelledby="t-menu">
     <h2 id="t-menu">📅 Menú de la semana</h2>
+    <div class="wnav" id="menu-wnav"></div>
     <p class="note" id="menu-sub"></p>
-    <div class="menu-tools">
-      <button type="button" class="btn" id="menu-auto">✨ Armalo por mí</button>
-      <button type="button" class="btn danger" id="menu-clear">🗑️ Vaciar menú</button>
-    </div>
     <p class="note" id="menu-serv"></p>
+    <div class="menu-tools">
+      <button type="button" class="btn big" id="menu-auto">✨ Armalo por mí</button>
+      <div class="menu-clear-box" id="menu-clear-box"></div>
+    </div>
     <div class="week" id="menu-week"></div>
     <div id="menu-picker" class="picker" hidden></div>
     <div id="menu-list"></div>
@@ -644,28 +740,27 @@ header.top h1{font-size:1.7rem; margin:0}
   <div class="tab" id="tab-compras" hidden>
   <section class="panel" id="shop" aria-labelledby="t-shop">
     <div class="panel-head">
-      <h2 id="t-shop">🛒 Lista de compras <span id="shop-count"></span></h2>
-      <div class="shop-tools">
-        <button class="btn quiet" type="button" id="shop-clear">Vaciar lista</button>
-        <button class="btn" type="button" id="shop-add-toggle" aria-expanded="false" aria-controls="shop-add-form">＋ Agregar</button>
-      </div>
+      <h2 id="t-shop">📝 Lista de compras <span id="shop-count"></span></h2>
+      <div class="cart-tot" id="cart-tot" hidden><span class="ct-ico">🛒<i id="cart-n">0</i></span><small id="cart-sub"></small></div>
     </div>
     <div class="lists-bar" id="lists-bar"></div>
     <div class="list-tools" id="list-tools"></div>
-    <form class="search-row" id="shop-add-form" hidden>
+    <form class="search-row shop-add" id="shop-add-form">
       <label for="shop-add-input" class="sr-only">Producto para agregar</label>
-      <input type="text" id="shop-add-input" placeholder="Ej: pan, yerba, detergente" autocomplete="off" enterkeyhint="done">
+      <input type="text" id="shop-add-input" maxlength="80" placeholder="＋ Escribí un producto" autocomplete="off" enterkeyhint="done">
       <button class="btn" type="submit">Agregar</button>
     </form>
     <div class="shop-hero" id="shop-hero" hidden></div>
-    <div class="shop-empty" id="shop-empty"><div class="big">🛒</div><b>Tu lista está vacía</b><p>Sumá productos con <b>＋ Agregar</b>, o desde cada receta con "🛒 Agregar lo que falta". También podés armar el menú de la semana y pasar todo a la lista de una.</p></div>
+    <div class="shop-empty" id="shop-empty"><div class="big">🛒</div><b>Tu lista está vacía</b><p>Escribí arriba lo que necesitás y tocá <b>Agregar</b>, o sumalo desde cada receta con "🛒 Agregar lo que falta". También podés armar el menú de la semana y pasar todo a la lista de una.</p></div>
     <ul class="shoplist" id="shop-list"></ul>
     <div class="actions" id="shop-actions">
-      <button class="btn ghost" type="button" id="shop-have">✓ Pasar lo comprado a "Lo que tengo"</button>
+      <button class="btn big done-btn" type="button" id="shop-have">✅ Terminé la compra</button>
+      <p class="pr-ok" id="shop-done-msg" hidden></p>
       <a class="btn wa" id="shop-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
       <button class="btn ghost" type="button" id="shop-copy">📋 Copiar lista</button>
+      <button class="btn quiet" type="button" id="shop-clear">🧹 Vaciar esta lista</button>
     </div>
-    <p class="note">Tocá un producto para tacharlo cuando lo compres. Con ✏️ cambiás la cantidad o agregás una nota.</p>
+    <p class="note" id="shop-note">Tocá un producto para tacharlo cuando lo compres. Con ✏️ cambiás la cantidad o agregás una nota, y con 💲 anotás el precio.</p>
   </section>
   </div>
 
@@ -675,12 +770,12 @@ header.top h1{font-size:1.7rem; margin:0}
     <p class="note">Anotá lo que pagaste y en qué súper. La próxima vez vas a ver si aumentó y dónde te salió más barato. Queda guardado solo en tu celular.</p>
     <form class="pr-form" id="pr-form" autocomplete="off">
       <label for="pr-prod" class="sr-only">Producto</label>
-      <input type="text" id="pr-prod" list="pr-prods" placeholder="Producto (ej: yerba 1 kg)" required enterkeyhint="next">
+      <input type="text" id="pr-prod" maxlength="80" list="pr-prods" placeholder="Producto (ej: yerba 1 kg)" required enterkeyhint="next">
       <div class="pr-row">
         <label for="pr-price" class="sr-only">Precio</label>
-        <input type="text" id="pr-price" inputmode="decimal" placeholder="Precio $" required enterkeyhint="next">
+        <input type="text" id="pr-price" maxlength="15" inputmode="decimal" placeholder="Precio $" required enterkeyhint="next">
         <label for="pr-store" class="sr-only">Súper o negocio</label>
-        <input type="text" id="pr-store" list="pr-stores" placeholder="Súper (ej: Día)" enterkeyhint="done">
+        <input type="text" id="pr-store" maxlength="50" list="pr-stores" placeholder="Súper (ej: Día)" enterkeyhint="done">
       </div>
       <button class="btn" type="submit">💾 Guardar precio</button>
       <p class="pr-ok" id="pr-ok" hidden></p>
@@ -688,7 +783,7 @@ header.top h1{font-size:1.7rem; margin:0}
     </form>
     <div class="search-row pr-search" id="pr-search">
       <label for="pr-q" class="sr-only">Buscar en mis precios</label>
-      <input type="search" id="pr-q" placeholder="🔎 Buscar en mis precios">
+      <input type="search" id="pr-q" maxlength="80" placeholder="🔎 Buscar en mis precios">
     </div>
     <div id="pr-list"></div>
     <a class="btn ghost pr-claros" id="pr-claros" href="https://www.preciosclaros.gob.ar" target="_blank" rel="noopener">🔎 ¿Dónde está más barato? Ver en Precios Claros ↗</a>
@@ -710,7 +805,7 @@ header.top h1{font-size:1.7rem; margin:0}
     </div>
     <form class="search-row" id="scan-form">
       <label for="scan-code" class="sr-only">Número del código de barras</label>
-      <input type="text" id="scan-code" inputmode="numeric" pattern="[0-9]*" placeholder="O escribí el número: 7790…" autocomplete="off" enterkeyhint="search">
+      <input type="text" id="scan-code" maxlength="14" inputmode="numeric" pattern="[0-9]*" placeholder="O escribí el número: 7790…" autocomplete="off" enterkeyhint="search">
       <button class="btn" type="submit">Buscar</button>
     </form>
     <div id="scan-out" aria-live="polite"></div>
@@ -727,7 +822,7 @@ header.top h1{font-size:1.7rem; margin:0}
     <div class="vote-build" id="vote-build">
       <ul class="vote-opts" id="vote-opts"></ul>
       <label for="vote-q" class="sub">¿No está en la lista? Buscalo y agregalo</label>
-      <input type="search" id="vote-q" class="vote-q" placeholder="Buscá un plato, postre o trago…" autocomplete="off" enterkeyhint="search">
+      <input type="search" id="vote-q" maxlength="80" class="vote-q" placeholder="Buscá un plato, postre o trago…" autocomplete="off" enterkeyhint="search">
       <ul class="vote-opts" id="vote-found"></ul>
       <div class="vote-go" id="vote-go"></div>
     </div>
@@ -740,13 +835,13 @@ header.top h1{font-size:1.7rem; margin:0}
       <h2 id="t-afuera">🍽️ ¿Qué querés comer afuera?</h2>
       <div class="field">
         <label for="food-input" class="sr-only">Qué querés comer</label>
-        <input type="search" id="food-input" placeholder="Ej: lomitos, sushi, helado…" autocomplete="off" enterkeyhint="search">
+        <input type="search" id="food-input" maxlength="80" placeholder="Ej: lomitos, sushi, helado…" autocomplete="off" enterkeyhint="search">
       </div>
       <p class="sub" style="margin:4px 0 0">O elegí un tipo de comida</p>
       <div class="chips" id="food-seg" role="group" aria-label="Tipo de comida"></div>
       <div class="field">
         <label for="city-input" class="note">¿Dónde? (opcional: si lo dejás vacío, busca cerca tuyo)</label>
-        <input type="text" id="city-input" placeholder="Ej: Villa Carlos Paz, Córdoba" autocomplete="off">
+        <input type="text" id="city-input" maxlength="80" placeholder="Ej: Villa Carlos Paz, Córdoba" autocomplete="off">
       </div>
       <a class="btn big off" id="maps-go" href="#" target="_blank" rel="noopener">⭐ Ver los mejores lugares ↗</a>
       <a class="btn ghost off" id="maps-near" href="#" target="_blank" rel="noopener">📍 Buscar cerca de donde estoy ↗</a>
@@ -3510,6 +3605,20 @@ header.top h1{font-size:1.7rem; margin:0}
       else vModal('<div class="vtrophy">🤝</div><h3>¡Empate!</h3><p class="note">' + esc(top.join(', ')) + ' tienen ' + mx + (mx === 1 ? ' voto' : ' votos') + ' cada uno.</p><div class="vbtns"><button type="button" class="btn big" data-vspin="' + esc(top.join('|')) + '" data-vmode="tie">🎡 Desempatar con la ruleta</button><button type="button" class="btn ghost" data-vclose="1">Seguir votando</button></div>', 'win');
       return;
     }
+    if (e.target.closest('[data-ruta]')){
+      var mq = function(q){ return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q); };
+      var opts = [
+        ['🍖', 'Paradores y parrillas', 'Comida casera de ruta', 'parador parrilla cerca de mí'],
+        ['🍔', 'Algo rápido', 'Sándwiches, empanadas y más', 'comida rápida cerca de mí'],
+        ['☕', 'Café y baño', 'Para estirar las piernas', 'cafetería cerca de mí'],
+        ['⭐', 'Lo mejor puntuado', 'Restaurantes con buenas reseñas', 'mejores restaurantes cerca de mí'],
+        ['🕐', 'Abierto ahora', 'Para cuando se hace tarde', 'restaurantes abiertos ahora cerca de mí']
+      ];
+      vModal('<h3 class="ruta-t">🚗 Comer en la ruta</h3><p class="note">Elegí qué tenés ganas y te mostramos lo que hay cerca en Google Maps.</p><div class="ruta-list">' +
+        opts.map(function(o){ return '<a class="ruta-op" href="' + mq(o[3]) + '" target="_blank" rel="noopener"><span class="ri">' + o[0] + '</span><span class="rt"><b>' + o[1] + '</b><small>' + o[2] + '</small></span><span class="ra">↗</span></a>'; }).join('') +
+        '</div><p class="note small ruta-tip">💡 Si vas navegando con Google Maps, tocá la lupa en la pantalla del viaje y elegí "Restaurantes": te muestra los que están sobre tu camino y cuánto te desvían.</p><div class="vbtns"><button type="button" class="btn quiet" data-vclose="1">Cerrar</button></div>', 'ruta-m');
+      return;
+    }
     var gu = e.target.closest('[data-guarn]');
     if (gu){
       var gr = recipeByName(gu.getAttribute('data-guarn'));
@@ -3564,7 +3673,7 @@ header.top h1{font-size:1.7rem; margin:0}
     if (/tacos|burrito|quesadilla|fajita|nachos|enchilada/i.test(r.n)) return '🌮';
     if (/curry|chaufa|teriyaki|agridulce|chop suey|wok|almendras/i.test(r.n)) return '🥡';
     if (r.drink) return /fernet|coca/i.test(r.n) ? '🥃' : /submarino|tereré/i.test(r.n) ? '☕' : /licuado|limonada/i.test(r.n) ? '🥤' : /clericó|sangría|spritz|vermut/i.test(r.n) ? '🍷' : '🍹';
-    for (var k = 0; k < ICONS.length; k++) if (ICONS[k][0].test(r.n)) return ICONS[k][1];
+    for (var k = 0; k < ICONS.length; k++) if (ICONS[k][0].test(r.n)) return ICONS[k][1] === '🥩' && r.v ? '🥦' : ICONS[k][1];
     return r.d ? '🍮' : '🍽️';
   }
   /* Recetas por cortes (asado): muestra los pasos de los cortes que marcaste */
@@ -3661,7 +3770,7 @@ header.top h1{font-size:1.7rem; margin:0}
     useHave = tab === 'tengo';
     TABS.forEach(function(t){ document.getElementById('tab-' + t).hidden = t !== tab; });
     updateListArea();
-    document.getElementById('filters-open').hidden = tab !== 'inicio';
+    document.getElementById('filters-open').hidden = tab !== 'inicio' && tab !== 'semana';
     Array.prototype.forEach.call(document.querySelectorAll('.tabbar button'), function(b){
       var curT = 'inicio';
       if (b.getAttribute('data-tab') === curT) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
@@ -3709,6 +3818,7 @@ header.top h1{font-size:1.7rem; margin:0}
       if (lib) return ok(lib);
       var sc = document.createElement('script');
       sc.src = 'https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js';
+      sc.crossOrigin = 'anonymous'; sc.referrerPolicy = 'no-referrer';
       sc.onload = function(){ var l = window.Html5Qrcode || (window.__Html5QrcodeLibrary__ && window.__Html5QrcodeLibrary__.Html5Qrcode); l ? ok(l) : fail(); };
       sc.onerror = fail;
       document.head.appendChild(sc);
@@ -4088,7 +4198,7 @@ header.top h1{font-size:1.7rem; margin:0}
       elRes.innerHTML = (!all.length ? '' : '<div class="group-head"><p class="note">' + (kw.length ? (all.length === 1 ? 'Encontramos <strong>1</strong> receta.' : 'Encontramos <strong>' + all.length + '</strong> ' + kindLbl + '.') : (all.length === 1 ? 'Hay <strong>1</strong> sola receta para esto.' : 'Hay <strong>' + all.length + '</strong> ' + kindLbl + ', empezando por las más populares.')) + '</p></div>') +
         (all.length ? '<div class="group">' + all.slice(0, shown).map(function(m, i){ return card(m, i); }).join('') +
           (restA > 0 ? '<button type="button" class="btn big more-btn">Ver ' + Math.min(3, restA) + ' recetas más <span>(quedan ' + restA + ')</span></button>' : '') + '</div>'
-        : '<div class="empty">' + (kw.length ? 'No encontramos "' + esc(kindQ) + '". Probá con otra palabra.' : 'No encontramos recetas con esos filtros.') + '</div>');
+        : '<div class="empty">' + (kw.length ? 'No encontramos "' + esc(kindQ) + '". Probá con otra palabra.' : 'No encontramos recetas con esos filtros.') + '</div>' + (kw.length ? pedilaBtn(kindQ) : ''));
       resCount = all.length; checkRes();
       return;
     }
@@ -4146,9 +4256,22 @@ header.top h1{font-size:1.7rem; margin:0}
 
   /* ===== Menú de la semana ===== */
   var DAYS = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'], MEALS = [['a','Almuerzo'],['c','Cena']];
-  var menu = {slots:{}, got:{}}, menuOpen = true, picking = null, pickQ = '';
-  try { var m0 = JSON.parse(localStorage.getItem('que-comemos-menu') || 'null'); if (m0 && m0.slots) menu = {slots:m0.slots, got:m0.got || {}}; } catch (e) {}
-  function saveMenu(){ try { localStorage.setItem('que-comemos-menu', JSON.stringify(menu)); } catch (e) {} }
+  var menu = {slots:{}, got:{}}, menuOpen = true, picking = null, pickQ = '', weekOff = 0, menuWeeks = {};
+  function weekStart(off){ var t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate() - ((t.getDay() + 6) % 7) + 7 * (off || 0)); }
+  function weekKey(off){ var d = weekStart(off); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  try {
+    var m0 = JSON.parse(localStorage.getItem('que-comemos-menu') || 'null');
+    if (m0 && m0.weeks) menuWeeks = m0.weeks;
+    else if (m0 && m0.slots) menuWeeks[weekKey(0)] = {slots:m0.slots, got:m0.got || {}};
+  } catch (e) {}
+  (function(){ var old = weekKey(-4); Object.keys(menuWeeks).forEach(function(k){ if (k < old) delete menuWeeks[k]; }); })();
+  function loadWeek(){ var k = weekKey(weekOff); if (!menuWeeks[k]) menuWeeks[k] = {slots:{}, got:{}}; menu = menuWeeks[k]; if (!menu.got) menu.got = {}; if (!menu.lock) menu.lock = {}; }
+  loadWeek();
+  function saveMenu(){
+    menuWeeks[weekKey(weekOff)] = menu;
+    var out = {}; Object.keys(menuWeeks).forEach(function(k){ if (Object.keys(menuWeeks[k].slots || {}).length) out[k] = menuWeeks[k]; });
+    try { localStorage.setItem('que-comemos-menu', JSON.stringify({weeks:out})); } catch (e) {}
+  }
   function recipeByName(n){ for (var k = 0; k < R.length; k++) if (R[k].n === n) return R[k]; return null; }
   function menuRecipes(){
     var out = [];
@@ -4166,7 +4289,7 @@ header.top h1{font-size:1.7rem; margin:0}
     var items = {}, order = [];
     menuRecipes().forEach(function(r){
       r.i.forEach(function(ing){
-        var alts = ing.split('|'), key = alts.join(' o ');
+        var alts = ing.split('|'), key = alts[0];
         if (!items[key]){ items[key] = {n:key, k:alts[0], alts:alts, sums:{}, uname:null, recipes:[], noq:false}; order.push(key); }
         var it = items[key];
         if (it.recipes.indexOf(r.n) === -1) it.recipes.push(r.n);
@@ -4195,16 +4318,27 @@ header.top h1{font-size:1.7rem; margin:0}
   function renderMenu(){
 
     var count = Object.keys(menu.slots).length;
-    document.getElementById('menu-sub').textContent = count ? count + (count === 1 ? ' comida planificada' : ' comidas planificadas') + ' esta semana.' : 'Planificá almuerzos y cenas y sacá la lista de compras de toda la semana.';
+    var wlbl = weekOff === 0 ? 'esta semana' : weekOff === 1 ? 'la semana que viene' : weekOff === -1 ? 'la semana pasada' : 'esa semana';
+    document.getElementById('menu-sub').textContent = count ? count + (count === 1 ? ' comida planificada' : ' comidas planificadas') + ' para ' + wlbl + '.' : 'Planificá almuerzos y cenas de ' + wlbl + ' y sacá la lista de compras.';
+    var wd0 = weekDates();
+    document.getElementById('menu-wnav').innerHTML = '<button type="button" class="wn-b" data-wk="-1"' + (weekOff <= -1 ? ' disabled' : '') + ' aria-label="Semana anterior">◀</button>' +
+      '<div class="wn-t"><b>' + (weekOff === 0 ? 'Esta semana' : weekOff === 1 ? 'Semana que viene' : weekOff === -1 ? 'Semana pasada' : 'En ' + weekOff + ' semanas') + '</b><small>' + wd0[0] + ' al ' + wd0[6] + '</small></div>' +
+      '<button type="button" class="wn-b" data-wk="1"' + (weekOff >= 4 ? ' disabled' : '') + ' aria-label="Semana siguiente">▶</button>' +
+      (weekOff !== 0 ? '<button type="button" class="wn-today" data-wk="0">Volver a esta semana</button>' : '');
     if (!menuOpen) return;
-    document.getElementById('menu-serv').textContent = 'Cantidades para ' + serv + (serv === 1 ? ' persona' : ' personas') + ' por comida (lo cambiás en ⚙️ Filtros). Tocá un casillero para elegir el plato.';
+    document.getElementById('menu-serv').innerHTML = '👥 Para <b>' + serv + (serv === 1 ? ' persona' : ' personas') + '</b> por comida' + (diet !== 'general' ? ' · ' + esc(DIETS[diet].l) : '') + '. Lo cambiás en <b>⚙️ Filtros</b>, arriba. Tocá un casillero para elegir el plato.' + (count ? '<br>📌 Tocá el pinche de los platos que querés dejar fijos: si apretás de nuevo <b>Armalo por mí</b>, cambian solo los demás.' : '');
+    var wd = weekDates(), todayI = weekOff === 0 ? (new Date().getDay() + 6) % 7 : -1;
     document.getElementById('menu-week').innerHTML = DAYS.map(function(d, di){
-      return '<div class="day"><span class="dname">' + d + '</span>' + MEALS.map(function(m){
+      var isT = di === todayI;
+      return '<div class="day' + (isT ? ' today' : '') + '"><span class="dname">' + (isT ? 'Hoy' : d) + '<small>' + (isT ? d + ' ' : '') + wd[di] + '</small></span>' + MEALS.map(function(m){
         var key = di + '-' + m[0], n = menu.slots[key], r = n && recipeByName(n);
-        return '<button type="button" class="slot' + (r ? ' full' : '') + (picking === key ? ' active' : '') + '" data-slot="' + key + '"><small>' + m[1] + '</small>' +
-          (r ? dishIcon(r) + ' ' + esc(r.n) + '<span class="rm" data-rm="' + key + '" aria-label="Quitar">✕</span>' : '＋ Elegir') + '</button>';
+        var lk = r && menu.lock[key];
+        return '<button type="button" class="slot' + (r ? ' full' : '') + (lk ? ' locked' : '') + (picking === key ? ' active' : '') + '" data-slot="' + key + '"><small>' + m[1] + '</small>' +
+          (r ? dishIcon(r) + ' ' + esc(r.n) + '<span class="sl-acts"><span class="rm" data-rm="' + key + '" role="button" aria-label="Quitar">✕</span></span><span class="lk" data-lock="' + key + '" role="button" aria-label="' + (lk ? 'Destrabar' : 'Dejar fijo') + '">' + '<span class="pin">📌</span>' + (lk ? 'Fijo' : '') + '</span>' : '＋ Elegir') + '</button>';
       }).join('') + '</div>';
     }).join('');
+    var cb = document.getElementById('menu-clear-box');
+    cb.innerHTML = !Object.keys(menu.slots).length ? '' : (clearAsk ? '<p class="note">¿Vaciar todo el menú de ' + wlbl + '? Se borran también los platos fijos.</p><div class="actions"><button type="button" class="btn danger" data-mclear-ok="1">Sí, vaciar</button><button type="button" class="btn quiet" data-mclear-no="1">No</button></div>' : '<button type="button" class="btn quiet" data-mclear="1">🗑️ Vaciar todo</button>');
     renderPicker();
     var list = menuShopping();
     var el = document.getElementById('menu-list');
@@ -4217,7 +4351,7 @@ header.top h1{font-size:1.7rem; margin:0}
       (need.length ? '<ul>' + need.map(row).join('') + '</ul>' : '<p class="note">¡Tenés todo para la semana! 🎉</p>') +
       (got.length ? '<p class="sub">✓ Ya lo tenés (' + got.length + ')</p><ul>' + got.map(row).join('') + '</ul>' : '') +
       '<p class="note">Tocá un producto para marcar que ya lo tenés: sale de la lista de compras.</p>' +
-      '<div class="actions"><button type="button" class="btn" id="menu-to-shop">🛒 Pasar a mi lista de compras</button>' +
+      '<div class="actions"><button type="button" class="btn big" id="menu-to-shop">🛒 Pasar a la lista de compras</button>' +
       '<a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/?text=' + encodeURIComponent('🛒 Compras de la semana\n' + need.map(function(x){ return '• ' + x.n + ': ' + x.qty; }).join('\n')) + '">Enviar por WhatsApp ↗</a></div></div>';
   }
   function renderPicker(){
@@ -4230,16 +4364,36 @@ header.top h1{font-size:1.7rem; margin:0}
     list.sort(function(a, b){ return (a.p.indexOf('AR') === -1) - (b.p.indexOf('AR') === -1) || a.n.localeCompare(b.n, 'es'); });
     var keepFocus = document.activeElement && document.activeElement.id === 'pick-q';
     p.innerHTML = '<p class="sub">Elegí el plato para ' + title + '</p>' +
-      '<input type="search" id="pick-q" placeholder="Buscá un plato" value="' + esc(pickQ) + '" autocomplete="off">' +
+      '<input type="search" id="pick-q" maxlength="80" placeholder="Buscá un plato" value="' + esc(pickQ) + '" autocomplete="off">' +
       '<div class="pick-list">' + list.slice(0, 40).map(function(r){ return '<button type="button" data-pick="' + esc(r.n) + '">' + dishIcon(r) + ' ' + esc(r.n) + ' <small style="color:var(--muted)">· ' + (r.tt || r.t + ' min') + '</small></button>'; }).join('') +
       (list.length ? '' : '<p class="note">No encontramos ese plato.</p>') + '</div>' +
       '<button type="button" class="btn quiet" data-pick-cancel="1">Cancelar</button>';
     if (keepFocus){ var inp = document.getElementById('pick-q'); inp.focus(); try { inp.setSelectionRange(inp.value.length, inp.value.length); } catch (e) {} }
   }
+  var clearAsk = false;
+  function weekDates(){
+    var mon = weekStart(weekOff);
+    return DAYS.map(function(d, i){ var x = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + i); return x.getDate() + '/' + (x.getMonth() + 1); });
+  }
+  var MENU_SKIP = /focaccia|fugazza|arroz blanco|huevos fritos|huevos duros|zapallitos salteados|acelga o espinaca|coliflor rebozada|chauchas con huevo|champiñones al ajillo|champiñones rellenos|brócoli al horno|revuelto de zapallitos|omelette|chimichurri|salsa criolla|conserva|escabeche|chucrut|pan casero|provoleta|tostadas francesas|panqueque|hummus|bruschetta|chipá|tortas fritas|puré|batatas|papas|ensalada|gazpacho|tostado|masa casera|prepizza|caldo|grisines|pan de|choclo hervido|zanahorias glaseadas|repollitos|vegetales grillados|calabaza al horno|mandioca|huevos rellenos|picada|bastones|palitos|scones|sándwiches de miga|arrollado primavera|granola|pudding|tortitas|smoothie/i;
+  function menuPool(){ return R.filter(function(r){ return dietOk(r) && !r.d && !r.drink && !r.sal && (!maxTime || r.t <= maxTime) && r.t < 600 && !MENU_SKIP.test(r.n); }); }
+  function swapSlot(key){
+    var used = {}; Object.keys(menu.slots).forEach(function(k){ used[menu.slots[k]] = 1; });
+    var curR = recipeByName(menu.slots[key]), curIc = curR ? dishIcon(curR) : '';
+    var pool = menuPool().filter(function(r){ return !used[r.n]; });
+    var diff = pool.filter(function(r){ return dishIcon(r) !== curIc; });
+    var from = diff.length ? diff : pool;
+    from = from.filter(function(r){ return r.p.indexOf(home) !== -1; }).length > 5 && Math.random() < .75 ? from.filter(function(r){ return r.p.indexOf(home) !== -1; }) : from;
+    if (from.length) menu.slots[key] = from[Math.floor(Math.random() * from.length)].n;
+  }
   function autoMenu(){
+    var prev = {};
+    Object.keys(menu.slots).forEach(function(k){ if (!menu.lock[k]){ prev[menu.slots[k]] = 1; delete menu.slots[k]; } });
     var used = {}, iconCount = {};
     Object.keys(menu.slots).forEach(function(k){ used[menu.slots[k]] = 1; var rr = recipeByName(menu.slots[k]); if (rr){ var ic0 = dishIcon(rr); iconCount[ic0] = (iconCount[ic0] || 0) + 1; } });
-    var pool = R.filter(function(r){ return dietOk(r) && !r.d && !r.drink && !r.sal && (!maxTime || r.t <= maxTime) && r.t < 600 && !/chimichurri|salsa criolla|conserva|escabeche|chucrut|pan casero|provoleta|tostadas francesas|panqueque|hummus|bruschetta|chipá|tortas fritas|puré|batatas al horno|papas a la provenzal|papas al horno|ensalada mixta|gazpacho|tostado/i.test(r.n); });
+    var pool = menuPool();
+    var fresh = pool.filter(function(r){ return !prev[r.n]; });
+    if (fresh.length >= 20) pool = fresh;
     pool.sort(function(a, b){ return Math.random() - .5; });
     pool.sort(function(a, b){ return (a.p.indexOf('AR') === -1) - (b.p.indexOf('AR') === -1); });
     var last = '';
@@ -4253,17 +4407,29 @@ header.top h1{font-size:1.7rem; margin:0}
         if (m[0] === 'c' && r.t > 90 && Math.random() < .7) continue;
         menu.slots[key] = r.n; used[r.n] = 1; last = ic; iconCount[ic] = (iconCount[ic] || 0) + 1; pool.splice(k, 1); break;
       }
+      if (!menu.slots[key]){
+        var all = menuPool().filter(function(r){ return !used[r.n]; });
+        if (all.length){ var r2 = all[Math.floor(Math.random() * all.length)]; menu.slots[key] = r2.n; used[r2.n] = 1; last = dishIcon(r2); }
+      }
     }); });
   }
   document.getElementById('menu-auto').addEventListener('click', function(){ autoMenu(); picking = null; saveMenu(); renderMenu(); celebrate(); });
-  document.getElementById('menu-clear').addEventListener('click', function(){ menu = {slots:{}, got:{}}; picking = null; saveMenu(); renderMenu(); });
   document.getElementById('menu-panel').addEventListener('click', function(e){
+    var wk = e.target.closest('[data-wk]');
+    if (wk){ var v = +wk.getAttribute('data-wk'); weekOff = v === 0 ? 0 : Math.max(-1, Math.min(4, weekOff + v)); loadWeek(); picking = null; clearAsk = false; renderMenu(); return; }
+    if (e.target.closest('[data-mclear]')){ clearAsk = true; renderMenu(); return; }
+    if (e.target.closest('[data-mclear-no]')){ clearAsk = false; renderMenu(); return; }
+    if (e.target.closest('[data-mclear-ok]')){ clearAsk = false; menu = {slots:{}, got:{}, lock:{}}; menuWeeks[weekKey(weekOff)] = menu; picking = null; saveMenu(); renderMenu(); try { window.scrollTo({top:0, behavior:'smooth'}); } catch (er) {} return; }
+    var lkb = e.target.closest('[data-lock]');
+    if (lkb){ var lkk = lkb.getAttribute('data-lock'); if (menu.lock[lkk]) delete menu.lock[lkk]; else menu.lock[lkk] = 1; saveMenu(); renderMenu(); return; }
+    var sw = e.target.closest('[data-swap]');
+    if (sw){ swapSlot(sw.getAttribute('data-swap')); picking = null; saveMenu(); renderMenu(); return; }
     var rm = e.target.closest('[data-rm]');
-    if (rm){ delete menu.slots[rm.getAttribute('data-rm')]; saveMenu(); renderMenu(); return; }
+    if (rm){ delete menu.slots[rm.getAttribute('data-rm')]; delete menu.lock[rm.getAttribute('data-rm')]; saveMenu(); renderMenu(); return; }
     var sl = e.target.closest('[data-slot]');
     if (sl){ var k = sl.getAttribute('data-slot'); picking = picking === k ? null : k; pickQ = ''; renderMenu(); if (picking) try { document.getElementById('menu-picker').scrollIntoView({behavior:'smooth', block:'nearest'}); } catch (er) {} return; }
     var pk = e.target.closest('[data-pick]');
-    if (pk && picking){ menu.slots[picking] = pk.getAttribute('data-pick'); picking = null; saveMenu(); renderMenu(); return; }
+    if (pk && picking){ menu.slots[picking] = pk.getAttribute('data-pick'); menu.lock[picking] = 1; picking = null; saveMenu(); renderMenu(); return; }
     if (e.target.closest('[data-pick-cancel]')){ picking = null; renderMenu(); return; }
     var g = e.target.closest('[data-got]');
     if (g){
@@ -4274,6 +4440,14 @@ header.top h1{font-size:1.7rem; margin:0}
     }
     if (e.target.closest('#menu-to-shop')){
       var need = menuShopping().filter(function(x){ return !x.have; });
+      var wds = weekDates(), lname = 'Menú semana ' + wds[0] + ' al ' + wds[6];
+      saveShop();
+      var li = -1; lists.forEach(function(l, i){ if (l.name === lname) li = i; });
+      if (li === -1){
+        if (lists.length === 1 && lists[0].name === 'Mi lista' && !lists[0].items.length){ lists[0].name = lname; li = 0; }
+        else { lists.push({name:lname, items:[]}); li = lists.length - 1; }
+      }
+      curList = li; shop = lists[li].items;
       need.forEach(function(x){
         var it = shop.filter(function(y){ return y.n === x.n; })[0];
         if (!it){ it = {n:x.n, k:x.k, f:[], b:false}; shop.push(it); }
@@ -4283,8 +4457,11 @@ header.top h1{font-size:1.7rem; margin:0}
         it.b = false;
       });
       saveShop(); renderShop();
-      e.target.closest('#menu-to-shop').textContent = '✓ ' + need.length + ' productos en tu lista de compras';
+      var bt = e.target.closest('#menu-to-shop');
+      bt.outerHTML = '<p class="pr-ok">✓ Creamos la lista "' + esc(lname) + '" con ' + need.length + ' productos.</p><button type="button" class="btn" data-go-shop="1">📝 Ver la lista</button>';
+      return;
     }
+    if (e.target.closest('[data-go-shop]')){ goTab('compras'); return; }
   });
   document.getElementById('menu-panel').addEventListener('input', function(e){
     if (e.target.id === 'pick-q'){ pickQ = e.target.value; renderPicker(); }
@@ -4304,7 +4481,7 @@ header.top h1{font-size:1.7rem; margin:0}
   }
   shop = lists[curList].items;
   function saveShop(){
-    lists[curList].items = shop;
+    lists[curList].items = shop; lists[curList].t = Date.now();
     try { localStorage.setItem('que-comemos-listas', JSON.stringify({lists:lists, cur:curList})); } catch (e) {}
   }
   function qtyLine(x){
@@ -4318,22 +4495,56 @@ header.top h1{font-size:1.7rem; margin:0}
       return '• ' + x.n + (q ? ': ' + q : '') + (x.note ? ' (' + x.note + ')' : '');
     }).join('\n');
   }
+  var listQ = '';
+  function listDate(t){ if (!t) return ''; var d = new Date(t), h = new Date(); if (d.toDateString() === h.toDateString()) return 'hoy'; return d.getDate() + '/' + (d.getMonth() + 1); }
+  /* "Mi lista" es la que se crea sola: si quedó vacía y hay otras, no la mostramos más */
+  function cleanDefault(){
+    if (lists.length < 2) return;
+    for (var i = lists.length - 1; i >= 0; i--){
+      if (i !== curList && lists[i].name === 'Mi lista' && !lists[i].items.length){
+        lists.splice(i, 1); if (i < curList) curList--;
+      }
+    }
+    shop = lists[curList].items;
+    try { localStorage.setItem('que-comemos-listas', JSON.stringify({lists:lists, cur:curList})); } catch (e) {}
+  }
   function renderLists(){
-    document.getElementById('lists-bar').innerHTML = lists.map(function(l, i){
-      var p = l.items.filter(function(x){ return !x.b; }).length;
-      return '<button type="button" data-list="' + i + '" aria-pressed="' + (i === curList) + '">' + esc(l.name) + (p ? ' <span class="cnt">(' + p + ')</span>' : '') + '</button>';
-    }).join('') + '<button type="button" class="new" data-newlist="1">＋ Nueva lista</button>';
+    cleanDefault();
+    var cur = lists[curList];
+    document.getElementById('lists-bar').innerHTML =
+      '<div class="ls-btns"><button type="button" class="ls-btn" data-lsaved="1" aria-pressed="' + (listMode === 'saved') + '">📂 Listas guardadas <span class="cnt">' + lists.length + '</span></button>' +
+      '<button type="button" class="ls-btn new" data-newlist="1" aria-pressed="' + (listMode === 'new') + '">＋ Nueva lista</button></div>' +
+      (listMode === 'saved' || listMode === 'new' ? '' : '<div class="ls-cur"><span class="ls-lbl">Lista abierta</span><b>🛒 ' + esc(cur.name) + '</b><button type="button" class="ls-ren" data-listrename="1" aria-label="Cambiar el título">✏️</button></div>');
     var t = document.getElementById('list-tools');
+    t.className = 'list-tools' + (listMode === 'saved' ? ' saved' : '');
     if (listMode === 'new' || listMode === 'rename'){
-      t.innerHTML = '<input type="text" id="list-name" maxlength="40" placeholder="Nombre de la lista (ej: Súper del mes)" value="' + (listMode === 'rename' ? esc(lists[curList].name) : '') + '">' +
-        '<button type="button" class="btn" data-listsave="1">Guardar</button><button type="button" class="btn quiet" data-listcancel="1">Cancelar</button>';
+      t.innerHTML = '<p class="ls-q">' + (listMode === 'new' ? '¿Cómo se llama la nueva lista?' : 'Nuevo título para la lista') + '</p><input type="text" id="list-name" maxlength="40" placeholder="Ej: Compras para casa, Para mamá, Asado con los compañeros" value="' + (listMode === 'rename' ? esc(cur.name) : '') + '">' +
+        '<button type="button" class="btn" data-listsave="1">' + (listMode === 'new' ? 'Crear lista' : 'Guardar') + '</button><button type="button" class="btn quiet" data-listcancel="1">Cancelar</button>';
       try { var inp = document.getElementById('list-name'); inp.focus(); inp.select(); } catch (e) {}
     } else if (listMode === 'delete'){
-      t.innerHTML = '<span class="note">¿Borrar la lista "' + esc(lists[curList].name) + '"?</span><button type="button" class="btn danger" data-listdelok="1">Sí, borrar</button><button type="button" class="btn quiet" data-listcancel="1">No</button>';
+      t.innerHTML = '<span class="note">¿Borrar la lista "' + esc(lists[delList].name) + '"? No se puede deshacer.</span><button type="button" class="btn danger" data-listdelok="1">Sí, borrar</button><button type="button" class="btn quiet" data-listcancel="1">No</button>';
+    } else if (listMode === 'saved'){
+      var q = norm(listQ);
+      var idx = lists.map(function(l, i){ return i; }).filter(function(i){ return !q || norm(lists[i].name).indexOf(q) !== -1; })
+        .sort(function(a, b){ return (lists[b].t || 0) - (lists[a].t || 0); });
+      t.innerHTML = (lists.length > 4 ? '<input type="search" id="list-q" maxlength="80" placeholder="🔎 Buscar por título" value="' + esc(listQ) + '">' : '') +
+        '<ul class="ls-list">' + (idx.length ? idx.map(function(i){
+          var l = lists[i], p = l.items.filter(function(x){ return !x.b; }).length, n = l.items.length;
+          return '<li class="' + (i === curList ? 'on' : '') + '"><span class="ls-ico" aria-hidden="true">🛒</span><button type="button" class="ls-open" data-list="' + i + '"><b>' + esc(l.name) + (p ? ' <span class="ls-pend">' + p + '</span>' : (n ? ' <span class="ls-pend ok">✓</span>' : '')) + '</b><small>' +
+            (n ? (p ? p + ' por comprar' : '✓ todo comprado') + ' · ' + n + (n === 1 ? ' producto' : ' productos') : 'Vacía') + (l.t ? ' · ' + listDate(l.t) : '') + (i === curList ? ' · abierta' : '') + '</small></button>' +
+            (lists.length > 1 ? '<button type="button" class="x" data-listdel="' + i + '" aria-label="Borrar ' + esc(l.name) + '">🗑️</button>' : '') + '</li>';
+        }).join('') : '<li class="ls-none">No hay listas con ese título.</li>') + '</ul>' +
+        '<button type="button" class="btn quiet" data-listcancel="1">Cerrar</button>';
     } else {
-      t.innerHTML = '<button type="button" class="btn quiet" data-listrename="1">✏️ Cambiar nombre</button>' + (lists.length > 1 ? '<button type="button" class="btn quiet" data-listdel="1">🗑️ Borrar lista</button>' : '');
+      t.innerHTML = '';
     }
+    t.hidden = !t.innerHTML;
+    var hide = listMode === 'saved' || listMode === 'new';
+    ['shop-hero','shop-list','shop-actions','shop-empty'].forEach(function(id){ var el = document.getElementById(id); if (el && hide) el.hidden = true; });
+    document.getElementById('shop-add-form').hidden = hide || listMode === 'rename' || listMode === 'delete';
+    try { document.getElementById('shop-note').hidden = hide; } catch (e) {}
   }
+  var delList = 0;
   /* Íconos de productos para la lista */
   var SHOP_ICO = {papa:'🥔',batata:'🍠',tomate:'🍅','tomate perita':'🍅','tomate cherry':'🍅',cebolla:'🧅','cebolla morada':'🧅',ajo:'🧄',zanahoria:'🥕',lechuga:'🥬',acelga:'🥬',espinaca:'🥬',brócoli:'🥦',choclo:'🌽',morrón:'🫑',berenjena:'🍆',pepino:'🥒',zapallito:'🥒',zucchini:'🥒',hongos:'🍄',champiñones:'🍄',palta:'🥑',limón:'🍋',lima:'🍋',naranja:'🍊',mandarina:'🍊',banana:'🍌',manzana:'🍎','manzana verde':'🍏',pera:'🍐',frutilla:'🍓',durazno:'🍑',cereza:'🍒',uva:'🍇',ananá:'🍍',kiwi:'🥝',coco:'🥥',mango:'🥭',sandía:'🍉',melón:'🍈',
     carne:'🥩','carne picada':'🥩',bife:'🥩',falda:'🥩',pollo:'🍗',cerdo:'🥓',panceta:'🥓',jamón:'🍖',salchichas:'🌭',chorizo:'🌭',pescado:'🐟',merluza:'🐟',atún:'🐟',salmón:'🐟',langostinos:'🦐',
@@ -4351,11 +4562,14 @@ header.top h1{font-size:1.7rem; margin:0}
   function renderShop(){
     var box = document.getElementById('shop');
     box.hidden = false;
+    document.getElementById('shop-list').hidden = false;
     var left = shop.filter(function(x){ return !x.b; }).length;
     var badge = document.getElementById('shop-badge');
     badge.hidden = !left; badge.textContent = left;
-    var hb = document.getElementById('home-shop-n'); hb.hidden = !left; hb.textContent = left;
-    document.getElementById('home-shop-sub').textContent = left ? (left === 1 ? 'Te falta 1 producto' : 'Te faltan ' + left + ' productos') : 'Tus listas guardadas';
+    /* En Inicio, el número es la cantidad de listas guardadas */
+    var nl = lists.filter(function(l){ return l.items.length || l.name !== 'Mi lista'; }).length;
+    var hb = document.getElementById('home-shop-n'); hb.hidden = !nl; hb.textContent = nl;
+    document.getElementById('home-shop-sub').hidden = true;
     document.getElementById('shop-empty').hidden = shop.length > 0;
     document.getElementById('shop-actions').hidden = !shop.length;
     document.getElementById('shop-clear').hidden = !shop.length;
@@ -4364,7 +4578,7 @@ header.top h1{font-size:1.7rem; margin:0}
     hero.hidden = !tot;
     if (tot){
       var pct = Math.round(got / tot * 100), msg, emo, sub;
-      if (!left){ emo = '🎉'; msg = '¡Lista completa!'; sub = 'Compraste todo. Pasalo a "Lo que tengo" y a cocinar.'; }
+      if (!left){ emo = '🎉'; msg = '¡Lista completa!'; sub = 'Compraste todo. Tocá "✅ Terminé la compra" abajo para vaciar el changuito.'; }
       else if (!got){ emo = '🛒'; msg = left + (left === 1 ? ' producto para comprar' : ' productos para comprar'); sub = 'Tocá cada uno cuando lo pongas en el changuito.'; }
       else if (pct >= 50){ emo = '💪'; msg = '¡Ya casi! Te ' + (left === 1 ? 'falta 1' : 'faltan ' + left); sub = got + ' de ' + tot + ' en el changuito'; }
       else { emo = '🚀'; msg = '¡Vas bien! Te faltan ' + left; sub = got + ' de ' + tot + ' en el changuito'; }
@@ -4372,11 +4586,20 @@ header.top h1{font-size:1.7rem; margin:0}
       hero.innerHTML = '<div class="top"><span class="emo">' + emo + '</span><div><div class="msg">' + msg + '</div><div class="sub">' + sub + '</div></div></div><div class="bar"><i style="width:' + pct + '%"></i></div>';
     }
     renderLists();
+    /* Carrito: todo lo que ya está en el changuito, sumando todas las listas */
+    document.getElementById('shop-have').hidden = !got;
+    var inCart = 0, withCart = 0;
+    lists.forEach(function(l, i){ var it = i === curList ? shop : l.items; var c = it.filter(function(x){ return x.b; }).length; inCart += c; if (c) withCart++; });
+    var ct = document.getElementById('cart-tot');
+    ct.hidden = !inCart;
+    document.getElementById('cart-n').textContent = inCart;
+    document.getElementById('cart-sub').textContent = withCart > 1 ? 'de ' + withCart + ' listas' : 'en el changuito';
     var order = shop.map(function(x, k){ return k; }).filter(function(k){ return !shop[k].b; }).concat(shop.map(function(x, k){ return k; }).filter(function(k){ return shop[k].b; }));
-    var firstBought = true;
+    var firstBought = true, firstPend = true;
     document.getElementById('shop-list').innerHTML = order.map(function(k){
       var x = shop[k], head = '';
-      if (x.b && firstBought){ firstBought = false; head = '<li class="shop-sec">🛒 Ya en el changuito (' + got + ')</li>'; }
+      if (!x.b && firstPend){ firstPend = false; head = '<li class="shop-sec pend">📝 Para comprar (' + left + ')</li>'; }
+      if (x.b && firstBought){ firstBought = false; head = '<li class="shop-sec done">✅ Ya en el changuito (' + got + ')</li>'; }
       return head + rowHtml(x, k);
     }).join('');
     document.getElementById('shop-wa').href = 'https://wa.me/?text=' + encodeURIComponent(listText());
@@ -4385,8 +4608,8 @@ header.top h1{font-size:1.7rem; margin:0}
     {
       if (k === editing){
         return '<li class="editing"><div class="editbox"><b>' + esc(x.n) + '</b>' +
-          '<input type="text" id="ed-q" placeholder="Cantidad (ej: 2 kg, 3 paquetes)" value="' + esc(qtyLine(x)) + '">' +
-          '<input type="text" id="ed-n" placeholder="Nota (ej: la marca de siempre)" value="' + esc(x.note || '') + '">' +
+          '<input type="text" id="ed-q" maxlength="60" placeholder="Cantidad (ej: 2 kg, 3 paquetes)" value="' + esc(qtyLine(x)) + '">' +
+          '<input type="text" id="ed-n" maxlength="120" placeholder="Nota (ej: la marca de siempre)" value="' + esc(x.note || '') + '">' +
           '<div class="row"><button type="button" class="btn" data-edsave="' + k + '">Guardar</button><button type="button" class="btn quiet" data-edcancel="1">Cancelar</button></div></div></li>';
       }
       var detail;
@@ -4522,6 +4745,7 @@ header.top h1{font-size:1.7rem; margin:0}
     b.textContent = '✓ Agregado' + (n === 1 ? ' 1 producto' : ' ' + n + ' productos') + ' a la lista';
   });
   document.getElementById('shop-list').addEventListener('click', function(e){
+    if (e.target.closest('.item')) setTimeout(function(){ var c = document.getElementById('cart-tot'); c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }, 0);
     var ed = e.target.closest('[data-ed]');
     if (ed){ editing = parseInt(ed.getAttribute('data-ed'), 10); renderShop(); try { document.getElementById('ed-q').focus(); } catch (er) {} return; }
     var es = e.target.closest('[data-edsave]');
@@ -4545,25 +4769,37 @@ header.top h1{font-size:1.7rem; margin:0}
   });
   document.getElementById('shop-clear').addEventListener('click', function(){ shop = []; editing = -1; saveShop(); renderShop(); });
   document.getElementById('lists-bar').addEventListener('click', function(e){
-    var b = e.target.closest('[data-list]');
-    if (b){ saveShop(); curList = parseInt(b.getAttribute('data-list'), 10); shop = lists[curList].items; editing = -1; listMode = ''; saveShop(); renderShop(); return; }
-    if (e.target.closest('[data-newlist]')){ listMode = 'new'; renderLists(); }
+    if (e.target.closest('[data-lsaved]')){ listMode = listMode === 'saved' ? '' : 'saved'; listQ = ''; renderShop(); return; }
+    if (e.target.closest('[data-newlist]')){ listMode = listMode === 'new' ? '' : 'new'; renderShop(); return; }
+    if (e.target.closest('[data-listrename]')){ listMode = 'rename'; renderLists(); }
+  });
+  document.getElementById('list-tools').addEventListener('input', function(e){
+    if (e.target.id === 'list-q'){ listQ = e.target.value; renderLists(); var i = document.getElementById('list-q'); if (i){ i.focus(); i.setSelectionRange(i.value.length, i.value.length); } }
   });
   document.getElementById('list-tools').addEventListener('click', function(e){
+    var ob = e.target.closest('[data-list]');
+    if (ob){ saveShop(); curList = parseInt(ob.getAttribute('data-list'), 10); shop = lists[curList].items; editing = -1; listMode = ''; try { localStorage.setItem('que-comemos-listas', JSON.stringify({lists:lists, cur:curList})); } catch (er) {} renderShop(); return; }
     if (e.target.closest('[data-listrename]')){ listMode = 'rename'; renderLists(); return; }
-    if (e.target.closest('[data-listdel]')){ listMode = 'delete'; renderLists(); return; }
-    if (e.target.closest('[data-listcancel]')){ listMode = ''; renderLists(); return; }
+    var db = e.target.closest('[data-listdel]');
+    if (db){ delList = parseInt(db.getAttribute('data-listdel'), 10); listMode = 'delete'; renderLists(); return; }
+    if (e.target.closest('[data-listcancel]')){ listMode = ''; renderShop(); return; }
     if (e.target.closest('[data-listdelok]')){
-      lists.splice(curList, 1); curList = 0; shop = lists[0].items; listMode = '';
+      saveShop();
+      lists.splice(delList, 1);
+      if (delList === curList) curList = 0; else if (delList < curList) curList--;
+      shop = lists[curList].items; listMode = 'saved';
       try { localStorage.setItem('que-comemos-listas', JSON.stringify({lists:lists, cur:curList})); } catch (er) {}
       renderShop(); return;
     }
     if (e.target.closest('[data-listsave]')){
       var nm = (document.getElementById('list-name').value || '').trim();
       if (!nm) return;
-      if (listMode === 'new'){ saveShop(); lists.push({name:nm, items:[]}); curList = lists.length - 1; shop = lists[curList].items; }
+      var wasNew = listMode === 'new';
+      if (wasNew && lists[curList].name === 'Mi lista' && !shop.length){ lists[curList].name = nm; }
+      else if (wasNew){ saveShop(); lists.push({name:nm, items:[]}); curList = lists.length - 1; shop = lists[curList].items; }
       else lists[curList].name = nm;
       listMode = ''; saveShop(); renderShop();
+      if (wasNew) try { document.getElementById('shop-add-input').focus(); } catch (er) {}
     }
   });
   document.getElementById('list-tools').addEventListener('keydown', function(e){
@@ -4580,22 +4816,22 @@ header.top h1{font-size:1.7rem; margin:0}
   function fallbackCopy(t){
     try { var ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); } catch (e) {}
   }
+  /* Terminé la compra: saca del changuito solo lo de ESTA lista */
   document.getElementById('shop-have').addEventListener('click', function(){
     var got = shop.filter(function(x){ return x.b; });
-    if (!got.length){ this.textContent = 'Primero tachá lo que compraste'; var t = this; setTimeout(function(){ t.textContent = '✓ Pasar lo comprado a "Lo que tengo"'; }, 2000); return; }
-    got.forEach(function(x){
-      var k = x.k || x.n.toLowerCase();
-      if (KNOWN[k] || custom.indexOf(k) !== -1) selected.add(k);
-    });
+    if (!got.length) return;
+    /* No pasa nada a "Lo que tengo": eso lo marca cada uno con lo que realmente hay en casa */
     shop = shop.filter(function(x){ return !x.b; });
-    save(); saveShop(); renderShop(); renderAll();
+    saveShop(); renderShop();
+    var m = document.getElementById('shop-done-msg'), rest = shop.length;
+    m.hidden = false;
+    m.textContent = '✅ ¡Compra de "' + lists[curList].name + '" terminada! Sacamos ' + got.length + (got.length === 1 ? ' producto' : ' productos') + ' del changuito. ' +
+      (rest ? (rest === 1 ? 'Te queda 1 por comprar.' : 'Te quedan ' + rest + ' por comprar.') : 'La lista quedó vacía.');
+    document.getElementById('shop-actions').hidden = false;
+    try { m.scrollIntoView({behavior:'smooth', block:'center'}); } catch (er) {}
+    setTimeout(function(){ m.hidden = true; renderShop(); }, 7000);
   });
   var shopAddForm = document.getElementById('shop-add-form'), shopAddInput = document.getElementById('shop-add-input');
-  document.getElementById('shop-add-toggle').addEventListener('click', function(){
-    shopAddForm.hidden = !shopAddForm.hidden;
-    this.setAttribute('aria-expanded', shopAddForm.hidden ? 'false' : 'true');
-    if (!shopAddForm.hidden) shopAddInput.focus();
-  });
   shopAddForm.addEventListener('submit', function(e){
     e.preventDefault();
     var v = shopAddInput.value.trim();
@@ -4612,6 +4848,13 @@ header.top h1{font-size:1.7rem; margin:0}
   var elSearch = document.getElementById('search-out');
   var searchInput = document.getElementById('search-input');
   var searchQ = '';
+  /* Pedir una receta que falta: abre WhatsApp con el mensaje armado */
+  var PEDIDOS_WA = ['549', '351', '337', '4089'].join('');
+  function pedilaBtn(q){
+    q = String(q || '').trim();
+    var msg = 'Hola! Busqué "' + q + '" en Qué comemos y no la encontré. ¿La pueden sumar?';
+    return '<a class="btn pedila" href="https://wa.me/' + PEDIDOS_WA + '?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">📩 Pedila: avisanos que falta</a><p class="note small pedila-n">Se abre WhatsApp con el mensaje listo. Solo tocá enviar.</p>';
+  }
   function norm(x){ return String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim(); }
   function renderSearch(){
     var q = norm(searchQ);
@@ -4628,7 +4871,7 @@ header.top h1{font-size:1.7rem; margin:0}
     if (!found.length && all.length){ found = all; other = '<p class="note">' + (diet === 'general' ? 'Esta receta es una versión especial vegetariana o vegana.' : 'No hay una versión ' + esc(DIETS[diet].l.replace(/^\S+\s/, '')) + ' de este plato. Te mostramos la que tenemos.') + '</p>'; }
     var links = '<div class="actions"><a class="btn ghost" href="' + yt('receta ' + searchQ) + '" target="_blank" rel="noopener">Ver videos de "' + esc(searchQ) + '" ↗</a></div>';
     if (!found.length){
-      elSearch.innerHTML = '<div class="empty">Todavía no tenemos la receta de "' + esc(searchQ) + '". Probá con otro nombre o mirá videos.</div>' + links;
+      elSearch.innerHTML = '<div class="empty">Todavía no tenemos la receta de "' + esc(searchQ) + '". Probá con otro nombre o mirá videos.</div>' + pedilaBtn(searchQ) + links;
       return;
     }
     elSearch.innerHTML = other + '<p class="note">' + (found.length === 1 ? 'Encontramos 1 receta.' : 'Encontramos ' + found.length + ' recetas.') + '</p>' +
